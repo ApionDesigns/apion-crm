@@ -1,3 +1,4 @@
+<!--FOOTER-->
 <table class="min-w-full divide-y divide-gray-200 bg-white">
     <thead class="flex items-center">
         <td class="px-4 py-4 whitespace-nowrap text-center border-r border-gray-300">
