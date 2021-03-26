@@ -13,7 +13,6 @@ searchIcon.onclick = ()=>{
 searchBar.onkeyup = ()=>{
   let searchTerm = searchBar.value;
   if(searchTerm != ""){
-    searchBar.classList.add("active");
   }else{
     searchBar.classList.remove("active");
   }

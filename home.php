@@ -38,11 +38,11 @@ if (mysqli_num_rows($sql) > 0) {
 include "header.php";
 ?>
 
-<body class="bg-gray-200">
+<body class="bg-white">
     <?php include_once("menu.php") ?>
     <!--pop button for email form-->
     <button onclick="myFunction()" style="position: absolute; right:10px; bottom:0px; z-index:102;" class="ring-0 focus:outline-none">
-        <svg class="w-12 h-12 m-5 bg-red-500 hover:bg-red-600 rounded-full p-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white">
+        <svg class="w-12 h-12 m-5 bg-green-500 hover:bg-green-800 rounded-full p-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white">
             <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
         </svg>
@@ -53,14 +53,14 @@ include "header.php";
     </div>
     <!--pop button for email form-->
     <a href="callender" style="position: absolute; right:80px; bottom:0px; z-index:100;" class="ring-0 focus:outline-none">
-        <svg class="w-12 h-12 m-5 bg-red-500 hover:bg-red-600 rounded-full p-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white">
+        <svg class="w-12 h-12 m-5 bg-green-500 hover:bg-green-800 rounded-full p-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white">
             <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
         </svg>
     </a>
     <div class="m-8" style="position: relative; z-index:1;">
         <!-- Apion CRM v0.1+ -->
         <div class="flex flex-col">
-            <header class="bg-white shadow bg-gray-800">
+            <header class="rounded-md bg-green-500">
                 <div class="flex max-w-1xl mx-auto py-4 px-4 sm:px-6 lg:px-8 gap-2">
                     <h1 class="text-3xl font-bold text-white">
                         Client Dashboard
@@ -71,11 +71,11 @@ include "header.php";
                     <!-- display user content -->
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                            <div class="overflow-hidden border-b border-gray-200">
+                            <div class="overflow-hidden border-b border-gray-200 rounded-md">
                                 <table class="min-w-full divide-y divide-gray-200 flex-wrap">
-                                    <thead class="bg-gray-800">
+                                    <thead class="bg-green-500">
                                         <tr>
-                                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                            <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider">
                                                 Client Information
                                             </th>
                                             <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
@@ -120,27 +120,27 @@ include "header.php";
                                         </tr>
                                     </thead>
                                     <?php while ($row = $query->fetch_array()) { ?>
-                                        <tbody class="bg-white divide-y divide-gray-200">
+                                        <tbody class="bg-white divide-y divide-white">
                                             <!--while  there is data in the database-->
                                             <!--table information-->
                                             <tr>
-                                                <td class="px-2 py-4 whitespace-nowrap bg-gray-300 border-r border-white">
+                                                <td class="px-2 py-4 whitespace-nowrap bg-gradient-to-r from-green-500 to-green-300 border-r border-white">
                                                     <div class="flex items-center">
                                                         <div class="grid gap-1">
-                                                            <div class="text-sm font-medium text-gray-900">
+                                                            <div class="text-sm font-medium text-white font-bold">
                                                                 <!--first/last name-->
                                                                 Name: <a href="edit?edit_id=<?php echo $row['client_id'] ?>"><?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?></a>
                                                             </div>
                                                             <!--email-->
-                                                            <div class="text-sm text-gray-500">
+                                                            <div class="text-xs text-white">
                                                                 Email: <?php echo $row['email']; ?>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <!--unique id for clients-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-center bg-gray-200 border-r border-white border-b">
-                                                    <div class="text-sm text-gray-500"><?php echo $row['client_id']; ?></div>
+                                                <td class="px-4 py-4 whitespace-nowrap text-center bg-gradient-to-r from-green-500 to-green-500 border-r border-white border-b">
+                                                    <div class="text-sm text-white"><?php echo $row['client_id']; ?></div>
                                                 </td>
                                                 <!--created-->
                                                 <!--<td class="px-4 py-4 whitespace-nowrap text-center">

@@ -1,6 +1,6 @@
 <!-- Apion CRM v0.1+ -->
 <div>
-    <nav class="bg-gray-800">
+    <nav class="bg-gradient-to-r from-green-500 to-green-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
@@ -12,7 +12,7 @@
                     <div class="ml-4 flex items-center md:ml-6">
                         <!-- Profile dropdown -->
                         <div class="ml-3 relative">
-                            <div class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">
+                            <div class="bg-green-500 text-white px-3 py-2 rounded-md text-sm font-medium">
                                 <?php
                                 //echo the date created for client information
                                 echo date('j, F Y');

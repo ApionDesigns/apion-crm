@@ -12,11 +12,11 @@
   <div x-data="{ dropdownOpen: false }" class="grid grid-cols-2 relative">
 
     <div @click="dropdownOpen = !dropdownOpen" class="search bg-white m-3 rounded-md w-auto">
-      <input class="p-1 rounded-md w-20 md:w-auto border border-gray-200 focus:outline-none" type="text" placeholder="Search...">
+      <input mouseleave class="p-1 rounded-md w-20 md:w-auto border border-gray-200 focus:outline-none" type="text" placeholder="Search...">
       <button class="fas fa-search" style="display: none;"></button>
     </div>
     <div x-show="dropdownOpen" class="absolute mt-12 ml-3 bg-white rounded-md shadow-lg overflow-hidden z-20 w-20 md:w-auto">
-      <div class="users-list w-52">
+      <div class="users-list w-44">
       </div>
     </div>
   </div>

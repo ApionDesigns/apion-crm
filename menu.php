@@ -15,7 +15,7 @@ if (mysqli_num_rows($sql) > 0) {
 }
 ?>
 <div>
-    <nav class="bg-gray-800">
+    <nav class="bg-green-500">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
@@ -26,8 +26,8 @@ if (mysqli_num_rows($sql) > 0) {
                         <div class="ml-10 flex items-baseline space-x-4">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                             <div class="relative"><?php include_once "search.php" ?></div>
-                            <a href="home" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Client Dashboard</a>
-                            <a href="callender" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calender</a>
+                            <a href="home" class="text-white hover:bg-green-700 bg-green-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Client Dashboard</a>
+                            <a href="callender" class="text-white hover:bg-green-700 bg-green-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calender</a>
 
                         </div>
                     </div>
@@ -36,14 +36,14 @@ if (mysqli_num_rows($sql) > 0) {
                     <div class="ml-4 flex items-center md:ml-6">
                         <!-- Profile dropdown -->
                         <div class="ml-3 relative">
-                            <div class="bg-gray-900 text-white px-2 py-1 rounded-md text-sm font-medium flex items-center">
+                            <div class="bg-green-600 text-white px-2 py-1 rounded-md text-sm font-medium flex items-center">
                                 <div class="p-2 rounded-md font-bold">
                                     <?php
                                     echo date('j, F Y');
                                     //echo "Day " . date("l");
                                     ?>
                                 </div>
-                                <br> <a href="logout.php?logout_id=<?php echo $row2['user_uid'] ?>" class="text-black bg-red-400 hover:bg-red-700 hover:text-white px-3 py-2 rounded-md text-sm font-bold ml-2">logout</a>
+                                <br> <a href="logout.php?logout_id=<?php echo $row2['user_uid'] ?>" class="bg-red-400 hover:bg-red-700 text-white px-3 py-2 rounded-md text-sm font-bold ml-2">logout</a>
                             </div>
 
 

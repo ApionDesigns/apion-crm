@@ -149,13 +149,13 @@ include "header.php";
     }
 </style>
 
-<body class="bg-gray-200">
+<body class="bg-white">
     <?php include_once("menu.php") ?>
     <div class="loader"></div>
     <div class="m-8">
         <!-- Apion CRM v0.1+ -->
         <div class="flex flex-col">
-            <header class="bg-white shadow bg-gray-800">
+            <header class="bg-gradient-to-r from-green-500 to-white">
                 <div class="flex max-w-1xl mx-auto py-4 px-4 sm:px-4 lg:px-8 gap-2">
                     <h1 class="text-1xl font-bold text-white">
                         <div class="flex items-center">
@@ -172,7 +172,7 @@ include "header.php";
                     </h1>
                 </div>
             </header>
-            <header class="bg-white shadow bg-gray-700">
+            <header class="bg-green-500">
                 <div class="grid justify-items-stretch max-w-1xl mx-auto py-4 px-4 sm:px-4 lg:px-8 gap-2">
                     <h1 class="text-1xl font-bold text-white justify-self-center uppercase">
                         <div class="items-center">
@@ -192,7 +192,7 @@ include "header.php";
                             <div class="overflow-hidden border-b border-gray-200">
                                 <form action="clientedit.php?client_id=<?php echo $row['client_id'] ?>" method="POST" enctype="multipart/form-data" autocomplete="off">
                                     <table class="min-w-full divide-y divide-gray-200">
-                                        <thead class="bg-gray-800">
+                                        <thead class="bg-green-500">
                                             <tr>
                                                 <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider">
                                                     Client Information
@@ -234,31 +234,31 @@ include "header.php";
                                             <?php while ($row = $query2->fetch_array()) { ?>
                                                 <!--table information-->
                                                 <tr>
-                                                    <td class="px-4 py-4 whitespace-nowrap bg-gray-300 border-r border-white">
+                                                    <td class="px-2 py-4 whitespace-nowrap bg-gradient-to-r from-green-500 to-green-300 border-r border-white">
                                                         <div class="flex items-center">
                                                             <div class="grid gap-1">
-                                                                <div class="text-sm font-medium text-gray-900">
+                                                                <div class="text-sm font-medium text-white font-bold">
                                                                     <!--first/last name-->
                                                                     Name: <?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?>
                                                                 </div>
                                                                 <!--email-->
-                                                                <div class="text-sm text-gray-500">
+                                                                <div class="text-sm text-white">
                                                                     Email: <?php echo $row['email']; ?>
                                                                 </div>
                                                                 <!--tel-->
-                                                                <div class="text-sm text-gray-500">
+                                                                <div class="text-sm text-white">
                                                                     Tel: <?php echo $row['tel']; ?>
                                                                 </div>
                                                                 <!--full address-->
-                                                                <div class="text-sm text-gray-500">
+                                                                <div class="text-sm text-white">
                                                                     <?php echo $row['street_address']; ?> <br><?php echo $row['city_address']; ?>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </td>
                                                     <!--unique id-->
-                                                    <td class="px-4 py-4 whitespace-nowrap text-center bg-gray-300 border-r border-white">
-                                                        <div class="text-sm text-gray-500"><?php echo $row['client_id']; ?></div>
+                                                    <td class="px-4 py-4 whitespace-nowrap text-center bg-gradient-to-r from-green-500 to-green-500 border-r border-white border-b">
+                                                        <div class="text-sm text-white"><?php echo $row['client_id']; ?></div>
                                                     </td>
                                                     <!--created-->
                                                     <td class="px-4 py-4 whitespace-nowrap text-center">
@@ -359,7 +359,7 @@ include "header.php";
                                         </tbody>
                                     </table>
                                     <!--inspection starts here-->
-                                    <header class="bg-white shadow bg-gray-700 mt-4">
+                                    <header class="bg-green-500 mt-4">
                                         <div class="grid justify-items-stretch max-w-1xl mx-auto py-4 px-4 sm:px-4 lg:px-8 gap-2">
                                             <h1 class="text-1xl font-bold text-white justify-self-center uppercase">
                                                 <div class="items-center">
@@ -372,7 +372,7 @@ include "header.php";
                                         </div>
                                     </header>
                                     <table class="min-w-full divide-y divide-gray-200 mt-2">
-                                        <thead class="bg-gray-800">
+                                        <thead class="bg-green-500">
                                             <tr>
                                                 <!--inspection recieved by-->
                                                 <th scope="col" class="border-r border-white px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
@@ -540,7 +540,7 @@ include "header.php";
                                         </tbody>
                                     </table>
                                     <!--job order starts here-->
-                                    <header class="bg-white shadow bg-gray-700 mt-4">
+                                    <header class="bg-green-500 mt-4">
                                         <div class="grid justify-items-stretch max-w-1xl mx-auto py-4 px-4 sm:px-4 lg:px-8 gap-2">
                                             <h1 class="text-1xl font-bold text-white justify-self-center uppercase">
                                                 <div class="items-center">
@@ -553,7 +553,7 @@ include "header.php";
                                         </div>
                                     </header>
                                     <table class="min-w-full divide-y divide-gray-200 mt-2">
-                                        <thead class="bg-gray-800">
+                                        <thead class="bg-green-500">
                                             <tr>
                                                 <!--Job Order recieved by-->
                                                 <th scope="col" class="border-r border-white px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
@@ -685,7 +685,7 @@ include "header.php";
                                 </form>
                                 <!--job order ends here-->
                                 <!--images begin here-->
-                                <header class="bg-white shadow bg-gray-700 mt-4">
+                                <header class="bg-green-500 mt-4">
                                     <div class="grid justify-items-stretch max-w-1xl mx-auto py-4 px-4 sm:px-4 lg:px-8 gap-2">
                                         <h1 class="text-1xl font-bold text-white justify-self-center uppercase">
                                             <div class="items-center">
@@ -697,7 +697,7 @@ include "header.php";
                                     </div>
                                 </header>
                                 <table class="min-w-full divide-y divide-gray-200 mt-2">
-                                    <thead class="bg-gray-800">
+                                    <thead class="bg-green-500">
                                         <tr>
                                             <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider text-center border-l border-gray-200">INSPECTION</th>
                                             <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider text-center border-l border-gray-200">JOB ORDER</th>
