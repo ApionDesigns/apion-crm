@@ -38,10 +38,10 @@ if (mysqli_num_rows($sql) > 0) {
 include "header.php";
 ?>
 
-<body class="bg-white">
+<body class="bg-gray-50">
     <?php include_once("menu.php") ?>
     <!--pop button for email form-->
-    <button onclick="myFunction()" style="position: absolute; right:10px; bottom:0px; z-index:102;" class="ring-0 focus:outline-none">
+    <button onclick="myFunction()" style="position: absolute; right:15px; bottom:0px; z-index:102;" class="ring-0 focus:outline-none">
         <svg class="w-12 h-12 m-5 bg-green-500 hover:bg-green-800 rounded-full p-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white">
             <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
@@ -124,12 +124,12 @@ include "header.php";
                                             <!--while  there is data in the database-->
                                             <!--table information-->
                                             <tr>
-                                                <td class="px-2 py-4 whitespace-nowrap bg-gradient-to-r from-green-500 to-green-300 border-r border-white">
+                                                <td class="px-2 py-4 whitespace-nowrap bg-green-500 hover:bg-green-600 border-r border-white">
                                                     <div class="flex items-center">
                                                         <div class="grid gap-1">
                                                             <div class="text-sm font-medium text-white font-bold">
                                                                 <!--first/last name-->
-                                                                Name: <a href="edit?edit_id=<?php echo $row['client_id'] ?>"><?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?></a>
+                                                                Name: <a href="edit?e=<?php echo $row['client_id'] ?>"><?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?></a>
                                                             </div>
                                                             <!--email-->
                                                             <div class="text-xs text-white">
@@ -139,8 +139,10 @@ include "header.php";
                                                     </div>
                                                 </td>
                                                 <!--unique id for clients-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-center bg-gradient-to-r from-green-500 to-green-500 border-r border-white border-b">
-                                                    <div class="text-sm text-white"><?php echo $row['client_id']; ?></div>
+                                                <td class="px-4 py-4 whitespace-nowrap text-center bg-green-400 border-r border-white border-b rounded-br-3xl hover:bg-green-500">
+                                                    <a href="edit?e=<?php echo $row['client_id'] ?>">
+                                                        <div class="text-sm text-white"><?php echo $row['client_id']; ?></div>
+                                                    </a>
                                                 </td>
                                                 <!--created-->
                                                 <!--<td class="px-4 py-4 whitespace-nowrap text-center">
@@ -240,13 +242,13 @@ include "header.php";
                                                     <?php } ?>
                                                 </td>
                                                 <!--amount payed by client-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center border-r border-gray-200">
                                                     <?php echo $row['payed']; ?>
                                                 </td>
                                                 <td class="px-4 py-4 whitespace-nowrap text-center">
                                                     <div class="text-sm text-gray-500 ml-2 flex justify-center">
                                                         <div class="p-2">
-                                                            <a href="edit?edit_id=<?php echo $row['client_id'] ?>" class="text-gray-400 hover:text-gray-800">
+                                                            <a href="edit?e=<?php echo $row['client_id'] ?>" class="text-gray-400 hover:text-gray-800">
                                                                 <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                                                                 </svg>

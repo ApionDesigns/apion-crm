@@ -1,8 +1,8 @@
 <?php
 while ($row = mysqli_fetch_assoc($query)) {
 
-  $output .= '<a href="edit?edit_id=' . $row['client_id'] . '">
-                      <div class="flex rounded-md hover:bg-gray-200">
+  $output .= '<a href="edit?e=' . $row['client_id'] . '">
+                      <div class="flex hover:bg-gray-200 border-white rounded-br-3xl">
                         <div class="flex items-center m-2">
                         </div>
                         <div class="justify-items-start max-w-max">

@@ -11,7 +11,7 @@ $password = "";
 $dbname = "apcrm";
 $output = "";
 $conn = mysqli_connect($hostname, $username, $password, $dbname);
-$edit = mysqli_real_escape_string($conn, $_GET['edit_id']);
+$edit = mysqli_real_escape_string($conn, $_GET['e']);
 $sql = mysqli_query($conn, "SELECT * FROM clients WHERE client_id = '{$edit}'");
 $query2 = $conn->query("SELECT * FROM clients WHERE client_id = '{$edit}'");
 if (mysqli_num_rows($sql) > 0) {
@@ -154,13 +154,13 @@ include "header.php";
     <div class="loader"></div>
     <div class="m-8">
         <!-- Apion CRM v0.1+ -->
-        <div class="flex flex-col">
-            <header class="bg-gradient-to-r from-green-500 to-white">
+        <div class="flex flex-col ">
+            <header class="bg-gradient-to-r from-green-500 to-white border-white rounded-tl-3xl">
                 <div class="flex max-w-1xl mx-auto py-4 px-4 sm:px-4 lg:px-8 gap-2">
                     <h1 class="text-1xl font-bold text-white">
                         <div class="flex items-center">
                             <div><a href="home">
-                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white">
                                         <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
                                     </svg>
                             </div>
@@ -234,7 +234,7 @@ include "header.php";
                                             <?php while ($row = $query2->fetch_array()) { ?>
                                                 <!--table information-->
                                                 <tr>
-                                                    <td class="px-2 py-4 whitespace-nowrap bg-gradient-to-r from-green-500 to-green-300 border-r border-white">
+                                                    <td class="px-2 py-4 whitespace-nowrap bg-green-500 border-r border-white">
                                                         <div class="flex items-center">
                                                             <div class="grid gap-1">
                                                                 <div class="text-sm font-medium text-white font-bold">
@@ -257,12 +257,12 @@ include "header.php";
                                                         </div>
                                                     </td>
                                                     <!--unique id-->
-                                                    <td class="px-4 py-4 whitespace-nowrap text-center bg-gradient-to-r from-green-500 to-green-500 border-r border-white border-b">
+                                                    <td class="px-4 py-4 whitespace-nowrap text-center bg-green-400 border-r border-white border-b">
                                                         <div class="text-sm text-white"><?php echo $row['client_id']; ?></div>
                                                     </td>
                                                     <!--created-->
-                                                    <td class="px-4 py-4 whitespace-nowrap text-center">
-                                                        <div class="text-sm text-gray-500">
+                                                    <td class="px-4 py-4 whitespace-nowrap text-center bg-green-400 border-r border-white border-b rounded-br-3xl">
+                                                        <div class="text-sm text-white">
                                                             <?php
                                                             //echo the date created for client information
                                                             $date = strtotime($row['created_at']);
@@ -271,17 +271,17 @@ include "header.php";
                                                         </div>
                                                     </td>
                                                     <!--contact type-->
-                                                    <td class="px-4 py-4 whitespace-nowrap text-center">
-                                                        <div class="text-sm text-gray-500 ml-5">
+                                                    <td class="grid justify-items-stretch px-4 py-4 whitespace-nowrap text-center bg-green-300 border-r border-white border-b rounded-br-3xl">
+                                                        <div class="text-sm text-gray-500 justify-self-center" onclick="myFunction()">
                                                             <?php
                                                             //if there is no status 
                                                             if ($row['contact'] == 'Email') { ?>
-                                                                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                                                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white">
                                                                     <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                                                                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                                                                 </svg>
                                                             <?php } elseif ($row['contact'] == "Call") { ?>
-                                                                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                                                <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white">
                                                                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                                                                 </svg>
                                                             <?php } else { ?>
@@ -290,8 +290,8 @@ include "header.php";
                                                         </div>
                                                     </td>
                                                     <!--jobtype-->
-                                                    <td class="px-4 py-4 whitespace-nowrap text-center">
-                                                        <div class="text-sm text-gray-500"><?php echo $row['job_type']; ?></div>
+                                                    <td class="px-4 py-4 whitespace-nowrap text-center bg-green-400 border-r border-white border-b rounded-br-3xl">
+                                                        <div class="text-sm text-white"><?php echo $row['job_type']; ?></div>
                                                     </td>
                                                     <!--inspection date-->
                                                     <td class="px-4 py-4 whitespace-nowrap text-center text-sm text-gray-500">
@@ -420,7 +420,7 @@ include "header.php";
                                         $dbname = "apcrm";
                                         $output = "";
                                         $conn = mysqli_connect($hostname, $username, $password, $dbname);
-                                        $edit = mysqli_real_escape_string($conn, $_GET['edit_id']);
+                                        $edit = mysqli_real_escape_string($conn, $_GET['e']);
                                         $sql = mysqli_query($conn, "SELECT * FROM clients WHERE client_id = '{$edit}'");
                                         $query2 = $conn->query("SELECT * FROM clients WHERE client_id = '{$edit}'");
                                         if (mysqli_num_rows($sql) > 0) {
@@ -589,7 +589,7 @@ include "header.php";
                                         $dbname = "apcrm";
                                         $output = "";
                                         $conn = mysqli_connect($hostname, $username, $password, $dbname);
-                                        $edit = mysqli_real_escape_string($conn, $_GET['edit_id']);
+                                        $edit = mysqli_real_escape_string($conn, $_GET['e']);
                                         $sql = mysqli_query($conn, "SELECT * FROM clients WHERE client_id = '{$edit}'");
                                         $query2 = $conn->query("SELECT * FROM clients WHERE client_id = '{$edit}'");
                                         if (mysqli_num_rows($sql) > 0) {
