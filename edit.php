@@ -201,7 +201,7 @@ include "header.php";
                                                     unique id
                                                 </th>
                                                 <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
-                                                    Created
+                                                    Created Date
                                                 </th>
                                                 <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
                                                     Contact
