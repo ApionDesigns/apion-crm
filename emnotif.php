@@ -2,14 +2,7 @@
 require 'vendor/autoload.php';
 
 use \Mailjet\Resources;
-//clients email
-//$name = $_POST['name'];
-//clients email
-//$email = $_POST['email'];
-//clients email
-//$subject = $_POST['subject'];
-//message to be sent
-//$message = $_POST['message'];
+
 $mj = new \Mailjet\Client('c4935265598bc981e73ed556caeea5e6', '9ad7d81a2303e266d3c65782f126bfc1', true, ['version' => 'v3.1']);
 $body = [
     'Messages' => [
@@ -21,12 +14,12 @@ $body = [
             'To' => [
                 [
                     'Email' => "aoshayne18@gmail.com",
-                    'Name' => "$name"
+                    'Name' => "Alert"
                 ]
             ],
-            'Subject' => "$subject",
+            'Subject' => "alert",
             'TextPart' => "ApionCRM",
-            'HTMLPart' => "<h3>$name,</h3><br /><p>$message</p>",
+            'HTMLPart' => "<h3>alert</h3><br /><p>User requires Attention</p>",
             'CustomID' => "ApionCRM",
         ]
     ]

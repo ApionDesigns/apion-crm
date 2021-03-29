@@ -1,8 +1,8 @@
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-#
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
-ErrorDocument 400 http://localhost/apionCRM0.1/index
-ErrorDocument 401 http://localhost/apionCRM0.1/index
-ErrorDocument 403 http://localhost/apionCRM0.1/index
-ErrorDocument 404 http://localhost/apionCRM0.1/index
-ErrorDocument 405 http://localhost/apionCRM0.1/index
+ErrorDocument 400 http://localhost/apion-CRM/index.php
+ErrorDocument 401 http://localhost/apion-CRM/index.php
+ErrorDocument 403 http://localhost/apion-CRM/index.php
+ErrorDocument 404 http://localhost/apion-CRM/index.php
+ErrorDocument 405 http://localhost/apion-CRM/index.php

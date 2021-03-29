@@ -12,6 +12,8 @@ $dbname = "apcrm";
 $output = "";
 $conn = mysqli_connect($hostname, $username, $password, $dbname);
 $edit = mysqli_real_escape_string($conn, $_GET['e']);
+$sql3 = mysqli_query($conn, "SELECT * FROM users WHERE username = '{$username}'");
+$row3 = mysqli_fetch_assoc($sql3);
 $sql = mysqli_query($conn, "SELECT * FROM clients WHERE client_id = '{$edit}'");
 $query2 = $conn->query("SELECT * FROM clients WHERE client_id = '{$edit}'");
 if (mysqli_num_rows($sql) > 0) {
@@ -150,6 +152,20 @@ include "header.php";
 </style>
 
 <body class="bg-white">
+    <?php
+    if (empty($row['inspec_day']) && $_SESSION['username'] != "admin") { ?>
+        <div class="bg-red-500 text-center py-4 lg:px-4 " style="position: relative;">
+            <div class="p-2 bg-red-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
+                <span class="flex rounded-full bg-red-600 uppercase px-2 py-1 text-xs font-bold mr-3 animate-ping duration-700 ease-out">New</span>
+                <span class="font-semibold mr-2 text-left flex-auto">Clent requires inspection date.</span>
+                <a href="#inspecday"><svg class="fill-current opacity-75 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z" />
+                    </svg></a>
+            </div>
+        </div>
+    <?php //header("location: emnotif.php");
+    }
+    ?>
     <?php include_once("menu.php") ?>
     <div class="loader"></div>
     <div class="m-8">
@@ -467,7 +483,7 @@ include "header.php";
                                                 <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['inspec_day'])) { ?>
-                                                        <input type="date" name="inspecDay" min="2020-01-01" max="2050-12-31" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-17"></input>
+                                                        <input type="date" id="inspecday" name="inspecDay" min="2020-01-01" max="2050-12-31" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-17"></input>
                                                     <?php } else { ?>
                                                         <div class="text-sm text-gray-500">
                                                             <?php

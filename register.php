@@ -18,10 +18,13 @@ $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
 $uemail = mysqli_real_escape_string($conn, $_POST['uemail']);
 $password = mysqli_real_escape_string($conn, $_POST['password']);
 $ran_id = rand(time(), 100000000);
-if (!empty($user_name) && !empty($first_name) && !empty($last_name) && !empty($uemail) && !empty($password)) {
+$sql3 = mysqli_query($conn, "SELECT * FROM users");
+$row3 = mysqli_fetch_assoc($sql3);
+$user = $row3['username'];
+if (!empty($user_name) != $user && !empty($first_name) && !empty($last_name) && !empty($uemail) && !empty($password)) {
     $encrypt_pass = md5($password);
     $sql = mysqli_query($conn, "INSERT INTO users (user_uid, username, first_name, last_name, email, userpassword) 
-    VALUES ('$ran_id','$user_name@leapro','$first_name', '$last_name', '$uemail', '$encrypt_pass')");
+    VALUES ('$ran_id','$user_name','$first_name', '$last_name', '$uemail', '$encrypt_pass')");
     header("location: index");
 } else {
     echo "$uemail - This email already exist!";
