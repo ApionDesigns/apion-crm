@@ -27,9 +27,9 @@ if (mysqli_num_rows($sql) > 0) {
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                             <div class="relative"><?php include_once "search.php" ?></div>
                             <a href="home" class="text-white hover:bg-green-700 bg-green-600 hover:text-white px-3 py-2 rounded-full text-sm font-medium">Client Dashboard</a>
-                            <a href="callender" class="text-white hover:bg-green-700 bg-green-600 hover:text-white px-3 py-2 rounded-full text-sm font-medium">Calender</a>
-                            <a href="callender" class="text-white hover:bg-green-700 bg-green-600 hover:text-white px-3 py-2 rounded-full text-sm font-medium">Leads</a>
-                            <a href="callender" class="text-white hover:bg-green-700 bg-green-600 hover:text-white px-3 py-2 rounded-full text-sm font-medium">Reports</a>
+                            <a href="#" class="text-white hover:bg-green-700 bg-green-600 hover:text-white px-3 py-2 rounded-full text-sm font-medium">Jobs Completed</a>
+                            <a href="#" class="text-white hover:bg-green-700 bg-green-600 hover:text-white px-3 py-2 rounded-full text-sm font-medium">Leads</a>
+                            <a href="#" class="text-white hover:bg-green-700 bg-green-600 hover:text-white px-3 py-2 rounded-full text-sm font-medium">Reports</a>
 
                         </div>
                     </div>
