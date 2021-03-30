@@ -10,8 +10,8 @@ $query = mysqli_query($conn, $sql);
 if (mysqli_num_rows($query) > 0) {
     include_once "data.php";
 } elseif (!mysqli_num_rows($query)) {
-    $output .= 'No user found';
+    $output .= '<div class="px-5 py-1">No user found</div>';
 } else {
-    $output .= 'No user found';
+    $output .= '<div class="px-5 py-1">No user found</div>';
 }
 echo $output;

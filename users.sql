@@ -62,3 +62,7 @@ CREATE TABLE `joimages` (
   `client_id` int(255) NOT NULL,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--------------------------------------------------
+INSERT INTO `users` (`id`, `user_uid`, `username`, `first_name`, `last_name`, `email`, `tel`, `userpassword`, `status`, `created_at`) VALUES
+(1, 1088889100, 'admin', 'Admin', 'User', 'adminemail@email.com', '', '90a2379a5379f94b1c11a6521e79be38', 'Offline now', '2021-03-18 03:05:33');

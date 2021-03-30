@@ -27,7 +27,7 @@ if (mysqli_num_rows($sql) > 0) {
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                             <div class="relative"><?php include_once "search.php" ?></div>
                             <a href="home" class="text-white hover:bg-green-700 bg-green-600 hover:text-white px-3 py-2 rounded-full text-sm font-medium">Client Dashboard</a>
-                            <a href="#" class="text-white hover:bg-green-700 bg-green-600 hover:text-white px-3 py-2 rounded-full text-sm font-medium">Jobs Completed</a>
+                            <a href="#" class="text-white hover:bg-green-700 bg-green-600 hover:text-white px-3 py-2 rounded-full text-sm font-medium">Completed</a>
                             <a href="#" class="text-white hover:bg-green-700 bg-green-600 hover:text-white px-3 py-2 rounded-full text-sm font-medium">Leads</a>
                             <a href="#" class="text-white hover:bg-green-700 bg-green-600 hover:text-white px-3 py-2 rounded-full text-sm font-medium">Reports</a>
 
@@ -37,7 +37,7 @@ if (mysqli_num_rows($sql) > 0) {
                 <div class="hidden md:block">
                     <div class="ml-4 flex items-center md:ml-6">
                         <!-- Profile dropdown -->
-                        <div class="ml-3 relative">
+                        <div class="flex items-center ml-3 relative">
                             <div class="bg-green-600 text-white px-2 py-1 rounded-md text-sm font-medium flex items-center">
                                 <div class="p-2 rounded-md font-bold">
                                     <?php
@@ -45,8 +45,32 @@ if (mysqli_num_rows($sql) > 0) {
                                     //echo "Day " . date("l");
                                     ?>
                                 </div>
-                                <br> <a href="logout.php?logout_id=<?php echo $row2['user_uid'] ?>" class="bg-red-400 hover:bg-red-700 text-white px-3 py-2 rounded-md text-sm font-bold ml-2">logout</a>
                             </div>
+                            <div x-data="{ dropdownOpen: false }" class="grid grid-cols-1 relative md:m-0 ml-8 w-8 h-8 justify-items-center">
+                                <button @click="dropdownOpen = !dropdownOpen" class="relative z-10 block rounded-md focus:outline-none">
+                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white">
+                                        <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+
+                                <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
+
+                                <div x-show="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-xl z-20 mt-11">
+                                    <a href="usercreate.php" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-green-400 hover:text-white border border-t-0 border-l-0 border-r-0 border-gray-300">
+                                        Users
+                                    </a>
+                                    <a href="#" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-green-400 hover:text-white">
+                                        Help
+                                    </a>
+                                    <a href="#" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-green-400 hover:text-white border border-t-0 border-l-0 border-r-0 border-gray-300">
+                                        Settings
+                                    </a>
+                                    <a href="logout.php?logout_id=<?php echo $row2['user_uid']; ?>" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-red-400 hover:text-white">
+                                        Sign Out
+                                    </a>
+                                </div>
+                            </div>
+                            <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
 
                             <!--
