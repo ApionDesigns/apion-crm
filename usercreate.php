@@ -11,18 +11,16 @@
 <link href="css/tailwind.css" rel="stylesheet">
 <!--header included above-->
 
-<body class="bg-white">
+<body class="bg-gray-50">
     <?php include "menu.php" ?>
 
     <div class="px-10 justify-center flex">
-        <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full flex justify-center">
+        <div class="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full">
 
 
-            <main class="mt-10 flex justify-center">
+            <main class="mt-10">
                 <!--forms for registering and sign in-->
-                <div class=" flex justify-center">
-                    <div class="border-r border-gray-200"></div>
-                    <!--sign up form for creating user account-->
+                <div>
                     <form action="register.php" method="POST" enctype="multipart/form-data" autocomplete="off">
                         <div class="flex flex-col justify-center bg-white p-2 rounded-md">
                             <div class=" flex justify-center p-1">

@@ -20,7 +20,7 @@ if (mysqli_num_rows($sql) > 0) {
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
-                        <h1 class="text-white font-bold p-2 rounded-md"><a href="index">AP-CRM</a></h1>
+                        <h1 class="text-white font-bold p-2 rounded-md"><a href="index"><img src="img/apcrmlogo.png" class="w-16 h-10"></a></h1>
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
