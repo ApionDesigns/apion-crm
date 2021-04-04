@@ -1,21 +1,27 @@
-<style>
-    .footer {
-        position: fixed;
-        left: 0;
-        z-index: 90;
-        bottom: 0;
-        width: 100%;
-        color: white;
-    }
-</style>
-<link href="css/tailwind.css" rel="stylesheet">
+<?php
+$hostname = "localhost";
+$username = "root";
+$password = "";
+$dbname = "apcrm";
+$output = "";
+$conn = mysqli_connect($hostname, $username, $password, $dbname);
+$sql3 = mysqli_query($conn, "SELECT * FROM users");
+$query3 = $conn->query("SELECT * FROM users");
+if (mysqli_num_rows($sql3) > 0) {
+    $row3 = mysqli_fetch_assoc($sql3);
+}
+?>
+<?php
+//include header
+include "header.php";
+?>
 <!--header included above-->
 
-<body class="bg-gray-50">
+<body>
     <?php include "menu.php" ?>
 
     <div class="px-10 justify-center flex">
-        <div class="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full">
+        <div class="flex relative gap-x-5 z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full">
 
 
             <main class="mt-10">
@@ -38,6 +44,22 @@
                             <input type="submit" name="submit" class="bg-green-400 m-2 p-2 rounded-md text-lg text-white font-bold hover:bg-green-800" value="REGISTER USER"></input>
                         </div>
                     </form>
+                </div>
+            </main>
+            <main class="mt-10">
+                <!--forms for registering and sign in-->
+                <div>
+                    <div class="flex flex-col justify-center bg-white p-2 rounded-md">
+                        <div class=" flex justify-center p-1 bg-green-500 p-2 text-white px-5 ">
+                            <h1 class="text-4x1 font-bold uppercase">Users</h1>
+                        </div>
+                        <?php while ($row3 = $query3->fetch_array()) { ?>
+                            <div class="p-1 text-center text-white text-sm font-bold border-b border-gray-100 bg-green-400">
+                                <?php echo $row3['first_name']; ?>
+                            </div>
+                            <br>
+                        <?php } ?>
+                    </div>
                 </div>
             </main>
         </div>

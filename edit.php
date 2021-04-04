@@ -27,137 +27,14 @@ if (mysqli_num_rows($sql) > 0) {
 //include header
 include "header.php";
 ?>
-<style>
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    #myImg {
-        border-radius: 5px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    #myImg2 {
-        border-radius: 5px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    #myImg2:hover {
-        opacity: 0.7;
-    }
-
-    #myImg:hover {
-        opacity: 0.7;
-    }
-
-    /* The Modal (background) */
-    .modal {
-        display: none;
-        /* Hidden by default */
-        position: fixed;
-        /* Stay in place */
-        z-index: 1;
-        /* Sit on top */
-        padding-top: 100px;
-        /* Location of the box */
-        left: 0;
-        top: 0;
-        width: 100%;
-        /* Full width */
-        height: 100%;
-        /* Full height */
-        overflow: auto;
-        /* Enable scroll if needed */
-        background-color: rgb(0, 0, 0);
-        /* Fallback color */
-        background-color: rgba(0, 0, 0, 0.9);
-        /* Black w/ opacity */
-    }
-
-    /* Modal Content (image) */
-    .modal-content {
-        margin: auto;
-        display: block;
-        width: 80%;
-        max-width: 700px;
-    }
-
-    /* Caption of Modal Image */
-    #caption {
-        margin: auto;
-        display: block;
-        width: 80%;
-        max-width: 700px;
-        text-align: center;
-        color: #ccc;
-        padding: 10px 0;
-        height: 150px;
-    }
-
-    /* Add Animation */
-    .modal-content,
-    #caption {
-        -webkit-animation-name: zoom;
-        -webkit-animation-duration: 0.6s;
-        animation-name: zoom;
-        animation-duration: 0.6s;
-    }
-
-    @-webkit-keyframes zoom {
-        from {
-            -webkit-transform: scale(0)
-        }
-
-        to {
-            -webkit-transform: scale(1)
-        }
-    }
-
-    @keyframes zoom {
-        from {
-            transform: scale(0)
-        }
-
-        to {
-            transform: scale(1)
-        }
-    }
-
-    /* The Close Button */
-    .close {
-        position: absolute;
-        top: 15px;
-        right: 35px;
-        color: #f1f1f1;
-        font-size: 40px;
-        font-weight: bold;
-        transition: 0.3s;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: #bbb;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    /* 100% Image Width on Smaller Screens */
-    @media only screen and (max-width: 700px) {
-        .modal-content {
-            width: 100%;
-        }
-    }
-</style>
 
 <body class="bg-white">
     <?php
     if (empty($row['inspec_day']) && $_SESSION['username'] != "admin") { ?>
-        <div class="bg-red-500 text-center py-4 lg:px-4 " style="position: relative;">
+        <div class="bg-red-500 text-center py-2 lg:px-4 " style="position: relative;">
             <div class="p-2 bg-red-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
-                <span class="flex rounded-full bg-red-600 uppercase px-2 py-1 text-xs font-bold mr-3 animate-ping duration-700 ease-out">New</span>
-                <span class="font-semibold mr-2 text-left flex-auto">Clent requires inspection date.</span>
+                <span class="flex rounded-full bg-red-600 uppercase px-2 py-1 text-xs font-bold mr-3 animate-pulse duration-700 ease-out">New</span>
+                <span class="font-semibold mr-2 text-left flex-auto uppercase">Client requires inspection date</span>
                 <a href="#inspecday"><svg class="fill-current opacity-75 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                         <path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z" />
                     </svg></a>
@@ -171,7 +48,7 @@ include "header.php";
     <div class="m-8">
         <!-- Apion CRM v0.1+ -->
         <div class="flex flex-col ">
-            <header class="bg-gradient-to-r from-green-500 to-white border-white rounded-tl-3xl">
+            <header class="bg-green-500 to-white border-white rounded-tl-3xl">
                 <div class="flex max-w-1xl mx-auto py-4 px-4 sm:px-4 lg:px-8 gap-2">
                     <h1 class="text-1xl font-bold text-white">
                         <div class="flex items-center">
@@ -188,7 +65,7 @@ include "header.php";
                     </h1>
                 </div>
             </header>
-            <header class="bg-green-500">
+            <header class="bg-green-600">
                 <div class="grid justify-items-stretch max-w-1xl mx-auto py-4 px-4 sm:px-4 lg:px-8 gap-2">
                     <h1 class="text-1xl font-bold text-white justify-self-center uppercase">
                         <div class="items-center">
@@ -267,7 +144,9 @@ include "header.php";
                                                                 </div>
                                                                 <!--full address-->
                                                                 <div class="text-sm text-white">
-                                                                    <?php echo $row['street_address']; ?> <br><?php echo $row['city_address']; ?>
+                                                                    <a target="_blank" href="https://www.google.com/maps/place/<?php echo $row['street_address']; ?>+<?php echo $row['city_address']; ?>">
+                                                                        <p class="text-sm"><?php echo $row['street_address']; ?><br><?php echo $row['city_address']; ?></p>
+                                                                    </a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -375,7 +254,7 @@ include "header.php";
                                         </tbody>
                                     </table>
                                     <!--inspection starts here-->
-                                    <header class="bg-green-500 mt-4">
+                                    <header class="bg-green-600 mt-4">
                                         <div class="grid justify-items-stretch max-w-1xl mx-auto py-4 px-4 sm:px-4 lg:px-8 gap-2">
                                             <h1 class="text-1xl font-bold text-white justify-self-center uppercase">
                                                 <div class="items-center">
@@ -556,7 +435,7 @@ include "header.php";
                                         </tbody>
                                     </table>
                                     <!--job order starts here-->
-                                    <header class="bg-green-500 mt-4">
+                                    <header class="bg-green-600 mt-4">
                                         <div class="grid justify-items-stretch max-w-1xl mx-auto py-4 px-4 sm:px-4 lg:px-8 gap-2">
                                             <h1 class="text-1xl font-bold text-white justify-self-center uppercase">
                                                 <div class="items-center">
@@ -701,7 +580,7 @@ include "header.php";
                                 </form>
                                 <!--job order ends here-->
                                 <!--images begin here-->
-                                <header class="bg-green-500 mt-4">
+                                <header class="bg-green-600 mt-4">
                                     <div class="grid justify-items-stretch max-w-1xl mx-auto py-4 px-4 sm:px-4 lg:px-8 gap-2">
                                         <h1 class="text-1xl font-bold text-white justify-self-center uppercase">
                                             <div class="items-center">
@@ -801,8 +680,11 @@ include "header.php";
             </main>
         </div>
     </div>
+    <?php include "sidebar.php" ?>
     <footer class="footer"><?php include_once('hfooter.php'); ?></footer>
 </body>
+<!--navbar script-->
+<script src="javascript/navbar.js"></script>
 <!--script for modal image enlarger-->
 <script>
     // Get the modal

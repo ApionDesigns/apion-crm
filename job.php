@@ -1,23 +1,10 @@
-<head>
-    <meta name="description" content="Apion CRM">
-    <meta name="author" content="Apion">
-    <meta charset="utf-8">
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <title>Apion CRM0.1</title>
-</head>
-<style>
-    .footer {
-        position: fixed;
-        left: 0;
-        z-index: 90;
-        bottom: 0;
-        width: 100%;
-        color: white;
-    }
-</style>
+<?php
+//include header
+include "header.php";
+?>
 
-<body class="bg-gray-200">
-    <div><?php include_once("menu.php") ?></div>
+<body class="bg-gray-50">
+    <?php include_once("menu.php") ?>
     <div class="p-2 grid justify-items-stretch mt-6">
         <div class="mt-5 md:mt-0 md:col-span-2 justify-self-center">
             <form action="clientCreate.php" method="POST">
@@ -88,7 +75,8 @@
             </form>
         </div>
     </div>
-    </div>
-    </div>
+    <?php include "sidebar.php" ?>
     <footer class="footer"><?php include_once('hfooter.php'); ?></footer>
 </body>
+<!--navbar script-->
+<script src="javascript/navbar.js"></script>

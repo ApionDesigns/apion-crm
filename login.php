@@ -24,14 +24,14 @@ if (!empty($username) && !empty($upw)) {
                 //echo "success";                   
                 header("location: home");
             } else {
-                echo "Something went wrong. Please try again!";
+                header("location: index.php");
             }
         } else {
-            echo "Email or Password is Incorrect!";
+            header("location: index.php");
         }
     } else {
-        //echo "$email - This email not Exist!";
+        header("location: index.php");
     }
 } else {
-    echo "All input fields are required!";
+    header("location: index.php");
 }

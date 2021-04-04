@@ -19,16 +19,6 @@ if (mysqli_num_rows($sql) > 0) {
     $created_at = date('d-m-Y', strtotime($row['created_at'] . ' + 1 days'));
 }
 ?>
-<style>
-    .footer {
-        position: fixed;
-        left: 0;
-        z-index: 90;
-        bottom: 0;
-        width: 100%;
-        color: white;
-    }
-</style>
 <!doctype html>
 <html lang="en">
 
@@ -38,8 +28,9 @@ if (mysqli_num_rows($sql) > 0) {
 include "header.php";
 ?>
 
-<body class="bg-gray-50">
+<body>
     <?php include_once("menu.php") ?>
+
     <!--pop button for email form-->
     <button onclick="myFunction()" style="position: absolute; right:15px; bottom:0px; z-index:102;" class="ring-0 focus:outline-none">
         <svg class="w-12 h-12 m-5 bg-green-500 hover:bg-green-800 rounded-full p-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white">
@@ -50,102 +41,100 @@ include "header.php";
     <!--display the email form-->
     <div id="myDIV" style="position: absolute; right:30px; bottom:0px; z-index:101; display:none">
         <?php include("emailpop.php") ?>
-    </div>
-    <!--pop button for email form-->
-    <a href="callender" style="position: absolute; right:80px; bottom:0px; z-index:100;" class="ring-0 focus:outline-none">
-        <svg class="w-12 h-12 m-5 bg-green-500 hover:bg-green-800 rounded-full p-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white">
-            <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
-        </svg>
-    </a>
-    <div class="m-8" style="position: relative; z-index:1;">
-        <!-- Apion CRM v0.1+ -->
-        <div class="flex flex-col">
-            <header class="rounded-md bg-green-500">
-                <div class="flex max-w-1xl mx-auto py-4 px-4 sm:px-6 lg:px-8 gap-2">
-                    <h1 class="text-3xl font-bold text-white">
-                        Client Dashboard
-                    </h1>
-            </header>
-            <main>
-                <div class="max-w-3x1 mx-auto py-2">
-                    <!-- display user content -->
-                    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                            <div class="overflow-hidden border-b border-gray-200 rounded-md">
-                                <table class="min-w-full divide-y divide-gray-200 flex-wrap">
-                                    <thead class="bg-green-500">
-                                        <tr>
-                                            <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider">
-                                                Client Information
-                                            </th>
-                                            <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
-                                                unique id
-                                            </th>
-                                            <!--<th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">Created
-                                            </th>-->
-                                            <!--<th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">Contact
-                                            </th>-->
-                                            <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
-                                                Job Type
-                                            </th>
-                                            <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
-                                                Inspection<br> Date
-                                            </th>
-                                            <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
-                                                Inspection<br> Status
-                                            </th>
-                                            <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
-                                                Quoted
-                                            </th>
-                                            <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
-                                                Date<br>of JOB
-                                            </th>
-                                            <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
-                                                Invoice#
-                                            </th>
-                                            <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
-                                                Cost
-                                            </th>
-                                            <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
-                                                payed
-                                            </th>
-                                            <td scope="col" class="px-4 py-4 text-center text-xs uppercase border-l border-white text-center bg-green-600 hover:bg-green-800">
-                                                <?php
-                                                if (empty($row['client_id'])) { ?>
-                                                    <a href="job.php" class="text-white animate-pulse">+ Job</a>
-                                                <?php } else { ?>
-                                                    <a href="job" class="text-white">+ Job</a>
-                                                <?php } ?>
-                                            </td>
-                                        </tr>
-                                    </thead>
-                                    <?php while ($row = $query->fetch_array()) { ?>
-                                        <tbody class="bg-white divide-y divide-white">
-                                            <!--while  there is data in the database-->
-                                            <!--table information-->
+    </div><!-- This example requires Tailwind CSS v2.0+ -->
+    <!--grid top columns-->
+    <div class="p-8">
+        <!--grid top columns end-->
+        <div class="mt-4" style="position: relative; z-index:1;">
+            <!-- Apion CRM v0.1+ -->
+            <div class="flex flex-col">
+                <header class="rounded-md bg-green-600">
+                    <div class="flex items-center max-w-1xl mx-auto py-4 px-4 sm:px-6 lg:px-8 gap-2">
+                        <h1 class="text-3xl font-bold text-white">
+                            Client Dashboard
+                        </h1>
+                    </div>
+                </header>
+                <main>
+                    <div class="max-w-3x1 mx-auto py-2">
+                        <!-- display user content -->
+                        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                <div class="overflow-hidden border-b border-gray-200 rounded-md">
+                                    <table class="min-w-full divide-y divide-gray-200 flex-wrap">
+                                        <thead class="bg-green-500">
                                             <tr>
-                                                <td class="px-2 py-4 whitespace-nowrap bg-green-500 hover:bg-green-600 border-r border-white">
-                                                    <div class="flex items-center">
-                                                        <div class="grid gap-1">
-                                                            <div class="text-sm font-medium text-white font-bold">
-                                                                <!--first/last name-->
-                                                                Name: <a href="edit?e=<?php echo $row['client_id'] ?>"><?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?></a>
-                                                            </div>
-                                                            <!--email-->
-                                                            <div class="text-xs text-white">
-                                                                Email: <?php echo $row['email']; ?>
+                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider">
+                                                    Client Information
+                                                </th>
+                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
+                                                    unique id
+                                                </th>
+                                                <!--<th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">Created
+                                            </th>-->
+                                                <!--<th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">Contact
+                                            </th>-->
+                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
+                                                    Job Type
+                                                </th>
+                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
+                                                    Inspection<br> Date
+                                                </th>
+                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
+                                                    Inspection<br> Status
+                                                </th>
+                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
+                                                    Quoted
+                                                </th>
+                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
+                                                    Date<br>of JOB
+                                                </th>
+                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
+                                                    Invoice#
+                                                </th>
+                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
+                                                    Cost
+                                                </th>
+                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
+                                                    payed
+                                                </th>
+                                                <td scope="col" class="px-4 py-4 text-center text-xs uppercase border-l border-white text-center bg-green-600 hover:bg-green-800">
+                                                    <?php
+                                                    if (empty($row['client_id'])) { ?>
+                                                        <a href="job.php" class="text-white animate-pulse">+ Job</a>
+                                                    <?php } else { ?>
+                                                        <a href="job" class="text-white">+ Job</a>
+                                                    <?php } ?>
+                                                </td>
+                                            </tr>
+                                        </thead>
+                                        <?php while ($row = $query->fetch_array()) { ?>
+                                            <tbody class="bg-white divide-y divide-white">
+                                                <!--while  there is data in the database-->
+                                                <!--table information-->
+                                                <tr>
+                                                    <td class="px-2 py-4 whitespace-nowrap bg-green-500 hover:bg-green-600 border-r border-white">
+                                                        <div class="flex items-center">
+                                                            <div class="grid gap-1">
+                                                                <div class="text-sm font-medium text-white font-bold">
+                                                                    <!--first/last name-->
+                                                                    Name: <a href="edit?e=<?php echo $row['client_id'] ?>"><?php echo $row['first_name']; ?> <?php echo $row['last_name']; ?></a>
+                                                                </div>
+                                                                <!--email-->
+                                                                <div class="text-xs text-white">
+                                                                    Email: <?php echo $row['email']; ?>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <!--unique id for clients-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-center bg-green-400 border-r border-white border-b rounded-br-3xl hover:bg-green-500">
-                                                    <a href="edit?e=<?php echo $row['client_id'] ?>">
-                                                        <div class="text-sm text-white"><?php echo $row['client_id']; ?></div>
-                                                    </a>
-                                                </td>
-                                                <!--created-->
-                                                <!--<td class="px-4 py-4 whitespace-nowrap text-center">
+                                                    </td>
+                                                    <!--unique id for clients-->
+                                                    <td class="px-4 py-4 whitespace-nowrap text-center bg-green-400 border-r border-white border-b rounded-br-3xl hover:bg-green-500">
+                                                        <a href="edit?e=<?php echo $row['client_id'] ?>">
+                                                            <div class="text-sm text-white"><?php echo $row['client_id']; ?></div>
+                                                        </a>
+                                                    </td>
+                                                    <!--created-->
+                                                    <!--<td class="px-4 py-4 whitespace-nowrap text-center">
                                                 <div class="text-sm text-gray-500">
                                                 <?php
                                                 //echo the date created for client information
@@ -154,8 +143,8 @@ include "header.php";
                                                 ?>
                                                 </div>
                                                 </td>-->
-                                                <!--contact type-->
-                                                <!--<td class="px-4 py-4 whitespace-nowrap text-center">
+                                                    <!--contact type-->
+                                                    <!--<td class="px-4 py-4 whitespace-nowrap text-center">
                                                     <div class="text-sm text-gray-500 ml-5">
                                                     <?php
                                                     //if there is no status 
@@ -173,104 +162,111 @@ include "header.php";
                                                     <?php } ?>
                                                     </div>
                                                 </td>-->
-                                                <!--jobtype-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-center">
-                                                    <div class="text-sm text-gray-500"><?php echo $row['job_type']; ?></div>
-                                                </td>
-                                                <!--inspection date-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-center">
-                                                    <div class="text-sm text-gray-500">
+                                                    <!--jobtype-->
+                                                    <td class="px-4 py-4 whitespace-nowrap text-center">
+                                                        <div class="text-sm text-gray-500"><?php echo $row['job_type']; ?></div>
+                                                    </td>
+                                                    <!--inspection date-->
+                                                    <td class="px-4 py-4 whitespace-nowrap text-center">
+                                                        <div class="text-sm text-gray-500">
+                                                            <?php
+                                                            if (empty($row['inspec_day'])) {
+                                                            } else {
+                                                                $inspec = $row['inspec_day'];
+                                                                echo date("d/m/Y", strtotime($inspec));;
+                                                            }
+                                                            ?>
+                                                        </div>
+                                                    </td>
+                                                    <!--displays inspection status-->
+                                                    <td class="px-4 py-4 whitespace-nowrap text-center">
                                                         <?php
-                                                        if (empty($row['inspec_day'])) {
+                                                        //if there is no status 
+                                                        if (empty($row['inspec_day'])) { ?>
+                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-200 text-white">
+                                                                <?php echo "Unset"; ?>
+                                                            </span>
+                                                        <?php } elseif (!empty($row['inspec_day']) && empty($row['inspec_dayrt'])) { ?>
+                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-white">
+                                                                <?php echo "in-progress"; ?>
+                                                            </span>
+                                                        <?php } elseif ($row['inspec_day'] == TRUE  && $row['inspec_dayrt'] == TRUE) { ?>
+                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-400 text-white">
+                                                                <?php echo "completed"; ?>
+                                                            </span>
+                                                        <?php } ?>
+                                                    </td>
+                                                    <!--display inspection ends here-->
+                                                    <!--quoted-->
+                                                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                        <?php
+                                                        if (empty($row['quotation'])) { ?>
+                                                            <!--does nothing-->
+                                                        <?php } else {
+                                                            echo "True";
+                                                        } ?>
+                                                    </td>
+                                                    <!--job date-->
+                                                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                        <?php
+                                                        if (empty($row['day_of_job'])) {
                                                         } else {
-                                                            $inspec = $row['inspec_day'];
-                                                            echo date("d/m/Y", strtotime($inspec));;
+                                                            $doj = $row['day_of_job'];
+                                                            echo date("d/m/Y", strtotime($doj));;
                                                         }
                                                         ?>
-                                                    </div>
-                                                </td>
-                                                <!--displays inspection status-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-center">
-                                                    <?php
-                                                    //if there is no status 
-                                                    if (empty($row['inspec_day'])) { ?>
-                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-200 text-white">
-                                                            <?php echo "Unset"; ?>
-                                                        </span>
-                                                    <?php } elseif (!empty($row['inspec_day']) && empty($row['inspec_dayrt'])) { ?>
-                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-white">
-                                                            <?php echo "in-progress"; ?>
-                                                        </span>
-                                                    <?php } elseif ($row['inspec_day'] == TRUE  && $row['inspec_dayrt'] == TRUE) { ?>
-                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-400 text-white">
-                                                            <?php echo "completed"; ?>
-                                                        </span>
-                                                    <?php } ?>
-                                                </td>
-                                                <!--display inspection ends here-->
-                                                <!--quoted-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
-                                                    <?php
-                                                    if (empty($row['quotation'])) { ?>
-                                                        <!--does nothing-->
-                                                    <?php } else {
-                                                        echo "True";
-                                                    } ?>
-                                                </td>
-                                                <!--job date-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
-                                                    <?php
-                                                    if (empty($row['day_of_job'])) {
-                                                    } else {
-                                                        $doj = $row['day_of_job'];
-                                                        echo date("d/m/Y", strtotime($doj));;
-                                                    }
-                                                    ?>
-                                                </td>
-                                                <!--invoice id-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
-                                                    <?php echo "LEA" . $row['invoice_id']; ?>
-                                                </td>
-                                                <!--cost for job-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
-                                                    <?php
-                                                    if (empty($row['cost'])) { ?>
-                                                        $
-                                                    <?php } else { ?>
+                                                    </td>
+                                                    <!--invoice id-->
+                                                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                        <?php echo "LEA" . $row['invoice_id']; ?>
+                                                    </td>
+                                                    <!--cost for job-->
+                                                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                                                         <?php
-                                                        echo "$" . number_format($row['cost']); ?>
-                                                    <?php } ?>
-                                                </td>
-                                                <!--amount payed by client-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center border-r border-gray-200">
-                                                    <?php echo $row['payed']; ?>
-                                                </td>
-                                                <td class="px-4 py-4 whitespace-nowrap text-center">
-                                                    <div class="text-sm text-gray-500 ml-2 flex justify-center">
-                                                        <div class="p-2">
-                                                            <a href="edit?e=<?php echo $row['client_id'] ?>" class="text-gray-400 hover:text-gray-800">
-                                                                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                                                </svg>
-                                                            </a>
+                                                        if (empty($row['cost'])) { ?>
+                                                            $
+                                                        <?php } else { ?>
+                                                            <?php
+                                                            echo "$" . number_format($row['cost']); ?>
+                                                        <?php } ?>
+                                                    </td>
+                                                    <!--amount payed by client-->
+                                                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center border-r border-gray-200">
+                                                        <?php echo $row['payed']; ?>
+                                                    </td>
+                                                    <td class="px-4 py-4 whitespace-nowrap text-center">
+                                                        <div class="text-sm text-gray-500 ml-2 flex justify-center">
+                                                            <div class="p-2">
+                                                                <a href="edit?e=<?php echo $row['client_id'] ?>" class="text-gray-400 hover:text-gray-800">
+                                                                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                                                    </svg>
+                                                                </a>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        <?php } ?>
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>
 
-                                        </tbody>
-                                </table>
+                                            </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
-            </main>
+                </main>
 
+            </div>
         </div>
     </div>
     </div>
+    </head>
+    <!--sidebar menu-->
+    <?php include "sidebar.php" ?>
+
     <footer class="footer"><?php include_once('hfooter.php'); ?></footer>
 </body>
+<!--navbar script-->
+<script src="javascript/navbar.js"></script>
 <script>
     function myFunction() {
         var x = document.getElementById("myDIV");
