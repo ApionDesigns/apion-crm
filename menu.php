@@ -6,21 +6,18 @@ $password = "";
 $dbname = "apcrm";
 $output = "";
 $conn = mysqli_connect($hostname, $username, $password, $dbname);
-$sql = mysqli_query($conn, "SELECT * FROM clients ORDER BY created_at DESC");
-$sql2 = mysqli_query($conn, "SELECT * FROM users");
-$query = $conn->query("SELECT * FROM clients ORDER BY created_at DESC");
+$query3 = $conn->query("SELECT * FROM users");
 if (mysqli_num_rows($sql) > 0) {
-    $row = mysqli_fetch_assoc($sql);
-    $row2 = mysqli_fetch_assoc($sql2);
+    $row3 = mysqli_fetch_assoc($query3);
 }
 ?>
 <div>
-    <nav class="bg-green-800">
+    <nav class="bg-green-800 shadow">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
                     <!--sidebar menu select-->
-                    <span style="font-size:22px;cursor:pointer; color:white; margin-left:20px;" class="bg-green-700 hover:bg-green-600 p-3 mr-8" onclick="openNav()">&#9776;</span>
+                    <span style="font-size:22px;cursor:pointer; color:white; margin-left:20px;" class="bg-green-800 hover:bg-green-700 p-3 mr-8" onclick="openNav()">&#9776;</span>
                     <div class="flex-shrink-0">
                         <h1 class="text-white font-bold p-2 rounded-md mr-8"><a href="index">AP-CRM</a></h1>
                     </div>
@@ -29,7 +26,7 @@ if (mysqli_num_rows($sql) > 0) {
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                             <div class="relative"><?php include_once "search.php" ?></div>
 
-                            <a href="home" class="text-white hover:bg-green-700 bg-green-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Client Dashboard</a>
+                            <!--<a href="home" class="text-white hover:bg-green-700 bg-green-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Client Dashboard</a>-->
                         </div>
                     </div>
                 </div>
@@ -80,7 +77,7 @@ if (mysqli_num_rows($sql) > 0) {
                                             <p class="text-sm"> Settings</p>
                                         </div>
                                     </a>
-                                    <a href="logout.php?logout_id=<?php echo $row2['user_uid']; ?>" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-red-400 hover:text-white">
+                                    <a href="logout.php?l=<?php echo $row3['user_uid']; ?>" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-red-400 hover:text-white">
                                         <div class="flex ">
                                             <svg class="h-5 w-5 self-center mr-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd" />

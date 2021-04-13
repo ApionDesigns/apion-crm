@@ -28,7 +28,7 @@ if (mysqli_num_rows($sql) > 0) {
 include "header.php";
 ?>
 
-<body class="bg-white">
+<body class="bg-gray-100">
     <?php
     if (empty($row['inspec_day']) && $_SESSION['username'] != "admin") { ?>
         <div class="bg-red-500 text-center py-2 lg:px-4 " style="position: relative;">
@@ -40,11 +40,83 @@ include "header.php";
                     </svg></a>
             </div>
         </div>
+        <!-- pop over notification -->
+        <div id="popover" class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                <!--
+      Background overlay, show/hide based on modal state.
+
+      Entering: "ease-out duration-300"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+
+                <!-- This element is to trick the browser into centering the modal contents. -->
+                <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+                <!--
+      Modal panel, show/hide based on modal state.
+
+      Entering: "ease-out duration-300"
+        From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        To: "opacity-100 translate-y-0 sm:scale-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100 translate-y-0 sm:scale-100"
+        To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+    -->
+                <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                        <div class="sm:flex sm:items-start">
+                            <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                                <!-- Heroicon name: outline/exclamation -->
+                                <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                </svg>
+                            </div>
+                            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                                    Notification
+                                </h3>
+                                <div class="mt-2">
+                                    <p class="text-sm text-gray-500 flex justify-center">
+                                    <pre>
+Clients require attention:
+  cause:
+  -No inspection date
+  -No Job date set
+</pre>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--user sees that there is error for clients-->
+                    <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                        <button onClick="closePop()" type="submit" value="OK" class="cursor-pointer w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
+                            OK
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- pop over notification ends here-->
     <?php //header("location: emnotif.php");
+    } else {
     }
     ?>
+    <script>
+        function openNav() {
+            document.getElementById("popover").style.width = "100%";
+        }
+
+        function closePop() {
+            document.getElementById("popover").style.width = "0";
+        }
+    </script>
     <?php include_once("menu.php") ?>
-    <div class="loader"></div>
     <div class="m-8">
         <!-- Apion CRM v0.1+ -->
         <div class="flex flex-col ">
@@ -326,11 +398,11 @@ include "header.php";
                                                 <!--technician who recieved the inspection-->
                                                 <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                                                     <?php
-                                                    if (empty($row['inspecrcver'])) { ?>
+                                                    if (empty($row['jorcver'])) { ?>
                                                         <input placeholder="Tech Name" type="text" name="inrcvrtname" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-auto"></input>
                                                     <?php } else { ?>
                                                         <?php
-                                                        echo $row['inspecrcver'];
+                                                        echo $row['jorcver'];
                                                         ?>
                                                     <?php } ?>
                                                 </td>
@@ -496,7 +568,7 @@ include "header.php";
                                                 <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['jorcver'])) { ?>
-                                                        <input placeholder="Tech Name" type="text" name="jorderrcvrtname" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-auto"></input>
+                                                        <input placeholder="Tech Name" type="text" name="jdrvr" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-auto"></input>
                                                     <?php } else { ?>
                                                         <?php
                                                         echo $row['jorcver'];
@@ -508,7 +580,7 @@ include "header.php";
                                                 <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['jo_dayrcv'])) { ?>
-                                                        <input placeholder="10" type="date" min="2020-01-01" max="2050-12-31" name="joderDayrcv" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-17"></input>
+                                                        <input placeholder="10" type="date" min="2020-01-01" max="2050-12-31" name="jDrcv" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-17"></input>
                                                     <?php } else { ?>
                                                         <?php
                                                         $inspecdrcv = $row['jo_dayrcv'];
@@ -571,10 +643,10 @@ include "header.php";
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <div style="position: fixed; z-index:10; right:0px; bottom:0px;" class="m-8">
+                                    <div style="position: fixed; z-index:101; right:0px; bottom:0px;" class="m-8 mb-7">
                                         <div role="alert">
                                             <!--submit button-->
-                                            <button type="submit" value="Update Client" class="bg-green-500 hover:bg-green-700 text-white p-2 text-md w-32 h-12 rounded-md">Update </button>
+                                            <button type="submit" value="Update Client" class="shadow bg-green-800 hover:bg-green-700 text-white p-2 text-md w-32 h-12 rounded-md">Update </button>
                                         </div>
                                     </div>
                                 </form>

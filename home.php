@@ -14,6 +14,10 @@ $output = "";
 $conn = mysqli_connect($hostname, $username, $password, $dbname);
 $sql = mysqli_query($conn, "SELECT * FROM clients ORDER BY created_at DESC");
 $query = $conn->query("SELECT * FROM clients ORDER BY created_at DESC");
+$result = $conn->query("SELECT * FROM clients");
+$pay = $conn->query("SELECT * FROM clients WHERE payed = TRUE");
+$count = $result->num_rows;
+$count2 = $pay->num_rows;
 if (mysqli_num_rows($sql) > 0) {
     $row = mysqli_fetch_assoc($sql);
     $created_at = date('d-m-Y', strtotime($row['created_at'] . ' + 1 days'));
@@ -28,9 +32,9 @@ if (mysqli_num_rows($sql) > 0) {
 include "header.php";
 ?>
 
-<body>
-    <?php include_once("menu.php") ?>
-
+<body class="bg-gray-100">
+    <div style="z-index: 99;position: fixed;"><?php include "sidebar.php" ?></div>
+    <div style="position: fixed; width:100%; z-index:98;"><?php include_once("menu.php") ?></div>
     <!--pop button for email form-->
     <button onclick="myFunction()" style="position: absolute; right:15px; bottom:0px; z-index:102;" class="ring-0 focus:outline-none">
         <svg class="w-12 h-12 m-5 bg-green-500 hover:bg-green-800 rounded-full p-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white">
@@ -38,23 +42,46 @@ include "header.php";
             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
         </svg>
     </button>
+
     <!--display the email form-->
     <div id="myDIV" style="position: absolute; right:30px; bottom:0px; z-index:101; display:none">
         <?php include("emailpop.php") ?>
-    </div><!-- This example requires Tailwind CSS v2.0+ -->
+    </div>
+
     <!--grid top columns-->
     <div class="p-8">
+
         <!--grid top columns end-->
         <div class="mt-4" style="position: relative; z-index:1;">
+
             <!-- Apion CRM v0.1+ -->
             <div class="flex flex-col">
-                <header class="rounded-md bg-green-600">
+                <header class="rounded-md bg-green-600 p-2">
                     <div class="flex items-center max-w-1xl mx-auto py-4 px-4 sm:px-6 lg:px-8 gap-2">
-                        <h1 class="text-3xl font-bold text-white">
+                        <h1 class="text-3xl font-bold text-white pt-1">
                             Client Dashboard
                         </h1>
-                    </div>
                 </header>
+                <div class="flex mt-2 shadow bg-green-600">
+                    <div class="px-2 py-2 whitespace-nowrap text-center bg-green-700">
+                        <div class="bg-green-800 p-2 rounded-md">
+                            <p class="text-white text-sm">PAYED</p>
+                        </div>
+                        <div class="text-3xl font-bold text-white"><?php echo $count2; ?></div>
+                    </div>
+                    <div class="px-2 py-2 whitespace-nowrap text-center bg-green-500">
+                        <div class="bg-green-700 p-2 rounded-md">
+                            <p class="text-white text-sm">OUTSTANDING</p>
+                        </div>
+                        <div class="text-3xl font-bold text-white"><?php echo $count - $count2; ?></div>
+                    </div>
+                    <div class="px-2 py-2 whitespace-nowrap text-center bg-white" style="float:right;">
+                        <div class="bg-green-600 p-2 rounded-md">
+                            <p class="text-white text-sm">TOTAL</p>
+                        </div>
+                        <div class="text-3xl font-bold text-black"><?php echo $count; ?></div>
+                    </div>
+                </div>
                 <main>
                     <div class="max-w-3x1 mx-auto py-2">
                         <!-- display user content -->
@@ -70,10 +97,6 @@ include "header.php";
                                                 <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
                                                     unique id
                                                 </th>
-                                                <!--<th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">Created
-                                            </th>-->
-                                                <!--<th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">Contact
-                                            </th>-->
                                                 <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
                                                     Job Type
                                                 </th>
@@ -110,7 +133,6 @@ include "header.php";
                                         </thead>
                                         <?php while ($row = $query->fetch_array()) { ?>
                                             <tbody class="bg-white divide-y divide-white">
-                                                <!--while  there is data in the database-->
                                                 <!--table information-->
                                                 <tr>
                                                     <td class="px-2 py-4 whitespace-nowrap bg-green-500 hover:bg-green-600 border-r border-white">
@@ -261,12 +283,12 @@ include "header.php";
     </div>
     </head>
     <!--sidebar menu-->
-    <?php include "sidebar.php" ?>
 
     <footer class="footer"><?php include_once('hfooter.php'); ?></footer>
 </body>
 <!--navbar script-->
 <script src="javascript/navbar.js"></script>
+
 <script>
     function myFunction() {
         var x = document.getElementById("myDIV");

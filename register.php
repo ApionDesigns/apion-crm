@@ -25,7 +25,7 @@ if (!empty($user_name) && !empty($first_name) && !empty($last_name) && !empty($u
     $encrypt_pass = md5($password);
     $sql = mysqli_query($conn, "INSERT INTO users (user_uid, username, first_name, last_name, email, userpassword) 
     VALUES ('$ran_id','$user_name','$first_name', '$last_name', '$uemail', '$encrypt_pass')");
-    header("location: index");
+    header("location: usercreate");
 } else {
     echo "$uemail - This email already exist!";
 }

@@ -1,6 +1,6 @@
 <!--sidebar menu-->
-<div id="mySidenav" class="sidenav bg-green-600 text-white shadowflex items-stretch">
-    <a href="javascript:void(0)" class="closebtn self-center -mt-3 -mr-3" onclick="closeNav()">&times;</a>
+<div id="mySidenav" class="sidenav bg-green-600 text-white shadowflex items-stretch shadow-lg border-r-4 border-white -ml-4">
+    <a href="javascript:void(0)" class="closebtn self-center -mt-4 -mr-3" onclick="closeNav()">&times;</a>
     <a href="#" class="bg-green-800 uppersace font-bold">&#9776; Tools</a>
     <a href="home" class="flex hover:bg-green-700 bg-green-600 text-xs border-b border-gray-50 flex w-full">
         <div class="flex ">
@@ -16,6 +16,14 @@
                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
             </svg>
             <p class="text-sm"> USERS</p>
+        </div>
+    </a>
+    <a href="job" class="flex hover:bg-green-700 bg-green-600 text-xs border-b border-gray-50 flex w-full">
+        <div class="flex ">
+            <svg class="h-5 w-5 self-center mr-5" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+            </svg>
+            <p class="text-sm"> NEW JOB</p>
         </div>
     </a>
     <a href="leads" class="flex hover:bg-green-700 bg-green-600 text-xs border-b border-gray-50 flex w-full">

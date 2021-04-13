@@ -12,7 +12,7 @@ include "header.php";
 <link href="css/tailwind.css" rel="stylesheet">
 <!--header included above-->
 
-<body>
+<body class="bg-gray-200">
     <?php include "menu_login.php" ?>
 
     <div class="px-10 justify-center flex items-center">

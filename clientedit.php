@@ -23,20 +23,22 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } else {
 }
+///////////////////////////////
+////inspection starts here/////
+///////////////////////////////
+
 //inspection reciever
-$inspecrcvr = mysqli_real_escape_string($conn, $_POST['inrcvrtname']);
-if (empty($inspecrcvr)) {
+if (empty($_POST['inrcvrtname'])) {
     echo "invoicing not working";
 } else {
-    $sql2 = mysqli_query($conn, "UPDATE clients SET inspecrcver = '$inspecrcvr' WHERE client_id = '{$client}'");
+    $sql2 = mysqli_query($conn, "UPDATE clients SET inspecrcver = '$_POST[inrcvrtname]' WHERE client_id = '{$client}'");
     echo "working";
 }
 //lead technician
-$leadtechnician = mysqli_real_escape_string($conn, $_POST['leadTech']);
-if (empty($leadtechnician)) {
+if (empty($_POST['leadTech'])) {
     echo "invoicing not working";
 } else {
-    $sql2 = mysqli_query($conn, "UPDATE clients SET lead_tech = '$leadtechnician' WHERE client_id = '{$client}'");
+    $sql2 = mysqli_query($conn, "UPDATE clients SET lead_tech = '$_POST[leadTech]' WHERE client_id = '{$client}'");
     echo "working";
 }
 //collects user input for inspec date
@@ -98,7 +100,7 @@ if (empty($_POST['cost_price'])) {
     $sql2 = mysqli_query($conn, "UPDATE clients SET cost = $cost_priced WHERE client_id = '{$client}'");
     echo "working";
 }
-//lead technician
+//return reciever name
 $rtrcvname = mysqli_real_escape_string($conn, $_POST['rturnrcvname']);
 if (empty($rtrcvname)) {
     echo "invoicing not working";
@@ -106,7 +108,53 @@ if (empty($rtrcvname)) {
     $sql2 = mysqli_query($conn, "UPDATE clients SET rtinspec_rcver = '$rtrcvname' WHERE client_id = '{$client}'");
     echo "working";
 }
-header("location: edit.php?edit_id=$client");
+
+///////////////////////////////
+////job order starts here//////
+///////////////////////////////
+
+//collects user input for job order recieved by
+$rtjorcvname = mysqli_real_escape_string($conn, $_POST['jdrvr']);
+if (empty($_POST['jdrvr'])) {
+    echo "price not working";
+} else {
+    $sql2 = mysqli_query($conn, "UPDATE clients SET jorcver = $rtjorcvname WHERE client_id = '{$client}'");
+    echo "working";
+}
+//collects user input for date recieved
+if (empty($_POST['jDrcv'])) {
+    echo "invoicing not working";
+} else {
+    $jDrcv = $_POST['jDrcv'];
+    $sql2 = mysqli_query($conn, "UPDATE clients SET jo_dayrcv = $jDrcv WHERE client_id = '{$client}'");
+    echo "working";
+}
+//collects user input for job order date
+if (empty($_POST['joderDay'])) {
+    echo "price not working";
+} else {
+    $jodate = $_POST['joderDay'];
+    $sql2 = mysqli_query($conn, "UPDATE clients SET jo_day = $jodate WHERE client_id = '{$client}'");
+    echo "working";
+}
+//collects user input for job order expected return date
+
+if (empty($_POST['exjoDayrt'])) {
+    echo "invoicing not working";
+} else {
+    $jortrcvname = $_POST['exjoDayrt'];
+    $sql2 = mysqli_query($conn, "UPDATE clients SET jo_exdayrt = '$rtrcvname' WHERE client_id = '{$client}'");
+    echo "working";
+}
+//collects user input for job order date return
+if (empty($_POST['joderDayrt'])) {
+    echo "invoicing not working";
+} else {
+    $rtrcvname = $_POST['joderDayrt'];
+    $sql2 = mysqli_query($conn, "UPDATE clients SET jo_dayrt = '$rtrcvname' WHERE client_id = '{$client}'");
+    echo "working";
+}
+header("location: edit.php?e=$client");
 
 
 $conn->close();

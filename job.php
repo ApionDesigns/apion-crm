@@ -2,6 +2,18 @@
 //include header
 include "header.php";
 ?>
+<?php
+$hostname = "localhost";
+$username = "root";
+$password = "";
+$dbname = "apcrm";
+$output = "";
+$conn = mysqli_connect($hostname, $username, $password, $dbname);
+$sql = mysqli_query($conn, "SELECT * FROM clients");
+if (mysqli_num_rows($sql) > 0) {
+    $row = mysqli_fetch_assoc($sql);
+}
+?>
 
 <body class="bg-gray-50">
     <?php include_once("menu.php") ?>
@@ -15,7 +27,7 @@ include "header.php";
                             </svg></a>
                     </p>
                     <div class="px-4 py-5 bg-white sm:p-6">
-                        <div class="grid grid-cols-6 gap-6">
+                        <div class="grid grid-rows gap-4">
                             <!--first name-->
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
@@ -51,17 +63,31 @@ include "header.php";
                                 <label for="city" class="block text-sm font-medium text-gray-700">City</label>
                                 <input type="text" required name="city_address" id="city_address" class="p-1 bg-gray-200 mt-1 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                             </div>
-
-                            <!--job type-->
-                            <div class="col-span-6 sm:col-span-3">
-                                <label for="job_type" class="block text-sm font-medium text-gray-700">Job Type</label>
-                                <input type="text" required name="job_type" id="job_type" autocomplete="G.P.S" class="p-1 bg-gray-200 mt-1 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            <div>
+                                <p class="text-xs bg-green-400 p-2 mt-6 text-white rounded-md font-bold uppercase">Job Type</p><br>
+                                <select name="cars" id="cars">
+                                    <option value="volvo">Spraying</option>
+                                    <option value="volvo">Baitin</option>
+                                    <option value="volvo">Fogging</option>
+                                    <option value="volvo">Fumigation</option>
+                                    <option value="volvo">Dusting</option>
+                                    <option value="volvo">Drilling & Pumping</option>
+                                    <option value="volvo">Upholstery Cleaning</option>
+                                    <option value="volvo">Carpet Cleaning</option>
+                                    <option value="volvo">Power Washing</option>
+                                    <option value="volvo">Chair Cleanin</option>
+                                    <option value="volvo">Flood Remediation</option>
+                                    <option value="volvo">Chemicals</option>
+                                </select>
                             </div>
 
                             <!--form of contact-->
-                            <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                                <label for="city" class="block text-sm font-medium text-gray-700">Form of Contact</label>
-                                <input type="text" required name="contact" id="contact" autocomplete="Call" class="p-1 bg-gray-200 mt-1 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            <div>
+                                <p class="text-xs bg-green-400 p-2 mt-6 text-white rounded-md font-bold uppercase">FORM OF CONTACT</p><br>
+                                <select name="cars" id="cars">
+                                    <option value="volvo">Call</option>
+                                    <option value="volvo">Email</option>
+                                </select>
                             </div>
 
                         </div>
