@@ -25,10 +25,10 @@ $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
 $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
 $email = mysqli_real_escape_string($conn, $_POST['email']);
 $tel = mysqli_real_escape_string($conn, $_POST['tel']);
+$job_type = $_POST['jtype'];
 $street_address = mysqli_real_escape_string($conn, $_POST['street_address']);
 $city_address = mysqli_real_escape_string($conn, $_POST['city_address']);
-$job_type = mysqli_real_escape_string($conn, $_POST['job_type']);
-$contact = mysqli_real_escape_string($conn, $_POST['contact']);
+$contact = $_POST['call'];
 $ran_id = rand(time(), 100000000);
 $sql = mysqli_query($conn, "INSERT INTO clients (client_id, first_name, last_name, email, tel, street_address, city_address, job_type, contact, created_by) 
     VALUES ('$ran_id','$first_name', '$last_name', '$email', '$tel', '$street_address', '$city_address', '$job_type', '$contact', '$username')");

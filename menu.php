@@ -12,7 +12,7 @@ if (mysqli_num_rows($sql) > 0) {
 }
 ?>
 <div>
-    <nav class="bg-green-800 shadow">
+    <nav class="bg-green-800 shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
@@ -77,7 +77,7 @@ if (mysqli_num_rows($sql) > 0) {
                                             <p class="text-sm"> Settings</p>
                                         </div>
                                     </a>
-                                    <a href="logout.php?l=<?php echo $row3['user_uid']; ?>" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-red-400 hover:text-white">
+                                    <a href="logout.php?logout=<?php echo $_SESSION['user_uid']; ?>" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-red-400 hover:text-white">
                                         <div class="flex ">
                                             <svg class="h-5 w-5 self-center mr-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd" />

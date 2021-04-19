@@ -19,7 +19,7 @@ if (mysqli_num_rows($sql) > 0) {
     <?php include_once("menu.php") ?>
     <div class="p-2 grid justify-items-stretch mt-6">
         <div class="mt-5 md:mt-0 md:col-span-2 justify-self-center">
-            <form action="clientCreate.php" method="POST">
+            <form enctype="multipart/form-data" action="clientCreate.php" method="POST">
                 <div class="overflow-hidden sm:rounded-md ">
                     <p class="grid grid-cols-2 gap-2 text-4xl font-bold p-2 bg-green-500 text-white pl-5">Client Form
                         <a href="home" class="place-self-end"><svg class="h-10 w-10 p-1 cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -27,7 +27,7 @@ if (mysqli_num_rows($sql) > 0) {
                             </svg></a>
                     </p>
                     <div class="px-4 py-5 bg-white sm:p-6">
-                        <div class="grid grid-rows gap-4">
+                        <div class="gap-4">
                             <!--first name-->
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
@@ -65,35 +65,37 @@ if (mysqli_num_rows($sql) > 0) {
                             </div>
                             <div>
                                 <p class="text-xs bg-green-400 p-2 mt-6 text-white rounded-md font-bold uppercase">Job Type</p><br>
-                                <select name="cars" id="cars">
-                                    <option value="volvo">Spraying</option>
-                                    <option value="volvo">Baitin</option>
-                                    <option value="volvo">Fogging</option>
-                                    <option value="volvo">Fumigation</option>
-                                    <option value="volvo">Dusting</option>
-                                    <option value="volvo">Drilling & Pumping</option>
-                                    <option value="volvo">Upholstery Cleaning</option>
-                                    <option value="volvo">Carpet Cleaning</option>
-                                    <option value="volvo">Power Washing</option>
-                                    <option value="volvo">Chair Cleanin</option>
-                                    <option value="volvo">Flood Remediation</option>
-                                    <option value="volvo">Chemicals</option>
+                                <select id="jtype" name="jtype" class="bg-green-600 text-white p-1 rounded-md">
+                                    <option value="" disabled selected>Choose option</option>
+                                    <option value="Spraying">Spraying</option>
+                                    <option value="Baiting">Baiting</option>
+                                    <option value="Misting">Misting</option>
+                                    <option value="Fogging">Fogging</option>
+                                    <option value="Fumigation">Fumigation</option>
+                                    <option value="Dusting">Dusting</option>
+                                    <option value="Drilling-&-Pumping">Drilling & Pumping</option>
+                                    <option value="Upholstery-Cleaning">Upholstery Cleaning</option>
+                                    <option value="Carpet-Cleaning">Carpet Cleaning</option>
+                                    <option value="Power-Washing">Power Washing</option>
+                                    <option value="Chair-Cleaning">Chair Cleanin</option>
+                                    <option value="Flood-Remediation">Flood Remediation</option>
+                                    <option value="Chemicals">Chemicals</option>
                                 </select>
                             </div>
 
                             <!--form of contact-->
                             <div>
                                 <p class="text-xs bg-green-400 p-2 mt-6 text-white rounded-md font-bold uppercase">FORM OF CONTACT</p><br>
-                                <select name="cars" id="cars">
-                                    <option value="volvo">Call</option>
-                                    <option value="volvo">Email</option>
+                                <select name="call" id="call" class="bg-green-600 text-white p-1 rounded-md">
+                                    <option value="Call">Call</option>
+                                    <option value="Email">Email</option>
                                 </select>
                             </div>
 
                         </div>
                     </div>
-                    <div class="px-4 py-3 bg-gray-100 text-right sm:px-6">
-                        <button type="submit" class="inline-flex justify-center py-2 px-4 text-sm font-medium rounded-md text-white bg-green-500 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <div class="px-4 py-3 bg-green-400 text-right sm:px-6">
+                        <button type="submit" class="inline-flex justify-center py-2 px-4 text-sm font-bold uppercase rounded-md text-white bg-green-600 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-500">
                             Save
                         </button>
                     </div>

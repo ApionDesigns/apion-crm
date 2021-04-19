@@ -120,25 +120,21 @@ Clients require attention:
     <div class="m-8">
         <!-- Apion CRM v0.1+ -->
         <div class="flex flex-col ">
-            <header class="bg-green-500 to-white border-white rounded-tl-3xl">
-                <div class="flex max-w-1xl mx-auto py-4 px-4 sm:px-4 lg:px-8 gap-2">
-                    <h1 class="text-1xl font-bold text-white">
+            <header class="bg-green-600">
+                <div class="flex justify-items-stretch items-center max-w-1xl mx-auto p-3 gap-2 justify-between">
+                    <h1 class="text-1xl font-bold text-white hover:bg-green-800 rounded-md rounded-l-2xl p-2">
                         <div class="flex items-center">
-                            <div><a href="home">
+                            <div><a href="clientsdash">
                                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white">
                                         <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
                                     </svg>
                             </div>
-                            <div style="float: left;">
+                            <div style="float: left;" class="uppercase">
                                 Back</a>
                                 <!--<?php echo $row['client_id']; ?>-->
                             </div>
                         </div>
                     </h1>
-                </div>
-            </header>
-            <header class="bg-green-600">
-                <div class="grid justify-items-stretch max-w-1xl mx-auto py-4 px-4 sm:px-4 lg:px-8 gap-2">
                     <h1 class="text-1xl font-bold text-white justify-self-center uppercase">
                         <div class="items-center">
                             <div>
@@ -147,6 +143,7 @@ Clients require attention:
                             </div>
                         </div>
                     </h1>
+                    <div></div>
                 </div>
             </header>
             <main>
@@ -398,11 +395,11 @@ Clients require attention:
                                                 <!--technician who recieved the inspection-->
                                                 <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                                                     <?php
-                                                    if (empty($row['jorcver'])) { ?>
+                                                    if (empty($row['inspecrcver'])) { ?>
                                                         <input placeholder="Tech Name" type="text" name="inrcvrtname" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-auto"></input>
                                                     <?php } else { ?>
                                                         <?php
-                                                        echo $row['jorcver'];
+                                                        echo $row['inspecrcver'];
                                                         ?>
                                                     <?php } ?>
                                                 </td>
@@ -580,7 +577,7 @@ Clients require attention:
                                                 <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['jo_dayrcv'])) { ?>
-                                                        <input placeholder="10" type="date" min="2020-01-01" max="2050-12-31" name="jDrcv" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-17"></input>
+                                                        <input placeholder="10" type="date" name="jDrcv" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-17"></input>
                                                     <?php } else { ?>
                                                         <?php
                                                         $inspecdrcv = $row['jo_dayrcv'];
@@ -592,7 +589,7 @@ Clients require attention:
                                                 <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['jo_day'])) { ?>
-                                                        <input type="date" name="joderDay" min="2020-01-01" max="2050-12-31" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-17"></input>
+                                                        <input type="date" name="joderDay" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-17"></input>
                                                     <?php } else { ?>
                                                         <div class="text-sm text-gray-500">
                                                             <?php

@@ -40,6 +40,8 @@ CREATE TABLE `users` (
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `urole` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
   `tel` varchar(255) NOT NULL,
   `userpassword` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,

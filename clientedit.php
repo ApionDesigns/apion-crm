@@ -114,11 +114,11 @@ if (empty($rtrcvname)) {
 ///////////////////////////////
 
 //collects user input for job order recieved by
-$rtjorcvname = mysqli_real_escape_string($conn, $_POST['jdrvr']);
+$jorcvname = mysqli_real_escape_string($conn, $_POST['jdrvr']);
 if (empty($_POST['jdrvr'])) {
     echo "price not working";
 } else {
-    $sql2 = mysqli_query($conn, "UPDATE clients SET jorcver = $rtjorcvname WHERE client_id = '{$client}'");
+    $sql2 = mysqli_query($conn, "UPDATE clients SET jorcver = '$jorcvname' WHERE client_id = '{$client}'");
     echo "working";
 }
 //collects user input for date recieved
@@ -126,7 +126,7 @@ if (empty($_POST['jDrcv'])) {
     echo "invoicing not working";
 } else {
     $jDrcv = $_POST['jDrcv'];
-    $sql2 = mysqli_query($conn, "UPDATE clients SET jo_dayrcv = $jDrcv WHERE client_id = '{$client}'");
+    $sql2 = mysqli_query($conn, "UPDATE clients SET jo_dayrcv = '$jDrcv' WHERE client_id = '{$client}'");
     echo "working";
 }
 //collects user input for job order date
@@ -134,7 +134,7 @@ if (empty($_POST['joderDay'])) {
     echo "price not working";
 } else {
     $jodate = $_POST['joderDay'];
-    $sql2 = mysqli_query($conn, "UPDATE clients SET jo_day = $jodate WHERE client_id = '{$client}'");
+    $sql2 = mysqli_query($conn, "UPDATE clients SET jo_day = '$jodate' WHERE client_id = '{$client}'");
     echo "working";
 }
 //collects user input for job order expected return date
@@ -142,16 +142,16 @@ if (empty($_POST['joderDay'])) {
 if (empty($_POST['exjoDayrt'])) {
     echo "invoicing not working";
 } else {
-    $jortrcvname = $_POST['exjoDayrt'];
-    $sql2 = mysqli_query($conn, "UPDATE clients SET jo_exdayrt = '$rtrcvname' WHERE client_id = '{$client}'");
+    $exjortrcvname = $_POST['exjoDayrt'];
+    $sql2 = mysqli_query($conn, "UPDATE clients SET jo_exdayrt = '$exjortrcvname' WHERE client_id = '{$client}'");
     echo "working";
 }
 //collects user input for job order date return
 if (empty($_POST['joderDayrt'])) {
     echo "invoicing not working";
 } else {
-    $rtrcvname = $_POST['joderDayrt'];
-    $sql2 = mysqli_query($conn, "UPDATE clients SET jo_dayrt = '$rtrcvname' WHERE client_id = '{$client}'");
+    $jortrcvname = $_POST['joderDayrt'];
+    $sql2 = mysqli_query($conn, "UPDATE clients SET jo_dayrt = '$jortrcvname' WHERE client_id = '{$client}'");
     echo "working";
 }
 header("location: edit.php?e=$client");

@@ -10,20 +10,28 @@
             <p class="text-sm"> HOME</p>
         </div>
     </a>
-    <a href="usercreate" class="flex hover:bg-green-700 bg-green-600 text-xs border-b border-gray-50 flex w-full">
-        <div class="flex ">
-            <svg class="h-5 w-5 self-center mr-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
-            </svg>
-            <p class="text-sm"> USERS</p>
-        </div>
-    </a>
     <a href="job" class="flex hover:bg-green-700 bg-green-600 text-xs border-b border-gray-50 flex w-full">
         <div class="flex ">
             <svg class="h-5 w-5 self-center mr-5" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
             </svg>
             <p class="text-sm"> NEW JOB</p>
+        </div>
+    </a>
+    <a href="clientsdash" class="flex hover:bg-green-700 bg-green-600 text-xs border-b border-gray-50 flex w-full">
+        <div class="flex ">
+            <svg class="h-5 w-5 self-center mr-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+            </svg>
+            <p class="text-sm uppercase"> Dashboard</p>
+        </div>
+    </a>
+    <a href="usercreate" class="flex hover:bg-green-700 bg-green-600 text-xs border-b border-gray-50 flex w-full">
+        <div class="flex ">
+            <svg class="h-5 w-5 self-center mr-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+            </svg>
+            <p class="text-sm"> USERS</p>
         </div>
     </a>
     <a href="leads" class="flex hover:bg-green-700 bg-green-600 text-xs border-b border-gray-50 flex w-full">
@@ -34,6 +42,7 @@
             <p class="text-sm"> LEADS</p>
         </div>
     </a>
+
     <a href="reports" class="flex hover:bg-green-700 bg-green-600 text-xs border-b border-gray-50 flex w-full">
         <div class="flex ">
             <svg class="h-5 w-5 self-center mr-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
