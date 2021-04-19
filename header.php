@@ -2,7 +2,6 @@
     <meta name="description" content="The HTML5 Herald">
     <meta name="author" content="Apion">
     <meta charset="utf-8">
-    <link href="css/tailwind.css" rel="stylesheet">
     <link href="css/sidebar.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/modal.css" rel="stylesheet">
