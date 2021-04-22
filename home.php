@@ -32,11 +32,14 @@ if (mysqli_num_rows($sql) > 0) {
 include "header.php";
 ?>
 
-<body class="bg-gray-100">
-    <div style="z-index: 99;position: fixed;"><?php include "sidebar.php" ?></div>
-    <div style="position: fixed; width:100%; z-index:98;"><?php include_once("menu.php") ?></div>
-
-    <!--sidebar menu-->
+<body class="bg-gray-100 max-h-screen">
+    <div><?php include "sidebar.php" ?></div>
+    <div><?php include_once("menu.php") ?></div>
+    <div class="grid grid-cols-4 grid-flow-col gap-8 h-screen mr-10 ml-10">
+        <div class="w-full h-full"></div>
+        <div class="bg-white p-2 shadow-md w-full h-full col-span-2"> </div>
+        <div class="bg-white w-full h-full"> </div>
+    </div>
 
     <footer class="footer"><?php include_once('hfooter.php'); ?></footer>
 </body>

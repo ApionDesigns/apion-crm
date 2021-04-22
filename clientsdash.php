@@ -35,18 +35,6 @@ include "header.php";
 <body class="bg-gray-100">
     <div style="z-index: 99;position: fixed;"><?php include "sidebar.php" ?></div>
     <div style="position: fixed; width:100%; z-index:98;"><?php include_once("menu.php") ?></div>
-    <!--pop button for email form-->
-    <button onclick="myFunction()" style="position: absolute; right:15px; bottom:0px; z-index:102;" class="ring-0 focus:outline-none">
-        <svg class="w-12 h-12 m-5 bg-green-500 hover:bg-green-800 rounded-full p-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white">
-            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-        </svg>
-    </button>
-
-    <!--display the email form-->
-    <div id="myDIV" style="position: absolute; right:30px; bottom:0px; z-index:101; display:none">
-        <?php include("emailpop.php") ?>
-    </div>
 
     <!--grid top columns-->
     <div class="p-8">
@@ -61,16 +49,16 @@ include "header.php";
                         <h1 class="text-2xl h-full font-bold text-white uppercase text-left bg-green-800 p-2 rounded-br-2xl">
                             Client Dashboard
                         </h1>
-                        <div class="flex shadow bg-green-600 justify-end w-auto " style="right: 0px;">
-                            <div class="whitespace-nowrap text-center bg-yellow-500 p-1">
+                        <div class="flex justify-end w-auto gap-2" style="right: 0px;">
+                            <div class="whitespace-nowrap text-center bg-white p-1 ">
                                 <div class="rounded-md">
-                                    <p class="text-white text-sm border-b border-white">OUTSTANDING</p>
+                                    <p class="text-white text-sm font-bold border-b border-white bg-green-700 p-1">OUTSTANDING</p>
                                 </div>
-                                <div class="text-xs font-bold text-white"><?php echo $count - $count2; ?></div>
+                                <div class="text-xs font-bold text-green-700"><?php echo $count - $count2; ?></div>
                             </div>
                             <div class="whitespace-nowrap text-center bg-white p-1">
                                 <div class="rounded-md">
-                                    <p class="text-green-700 text-sm border-b border-black">PAYED</p>
+                                    <p class="text-white bg-green-700 text-sm font-bold p-1">PAYED</p>
                                 </div>
                                 <div class="text-xs font-bold text-green-700"><?php echo $count2; ?></div>
                             </div>
@@ -126,7 +114,14 @@ include "header.php";
                                                 </td>
                                             </tr>
                                         </thead>
-                                        <?php while ($row = $query->fetch_array()) { ?>
+
+                                        <?php
+                                        $num = 0;
+                                        $counted = 10;
+                                        while (
+                                            $row = $query->fetch_array()
+                                        ) {
+                                            $num++ ?>
                                             <tbody class="bg-white divide-y divide-white">
                                                 <!--table information-->
                                                 <tr>

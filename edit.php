@@ -386,9 +386,15 @@ Clients require attention:
                                         $conn = mysqli_connect($hostname, $username, $password, $dbname);
                                         $edit = mysqli_real_escape_string($conn, $_GET['e']);
                                         $sql = mysqli_query($conn, "SELECT * FROM clients WHERE client_id = '{$edit}'");
+                                        $sql4 = mysqli_query($conn, "SELECT * FROM users");
+                                        $sql5 = mysqli_query($conn, "SELECT * FROM users");
+                                        $sql6 = mysqli_query($conn, "SELECT * FROM users");
                                         $query2 = $conn->query("SELECT * FROM clients WHERE client_id = '{$edit}'");
                                         if (mysqli_num_rows($sql) > 0) {
                                             $row = mysqli_fetch_assoc($sql);
+                                            $row4 = mysqli_fetch_assoc($sql4);
+                                            $row5 = mysqli_fetch_assoc($sql5);
+                                            $row6 = mysqli_fetch_assoc($sql6);
                                         } ?>
                                         <tbody class="bg-white divide-y divide-gray-200">
                                             <tr>
@@ -396,12 +402,15 @@ Clients require attention:
                                                 <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['inspecrcver'])) { ?>
-                                                        <input placeholder="Tech Name" type="text" name="inrcvrtname" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-auto"></input>
-                                                    <?php } else { ?>
-                                                        <?php
+                                                        <select name="inrcvrtname" class="p-1 rounded-md">
+                                                            <option value="" disabled selected>Employee</option>
+                                                            <?php while ($row5 = $sql5->fetch_array()) { ?>
+                                                                <option value="<?php echo $row5['username'] ?>"><?php echo $row5['username'] ?></option>
+                                                            <?php } ?>
+                                                        </select>
+                                                    <?php } else {
                                                         echo $row['inspecrcver'];
-                                                        ?>
-                                                    <?php } ?>
+                                                    } ?>
                                                 </td>
 
                                                 <!--inspection recieved date-->
@@ -420,12 +429,15 @@ Clients require attention:
                                                 <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['lead_tech'])) { ?>
-                                                        <input placeholder="Lead Tech" name="leadTech" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-auto"></input>
-                                                    <?php } else { ?>
-                                                        <?php
+                                                        <select name="leadTech" class="p-1 rounded-md">
+                                                            <option value="" disabled selected>Employee</option>
+                                                            <?php while ($row4 = $sql4->fetch_array()) { ?>
+                                                                <option value="<?php echo $row4['username'] ?>"><?php echo $row4['username'] ?></option>
+                                                            <?php } ?>
+                                                        </select>
+                                                    <?php } else {
                                                         echo $row['lead_tech'];
-                                                        ?>
-                                                    <?php } ?>
+                                                    } ?>
                                                 </td>
                                                 <!--inspection date-->
                                                 <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
@@ -483,12 +495,15 @@ Clients require attention:
                                                 <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['rtinspec_rcver'])) { ?>
-                                                        <input placeholder="RCV NAME" name="rturnrcvname" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-auto"></input>
-                                                    <?php } else { ?>
-                                                        <?php
+                                                        <select name="rturnrcvname" class="p-1 rounded-md">
+                                                            <option value="" disabled selected>Employee</option>
+                                                            <?php while ($row6 = $sql6->fetch_array()) { ?>
+                                                                <option value="<?php echo $row6['username'] ?>"><?php echo $row6['username'] ?></option>
+                                                            <?php } ?>
+                                                        </select>
+                                                    <?php } else {
                                                         echo $row['rtinspec_rcver'];
-                                                        ?>
-                                                    <?php } ?>
+                                                    } ?>
                                                 </td>
                                                 <!--date return reciever recieved inspection-->
                                                 <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
@@ -556,8 +571,11 @@ Clients require attention:
                                         $edit = mysqli_real_escape_string($conn, $_GET['e']);
                                         $sql = mysqli_query($conn, "SELECT * FROM clients WHERE client_id = '{$edit}'");
                                         $query2 = $conn->query("SELECT * FROM clients WHERE client_id = '{$edit}'");
+                                        $sql4 = mysqli_query($conn, "SELECT * FROM users");
                                         if (mysqli_num_rows($sql) > 0) {
                                             $row = mysqli_fetch_assoc($sql);
+                                            $row4 = mysqli_fetch_assoc($sql4);
+                                            $row5 = mysqli_fetch_assoc($sql5);
                                         } ?>
                                         <tbody class="bg-white divide-y divide-gray-200">
                                             <tr>
@@ -565,12 +583,15 @@ Clients require attention:
                                                 <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['jorcver'])) { ?>
-                                                        <input placeholder="Tech Name" type="text" name="jdrvr" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-auto"></input>
-                                                    <?php } else { ?>
-                                                        <?php
+                                                        <select name="jdrvr" class="p-1 rounded-md">
+                                                            <option value="" disabled selected>Employee</option>
+                                                            <?php while ($row4 = $sql4->fetch_array()) { ?>
+                                                                <option value="<?php echo $row4['username'] ?>"><?php echo $row4['username'] ?></option>
+                                                            <?php } ?>
+                                                        </select>
+                                                    <?php } else {
                                                         echo $row['jorcver'];
-                                                        ?>
-                                                    <?php } ?>
+                                                    } ?>
                                                 </td>
 
                                                 <!--job order recieved date-->
@@ -663,7 +684,6 @@ Clients require attention:
                                 <table class="min-w-full divide-y divide-gray-200 mt-2">
                                     <thead class="bg-green-500">
                                         <tr>
-                                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider text-center border-l border-gray-200">INSPECTION</th>
                                             <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider text-center border-l border-gray-200">JOB ORDER</th>
                                         </tr>
                                     </thead>
@@ -682,35 +702,7 @@ Clients require attention:
                                             $row2 = mysqli_fetch_assoc($sql2);
                                         } ?>
                                         <tr>
-                                            <td class="grid px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center justify-center place-items-center">
-                                                <!--image to be displayed-->
-                                                <?php
-                                                if (empty($row['imgfile_name'])) { ?>
-                                                    <!--image upload for inspection-->
-                                                    <form action="inspecimgupload.php?client_id=<?php echo $row['client_id'] ?>" method="post" enctype="multipart/form-data" class="grid justify-items-stretch p-2 bg-white">
-                                                        <div class="flex w-full h-full items-center justify-center bg-grey-lighter">
-                                                            <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-gray-800">
-                                                                <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                                    <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-                                                                </svg>
-                                                                <span class="mt-2 text-base leading-normal">Select a file</span>
-                                                                <input type='file' name="file" class="hidden" />
-                                                            </label>
-                                                        </div>
-                                                        <input type="submit" name="submit" value="Upload Inspection" class="p-2 m-2 w-96 justify-self-center bg-gray-200 hover:bg-gray-800 hover:text-white cursor-pointer">
 
-                                                    </form>
-                                                <?php } else { ?>
-                                                    <img id="myImg" class="object-center " style="width: 20%; height: 100%;" alt="Inspection" src="uploads/insp/<?php echo $row['imgfile_name']; ?>">
-                                                <?php }
-                                                ?>
-                                                <!--display image larger for viewer-->
-                                                <div id="myModal" class="modal" style="z-index:100;">
-                                                    <span class="close">&times;</span>
-                                                    <img class="modal-content" id="img01">
-                                                    <div id="caption"></div>
-                                                </div>
-                                            </td>
                                             <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                                                 <?php
                                                 if (empty($row2['imgfile_name'])) { ?>

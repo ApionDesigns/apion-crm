@@ -18,7 +18,7 @@ if (mysqli_num_rows($sql) > 0) {
 <body class="bg-gray-50">
     <?php include_once("menu.php") ?>
     <div class="p-2 grid justify-items-stretch mt-6">
-        <div class="mt-5 md:mt-0 md:col-span-2 justify-self-center">
+        <div class="mt-5 md:mt-0 md:col-span-2 justify-self-center shadow rounded-md">
             <form enctype="multipart/form-data" action="clientCreate.php" method="POST">
                 <div class="overflow-hidden sm:rounded-md ">
                     <p class="grid grid-cols-2 gap-2 text-4xl font-bold p-2 bg-green-500 text-white pl-5">Client Form
@@ -77,7 +77,7 @@ if (mysqli_num_rows($sql) > 0) {
                                     <option value="Upholstery-Cleaning">Upholstery Cleaning</option>
                                     <option value="Carpet-Cleaning">Carpet Cleaning</option>
                                     <option value="Power-Washing">Power Washing</option>
-                                    <option value="Chair-Cleaning">Chair Cleanin</option>
+                                    <option value="Chair-Cleaning">Chair Cleaning</option>
                                     <option value="Flood-Remediation">Flood Remediation</option>
                                     <option value="Chemicals">Chemicals</option>
                                 </select>

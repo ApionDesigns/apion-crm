@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['user_uid'])) {
+    header("location: index");
+}
+?>
+<?php
 $hostname = "localhost";
 $username = "root";
 $password = "";
@@ -23,10 +29,10 @@ include "header.php";
     <?php include "menu.php" ?>
 
     <div class="px-10 justify-center flex h-auto">
-        <div class="flex relative gap-x-5 z-10 pb-8 sm:pb-16 md:pb-20 lg:w-full">
+        <div class="grid grid-flow-col grid-cols-4 relative gap-x-5 z-10 pb-8 sm:pb-16 md:pb-20 lg:w-full">
 
-            <div class="h-96 w-auto">
-                <main class="mt-10 shadow">
+            <div class=" mt-10 h-96 w-auto shadow hover:shadow-2xl">
+                <main class="shadow">
                     <!--forms for registering and sign in-->
                     <div>
                         <form action="register.php" method="POST" enctype="multipart/form-data" autocomplete="off">
@@ -50,9 +56,12 @@ include "header.php";
                     </div>
                 </main>
             </div>
-            <div class="h-auto w-auto mt-10 bg-white shadow p-2 rounded-md ml-32" style="overflow-y: scroll; overflow-x:hidden;">
+            <div class="h-auto w-auto col-span-3 mt-10 bg-white shadow hover:shadow-2xl rounded-md" style="overflow-y: scroll; overflow-x:hidden;">
                 <!-- Display Users -->
                 <div class="flex flex-col">
+                    <h1 class="text-2xl h-full font-bold text-white uppercase text-left bg-green-800 p-2">
+                        Employee information
+                    </h1>
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                             <div class="overflow-hidden border-b border-gray-200">
@@ -117,15 +126,6 @@ include "header.php";
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="w-96 h-auto bg-white shadow-md mt-10 rounded-t-2xl">
-                <div class="w-full bg-green-400 p-4 text-white uppercase rounded-t-2xl">messages</div>
-                <div class="p-4 h-96"></div>
-                <div class="grid grid-rows p-4 w-full gap-2">
-                    <input type="text" placeholder="username" class="bg-gray-100 p-4 rounded-md">
-                    <textarea placeholder="Message" class="w-full p-2 bg-gray-50"></textarea>
-                    <input type="submit" value="Post" class="p-3 bg-green-500 text-white text-center font-bold">
                 </div>
             </div>
         </div>

@@ -14,10 +14,37 @@ $output = "";
 $conn = mysqli_connect($hostname, $username, $password, $dbname);
 $sql = mysqli_query($conn, "SELECT * FROM clients ORDER BY created_at DESC");
 $query = $conn->query("SELECT * FROM clients ORDER BY created_at DESC");
+$spray = $conn->query("SELECT * FROM clients WHERE job_type = 'Spraying'");
+$Baiting = $conn->query("SELECT * FROM clients WHERE job_type = 'Baiting'");
+$Misting = $conn->query("SELECT * FROM clients WHERE job_type = 'Misting'");
+$Fogging = $conn->query("SELECT * FROM clients WHERE job_type = 'Fogging'");
+$Fumigation = $conn->query("SELECT * FROM clients WHERE job_type = 'Fumigation'");
+$Dusting = $conn->query("SELECT * FROM clients WHERE job_type = 'Dusting'");
+$Pumping = $conn->query("SELECT * FROM clients WHERE job_type = 'Drilling-&-Pumping'");
+$Upholstery = $conn->query("SELECT * FROM clients WHERE job_type = 'Upholstery-Cleaning'");
+$Carpet = $conn->query("SELECT * FROM clients WHERE job_type = 'Carpet-Cleaning'");
+$Power = $conn->query("SELECT * FROM clients WHERE job_type = 'Power-Washing'");
+$Chair = $conn->query("SELECT * FROM clients WHERE job_type = 'Chair-Cleaning'");
+$Flood = $conn->query("SELECT * FROM clients WHERE job_type = 'Flood-Remediation'");
+$Chemicals = $conn->query("SELECT * FROM clients WHERE job_type = 'Chemicals'");
 $result = $conn->query("SELECT * FROM clients");
 $pay = $conn->query("SELECT * FROM clients WHERE payed = TRUE");
+
 $count = $result->num_rows;
 $count2 = $pay->num_rows;
+$sprayed = $spray->num_rows;
+$Bait = $Baiting->num_rows;
+$Mist = $Misting->num_rows;
+$Fog = $Fogging->num_rows;
+$Fum = $Fumigation->num_rows;
+$Dust = $Dusting->num_rows;
+$Pump = $Pumping->num_rows;
+$Uphol = $Upholstery->num_rows;
+$Carp = $Carpet->num_rows;
+$Pow = $Power->num_rows;
+$Chai = $Chair->num_rows;
+$Flo = $Flood->num_rows;
+$Chem = $Chemicals->num_rows;
 if (mysqli_num_rows($sql) > 0) {
     $row = mysqli_fetch_assoc($sql);
     $created_at = date('d-m-Y', strtotime($row['created_at'] . ' + 1 days'));
@@ -58,8 +85,6 @@ include "header.php";
                             ['Opening Move', '#'],
                             ["JOBS", Number(jobs)],
                             ["JOBS COMPLETED", Number(jcom)],
-                            ["JOBS", Number(jobs)],
-                            ["JOBS", Number(jobs)]
                         ]);
 
                         var options = {
@@ -97,6 +122,19 @@ include "header.php";
 
             <div>
                 <script type="text/javascript">
+                    var sprayed = '<?php echo $sprayed; ?>';
+                    var Bait = '<?php echo $Bait; ?>';
+                    var Mist = '<?php echo $Mist; ?>';
+                    var Fog = '<?php echo $Fog; ?>';
+                    var Fum = '<?php echo $Fum; ?>';
+                    var Dust = '<?php echo $Dust; ?>';
+                    var Pump = '<?php echo $Pump; ?>';
+                    var Uphol = '<?php echo $Uphol; ?>';
+                    var Carp = '<?php echo $Carp; ?>';
+                    var Pow = '<?php echo $Pow; ?>';
+                    var Chai = '<?php echo $Chai; ?>';
+                    var Flo = '<?php echo $Flo; ?>';
+                    var Chem = '<?php echo $Chem; ?>';
                     //donut chart job category performance
                     google.charts.load('current', {
                         'packages': ['corechart']
@@ -107,18 +145,18 @@ include "header.php";
 
                         var data = google.visualization.arrayToDataTable([
                             ['Task', 'Hours per Day'],
-                            ['Spraying', 2],
-                            ['Baiting', 2],
-                            ['Fogging', 2],
-                            ['Fumigation', 2],
-                            ['Dusting', 2],
-                            ['Drilling & Pumping', 2],
-                            ['Upholstery Cleaning', 2],
-                            ['Carpet Cleaning', 2],
-                            ['Power Washing', 2],
-                            ['Chair Cleaning', 2],
-                            ['Flood Remediation', 2],
-                            ['Chemicals', 2]
+                            ['Spraying', Number(sprayed)],
+                            ['Baiting', Number(Bait)],
+                            ['Fogging', Number(Mist)],
+                            ['Fumigation', Number(Fum)],
+                            ['Dusting', Number(Dust)],
+                            ['Drilling & Pumping', Number(Pump)],
+                            ['Upholstery Cleaning', Number(Uphol)],
+                            ['Carpet Cleaning', Number(Carp)],
+                            ['Power Washing', Number(Pow)],
+                            ['Chair Cleaning', Number(Chai)],
+                            ['Flood Remediation', Number(Flo)],
+                            ['Chemicals', Number(Chem)]
                         ]);
 
                         var options = {

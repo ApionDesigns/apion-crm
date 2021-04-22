@@ -1,4 +1,29 @@
 <?php
+session_start();
+if (!isset($_SESSION['user_uid'])) {
+  header("location: index");
+}
+?>
+
+<?php
+$hostname = "localhost";
+$username = "root";
+$password = "";
+$dbname = "apcrm";
+$output = "";
+$conn = mysqli_connect($hostname, $username, $password, $dbname);
+$sql = mysqli_query($conn, "SELECT * FROM clients ORDER BY created_at DESC");
+$query = $conn->query("SELECT * FROM clients ORDER BY created_at DESC");
+$result = $conn->query("SELECT * FROM clients");
+$pay = $conn->query("SELECT * FROM clients WHERE payed = TRUE");
+$count = $result->num_rows;
+$count2 = $pay->num_rows;
+if (mysqli_num_rows($sql) > 0) {
+  $row = mysqli_fetch_assoc($sql);
+  $created_at = date('d-m-Y', strtotime($row['created_at'] . ' + 1 days'));
+}
+?>
+<?php
 include "header.php";
 ?>
 <?php

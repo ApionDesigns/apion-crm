@@ -47,5 +47,5 @@ if (isset($_POST["submit"]) && !empty($_FILES["file"]["name"])) {
 // Display status message
 echo $statusMsg;
 //redirects to the page previsous being edited
-header("location: edit.php?edit_id=$client");
+header("location: edit.php?e=$client");
 ?>

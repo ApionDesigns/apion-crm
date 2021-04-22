@@ -20,7 +20,6 @@ if (!empty($username) && !empty($upw)) {
                 session_start();
                 $_SESSION['user_uid'] = $row['user_uid'];
                 $_SESSION['username'] = $row['username'];
-                $_SESSION['user_id'] = $row['user_id'];
                 //echo "success";                   
                 header("location: home");
             } else {
