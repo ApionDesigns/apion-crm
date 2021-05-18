@@ -147,7 +147,7 @@ Clients require attention:
                 </div>
             </header>
             <main>
-                <div class="max-w-3x1 mx-auto py-2">
+                <div class="max-w-3x1 mx-auto">
                     <!-- display user content -->
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -159,34 +159,34 @@ Clients require attention:
                                                 <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider">
                                                     Client Information
                                                 </th>
-                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
+                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center">
                                                     unique id
                                                 </th>
-                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
+                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center">
                                                     Created Date
                                                 </th>
-                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
+                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center">
                                                     Contact
                                                 </th>
-                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
+                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center">
                                                     Job Type
                                                 </th>
-                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
+                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center">
                                                     Inspection<br> Date
                                                 </th>
-                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
+                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center">
                                                     Date Inspection<br> Returned
                                                 </th>
-                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
+                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center">
                                                     Date<br>of job
                                                 </th>
-                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
+                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center">
                                                     Invoice#
                                                 </th>
-                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
+                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center">
                                                     Cost
                                                 </th>
-                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center border-l border-gray-200">
+                                                <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider text-center">
                                                     payed
                                                 </th>
                                             </tr>
@@ -316,7 +316,22 @@ Clients require attention:
                                                     </td>
                                                     <!--amount payed by client-->
                                                     <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
-                                                        <?php echo $row['payed']; ?>
+                                                        <?php
+                                                        if (empty($row['payed'])) { ?>
+                                                            <select name="jpay" class="p-1 rounded-md">
+                                                                <option value="" disabled selected><?php echo ("STATUS"); ?></option>
+                                                                <option value="1">YES</option>
+                                                                <option value="2">PENDING</option>
+                                                            </select>
+                                                        <?php } else if($row['payed'] == 1) {
+                                                            echo "PAYED";
+                                                        }else if($row['payed' == 2]){ ?>
+                                                            <select name="jpay" class="p-1 rounded-md">
+                                                                <option value="" disabled selected><?php echo ("PENDING"); ?></option>
+                                                                <option value="1">yes</option>
+                                                                <option value="">Pending</option>
+                                                            </select>
+                                                        <?php } ?>
                                                     </td>
                                                 </tr>
                                             <?php } ?>
@@ -335,43 +350,43 @@ Clients require attention:
                                             </h1>
                                         </div>
                                     </header>
-                                    <table class="min-w-full divide-y divide-gray-200 mt-2">
+                                    <table class="min-w-full divide-y divide-gray-200">
                                         <thead class="bg-green-500">
                                             <tr>
                                                 <!--inspection recieved by-->
-                                                <th scope="col" class="border-r border-white px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                <th scope="col" class="px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
                                                     inspection<br>Recieve by
                                                 </th>
                                                 <!--inspection recieved by-->
-                                                <th scope="col" class="border-r border-white px-4 py-3 text-lcenter text-xs text-white uppercase tracking-wider">
+                                                <th scope="col" class="px-4 py-3 text-lcenter text-xs text-white uppercase tracking-wider">
                                                     Date<br>Recieved
                                                 </th>
                                                 <!--lead tech for job-->
-                                                <th scope="col" class=" border-r border-white px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                <th scope="col" class=" px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
                                                     Lead<br>Technician
                                                 </th>
                                                 <!--inspection date-->
-                                                <th scope="col" class=" border-r border-white px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                <th scope="col" class=" px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
                                                     Inspection<br>Date
                                                 </th>
                                                 <!--workers on inspection-->
-                                                <th scope="col" class=" border-r border-white px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                <th scope="col" class=" px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
                                                     inspection<br>Status
                                                 </th>
                                                 <!--expected inspection return date-->
-                                                <th scope="col" class=" border-r border-white px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                <th scope="col" class=" px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
                                                     Expected<br>Returned Date
                                                 </th>
                                                 <!--date inspection actually returned-->
-                                                <th scope="col" class=" border-r border-white px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                <th scope="col" class=" px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
                                                     Date<br>Returned
                                                 </th>
                                                 <!--inspection return reciever-->
-                                                <th scope="col" class=" border-r border-white px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                <th scope="col" class=" px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
                                                     Returned<br>Inspection<br>Recieved by
                                                 </th>
                                                 <!--date return reciever recieved inspection-->
-                                                <th scope="col" class=" border-r border-white px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                <th scope="col" class=" px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
                                                     Date<br>Recieved
                                                 </th>
 
@@ -405,7 +420,7 @@ Clients require attention:
                                                         <select name="inrcvrtname" class="p-1 rounded-md">
                                                             <option value="" disabled selected>Employee</option>
                                                             <?php while ($row5 = $sql5->fetch_array()) { ?>
-                                                                <option value="<?php echo $row5['username'] ?>"><?php echo $row5['username'] ?></option>
+                                                                <option value="<?php echo $row5['first_name'] ?> <?php echo $row5['last_name'] ?>"><?php echo $row5['first_name'] ?> <?php echo $row5['last_name'] ?></option>
                                                             <?php } ?>
                                                         </select>
                                                     <?php } else {
@@ -432,7 +447,7 @@ Clients require attention:
                                                         <select name="leadTech" class="p-1 rounded-md">
                                                             <option value="" disabled selected>Employee</option>
                                                             <?php while ($row4 = $sql4->fetch_array()) { ?>
-                                                                <option value="<?php echo $row4['username'] ?>"><?php echo $row4['username'] ?></option>
+                                                                <option value="<?php echo $row4['first_name'] ?> <?php echo $row4['last_name'] ?>"><?php echo $row4['first_name'] ?> <?php echo $row4['last_name'] ?></option>
                                                             <?php } ?>
                                                         </select>
                                                     <?php } else {
@@ -498,7 +513,7 @@ Clients require attention:
                                                         <select name="rturnrcvname" class="p-1 rounded-md">
                                                             <option value="" disabled selected>Employee</option>
                                                             <?php while ($row6 = $sql6->fetch_array()) { ?>
-                                                                <option value="<?php echo $row6['username'] ?>"><?php echo $row6['username'] ?></option>
+                                                                <option value="<?php echo $row6['first_name'] ?> <?php echo $row6['last_name'] ?>"><?php echo $row6['first_name'] ?> <?php echo $row6['last_name'] ?></option>
                                                             <?php } ?>
                                                         </select>
                                                     <?php } else {
@@ -535,27 +550,27 @@ Clients require attention:
                                         <thead class="bg-green-500">
                                             <tr>
                                                 <!--Job Order recieved by-->
-                                                <th scope="col" class="border-r border-white px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                <th scope="col" class="px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
                                                     Job Order<br>Recieved by
                                                 </th>
                                                 <!--Job Order recieved by-->
-                                                <th scope="col" class="border-r border-white px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                <th scope="col" class="px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
                                                     Date<br>Recieved
                                                 </th>
                                                 <!--inspection date-->
-                                                <th scope="col" class=" border-r border-white px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                <th scope="col" class=" px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
                                                     Job Order<br>Date
                                                 </th>
                                                 <!--workers on Job Order-->
-                                                <th scope="col" class=" border-r border-white px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                <th scope="col" class=" px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
                                                     Job Order<br> Status
                                                 </th>
                                                 <!--expected Job Order return date-->
-                                                <th scope="col" class=" border-r border-white px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                <th scope="col" class=" px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
                                                     Expected<br>Return Date
                                                 </th>
                                                 <!--date Job Order actually returned-->
-                                                <th scope="col" class=" border-r border-white px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                <th scope="col" class=" px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
                                                     Date<br>Returned
                                                 </th>
 
@@ -586,7 +601,7 @@ Clients require attention:
                                                         <select name="jdrvr" class="p-1 rounded-md">
                                                             <option value="" disabled selected>Employee</option>
                                                             <?php while ($row4 = $sql4->fetch_array()) { ?>
-                                                                <option value="<?php echo $row4['username'] ?>"><?php echo $row4['username'] ?></option>
+                                                                <option value="<?php echo $row4['first_name'] ?> <?php echo $row4['last_name'] ?>"><?php echo $row4['first_name'] ?> <?php echo $row4['last_name'] ?></option>
                                                             <?php } ?>
                                                         </select>
                                                     <?php } else {
@@ -681,60 +696,52 @@ Clients require attention:
                                         </h1>
                                     </div>
                                 </header>
-                                <table class="min-w-full divide-y divide-gray-200 mt-2">
-                                    <thead class="bg-green-500">
-                                        <tr>
-                                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider text-center border-l border-gray-200">JOB ORDER</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="bg-white divide-y divide-gray-200">
-                                        <?php
-                                        $hostname = "localhost";
-                                        $username = "root";
-                                        $password = "";
-                                        $dbname = "apcrm";
-                                        $output = "";
-                                        $conn = mysqli_connect($hostname, $username, $password, $dbname);
-                                        $sql = mysqli_query($conn, "SELECT * FROM inspecimages WHERE client_id = '{$edit}'");
-                                        $sql2 = mysqli_query($conn, "SELECT * FROM joimages WHERE client_id = '{$edit}'");
-                                        if (mysqli_num_rows($sql) > 0 or mysqli_num_rows($sql2) > 0) {
-                                            $row = mysqli_fetch_assoc($sql);
-                                            $row2 = mysqli_fetch_assoc($sql2);
-                                        } ?>
-                                        <tr>
+                                <?php
+                                $hostname = "localhost";
+                                $username = "root";
+                                $password = "";
+                                $dbname = "apcrm";
+                                $output = "";
+                                $conn = mysqli_connect($hostname, $username, $password, $dbname);
+                                //$sql = mysqli_query($conn, "SELECT * FROM inspecimages WHERE client_id = '{$edit}'");
+                                $sql2 = mysqli_query($conn, "SELECT * FROM images WHERE client_id = '{$edit}'");
+                                $imglist = $conn->query("SELECT * FROM images WHERE client_id = '{$edit}'");
+                                if (mysqli_num_rows($sql) > 0 ) {
+                                    //$row = mysqli_fetch_assoc($sql);
+                                    $row2 = mysqli_fetch_assoc($sql2);
+                                } ?>
+                                <form action="imgupload.php?client_id=<?php echo $row['client_id'] ?>" method="post" enctype="multipart/form-data" class="grid justify-items-stretch p-2 bg-white">
+                                    <div class="flex w-full h-full items-center justify-center bg-grey-lighter">
+                                        <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg hover:bg-gray-100 tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-gray-800">
+                                            <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                                            </svg>
+                                            <span class="mt-2 text-base leading-normal">Select a Image</span>
+                                            <input type='file' name="file" class="hidden" />
+                                        </label>
+                                    </div>
+                                    <input type="submit" name="submit" value="Upload J.O" class="p-2 m-2 w-96 justify-self-center bg-gray-200 hover:bg-green-800 hover:text-white cursor-pointer">
 
-                                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
-                                                <?php
-                                                if (empty($row2['imgfile_name'])) { ?>
-                                                    <!--image upload for job order-->
-                                                    <form action="joimgupload.php?client_id=<?php echo $row['client_id'] ?>" method="post" enctype="multipart/form-data" class="grid justify-items-stretch p-2 bg-white">
-                                                        <div class="flex w-full h-full items-center justify-center bg-grey-lighter">
-                                                            <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-gray-800">
-                                                                <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                                    <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-                                                                </svg>
-                                                                <span class="mt-2 text-base leading-normal">Select a Image</span>
-                                                                <input type='file' name="file" class="hidden" />
-                                                            </label>
-                                                        </div>
-                                                        <input type="submit" name="submit" value="Upload J.O" class="p-2 m-2 w-96 justify-self-center bg-gray-200 hover:bg-gray-800 hover:text-white cursor-pointer">
-
-                                                    </form>
-                                                <?php } else { ?>
-                                                    <img id="myImg2" class="object-center " style="width: 20%; height: 100%; margin-left:40%;" alt="Job Order" src="uploads/jobo/<?php echo $row2['imgfile_name']; ?>">
-                                                <?php }
-                                                ?>
-                                                <!--display image larger for viewer-->
-                                                <div id="myModal" class="modal" style="z-index:100;">
-                                                    <span class="close">&times;</span>
-                                                    <img class="modal-content" id="img01">
-                                                    <div id="caption"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-
-                                </table>
+                                </form>
+                                <div  class="grid grid-flow-cols grid-cols-4 grid-rows-4 gap-4">
+                                    <?php while ($row2 = $imglist->fetch_array()) { ?>
+                                        <div class="col-span-1">
+                                            <img id="myImg" style="width: 50%; height: 50%;" src="uploads/<?php echo $row2['imgfile_name']; ?>">
+                                            <a download href="uploads/<?php echo $row2['imgfile_name']; ?>">
+                                            <button class="bg-green-400 hover:bg-green-600 p-2 hover:text-white mt-2 rounded-full">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd" />
+                                                </svg>
+                                            </button></a>
+                                        </div>
+                                    <?php }
+                                    ?>
+                                </div>
+                                <div id="myModal" class="modal" style="z-index:100;">
+                                    <span class="close">&times;</span>
+                                    <img class="modal-content" id="img01">
+                                    <div id="caption"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -753,28 +760,6 @@ Clients require attention:
 
     // Get the image and insert it inside the modal - use its "alt" text as a caption
     var img = document.getElementById("myImg");
-    var modalImg = document.getElementById("img01");
-    var captionText = document.getElementById("caption");
-    img.onclick = function() {
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
-    }
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-</script>
-<script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
-
-    // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img = document.getElementById("myImg2");
     var modalImg = document.getElementById("img01");
     var captionText = document.getElementById("caption");
     img.onclick = function() {

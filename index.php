@@ -12,11 +12,10 @@ include "header.php";
 <link href="css/tailwind.css" rel="stylesheet">
 <!--header included above-->
 
-<body class="bg-gray-200">
-    <?php include "menu_login.php" ?>
+<body class="bg-white">
 
     <div class="px-10 justify-center flex items-center">
-        <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full flex justify-center mt-20 rounded-3xl shadow">
+        <div class="relative z-10 pb-8 flex items-center mt-20 rounded-3xl">
 
 
             <main class="mt-10 flex justify-center">
@@ -26,7 +25,7 @@ include "header.php";
                     <form action="login.php" method="POST" enctype="multipart/form-data" autocomplete="off" class="form login p-2">
                         <div class="error-text"></div>
                         <div class=" flex justify-center p-1">
-                            <h1 class="text-4x1 font-bold uppercase">Log In</h1>
+                            <h1 class="text-2xl font-black uppercase text-green-800">Log In</h1>
                         </div>
                         <div class="flex flex-col justify-center bg-white p-2 w-full rounded-md">
                             <input type="text" required="" name="unamel" placeholder="Username" class="p-2 m-2 bg-gray-50 rounded-md border focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent"><br>
@@ -38,5 +37,4 @@ include "header.php";
             </main>
         </div>
     </div>
-    <footer class="footer"><?php include_once('footer.php'); ?></footer>
 </body>

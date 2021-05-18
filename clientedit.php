@@ -108,6 +108,14 @@ if (empty($rtrcvname)) {
     $sql2 = mysqli_query($conn, "UPDATE clients SET rtinspec_rcver = '$rtrcvname' WHERE client_id = '{$client}'");
     echo "working";
 }
+//return reciever name
+$jpay = mysqli_real_escape_string($conn, $_POST['jpay']);
+if (empty($jpay)) {
+    echo "invoicing not working";
+} else {
+    $sql2 = mysqli_query($conn, "UPDATE clients SET payed = '$jpay' WHERE client_id = '{$client}'");
+    echo "working";
+}
 
 ///////////////////////////////
 ////job order starts here//////

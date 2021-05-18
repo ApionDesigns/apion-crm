@@ -6,8 +6,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/modal.css" rel="stylesheet">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-
-    <title>Apion CRM0.1</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
 </head>

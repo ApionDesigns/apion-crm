@@ -47,12 +47,12 @@ include "header.php";
             <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
         </svg>
     </a>
-    <div class="m-8" style="position: relative; z-index:1;">
+    <div class="m-8 mt-2" style="position: relative; z-index:1;">
         <!-- Apion CRM v0.1+ -->
         <div class="flex flex-col">
-            <header class="rounded-md bg-green-500">
+            <header class="rounded-md bg-green-500 rounded-bl-full">
                 <div class="flex max-w-1xl mx-auto py-4 px-4 sm:px-6 lg:px-8 gap-2">
-                    <h1 class="text-3xl font-bold text-white uppercase">
+                    <h1 class="text-3xl font-bold text-white uppercase ml-6">
                         Leads
                     </h1>
             </header>
@@ -80,7 +80,7 @@ include "header.php";
                                         </tr>
                                     </thead>
                                     <?php while ($row = $query->fetch_array()) { ?>
-                                        <tbody class="bg-white divide-y divide-white">
+                                        <tbody class="bg-white divide-y divide-white hover:bg-gray-100">
                                             <!--while  there is data in the database-->
                                             <!--table information-->
                                             <tr>
@@ -95,7 +95,7 @@ include "header.php";
                                                     </div>
                                                 </td>
                                                 <!--unique id for clients-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-center border-r border-white border-b">
+                                                <td class="px-4 py-4 whitespace-nowrap text-center">
                                                     <div class="text-sm text-gray-500"><?php echo $row['email']; ?></div>
                                                 </td>
                                                 <!--tel-->
