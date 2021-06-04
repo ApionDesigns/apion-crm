@@ -712,7 +712,7 @@ Clients require attention:
                                 <table class="min-w-full divide-y divide-gray-200">
                                 <tr>
                                             <form method="post" action="bait.php?e=<?php echo $row['client_id'] ?>">
-                                                <td class="px-4 py-3 text-center text-xs uppercase tracking-wider"><input type="text" placeholder="eg. 239335" class="p-2 rounded-md border w-full shadow-inner" name="bait_st_name"></td>
+                                                <td class="px-4 py-3 text-center text-xs uppercase tracking-wider"><input type="text" placeholder="eg. 3423432" class="p-2 rounded-md border w-full shadow-inner" name="bait_st_name"></td>
                                                 <td class="px-4 py-3 text-center text-xs text-white uppercase tracking-wider grid"><button class="bg-green-300 p-2 rounded-md hover:bg-green-400 uppercase">create</button></td>
                                             </form>
                                         </tr>
