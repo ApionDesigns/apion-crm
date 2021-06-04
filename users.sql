@@ -18,7 +18,6 @@ CREATE TABLE `clients` (
   `rtinspec_dayrcv` DATE NULL,
   `day_of_job` DATE NULL,
   `lead_tech` varchar(255) NOT NULL,
-  `quotation` varchar(255) NOT NULL,
   `invoice_id` varchar(255) NOT NULL,
   `cost` int(255) NOT NULL,
   `payed` int(255) NOT NULL,
@@ -48,6 +47,38 @@ CREATE TABLE `users` (
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--------------------------------------------------
+
+CREATE TABLE `admins` (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `tax` int(255) NOT NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--------------------------------------------------
+CREATE TABLE `bait_stations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `client_id` int(255) NOT NULL,
+  `status1` varchar(255) NOT NULL,
+  `date1` int(255) NOT NULL,
+  `status2` varchar(255) NOT NULL,
+  `date2` int(255) NOT NULL,
+  `status3` varchar(255) NOT NULL,
+  `date3` int(255) NOT NULL,
+  `status4` varchar(255) NOT NULL,
+  `date4` int(255) NOT NULL,
+  `status5` varchar(255) NOT NULL,
+  `date5` int(255) NOT NULL,
+  `status6` varchar(255) NOT NULL,
+  `date6` int(255) NOT NULL,
+  `status7` varchar(255) NOT NULL,
+  `date7` int(255) NOT NULL,
+  `status8` varchar(255) NOT NULL,
+  `date8` int(255) NOT NULL,
+  `status9` varchar(255) NOT NULL,
+  `date9` int(255) NOT NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 --------------------------------------------------
 CREATE TABLE `inspecimages` (
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,

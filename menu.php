@@ -7,12 +7,12 @@ $dbname = "apcrm";
 $output = "";
 $conn = mysqli_connect($hostname, $username, $password, $dbname);
 $query3 = $conn->query("SELECT * FROM users");
-if (mysqli_num_rows($sql) > 0) {
+if (mysqli_num_rows($query3) > 0) {
     $row3 = mysqli_fetch_assoc($query3);
 }
 ?>
 <div>
-    <nav class="bg-green-800 shadow-md">
+    <nav class="bg-gradient-to-r from-green-400 to-blue-500 shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex gap-4 items-center">
@@ -42,20 +42,18 @@ if (mysqli_num_rows($sql) > 0) {
                         </div>
                     </div>
                 </div>
+                <div class="p-2 bg-gray-800 text-xs text-white">
+                    <?php
+                    echo date('j / m / Y');
+                    //echo "Day " . date("l");
+                    ?>
+                </div>
                 <div class="hidden md:block">
                     <div class="ml-4 flex items-center md:ml-6">
                         <!-- Profile dropdown -->
                         <div class="flex items-center gap-4 relative">
-                            <div class="bg-green-700 text-white px-2 py-1 text-sm font-medium flex items-center">
-                                <div class="p-2 rounded-md font-bold">
-                                    <?php
-                                    echo date('j, F Y');
-                                    //echo "Day " . date("l");
-                                    ?>
-                                </div>
-                            </div>
                             <!--drop down menu button-->
-                            <div x-data="{ dropdownOpen: false }" class="grid grid-cols-1 relative md:m-0 w-8 h-8 justify-items-center bg-green-800 hover:bg-green-700 rounded-full" style="margin-left: 10px;">
+                            <div x-data="{ dropdownOpen: false }" class="grid grid-cols-1 relative md:m-0 w-8 h-8 justify-items-center hover:bg-green-400 rounded-full" style="margin-left: 10px;">
                                 <button @click="dropdownOpen = !dropdownOpen" class="relative z-10 block rounded-md focus:outline-none">
                                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="White">
                                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -64,7 +62,7 @@ if (mysqli_num_rows($sql) > 0) {
 
                                 <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
 
-                                <div x-show="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white shadow-xl z-20 mt-11">
+                                <div x-show="dropdownOpen" class="absolute right-0 mt-1 w-48 bg-white shadow-2xl z-20 mt-11">
                                     <a href="usercreate" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-green-400 hover:text-white border border-t-0 border-l-0 border-r-0 border-gray-300">
                                         <div class="flex ">
                                             <svg class="h-5 w-5 self-center mr-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">

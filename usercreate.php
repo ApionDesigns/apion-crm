@@ -44,7 +44,7 @@ include "header.php";
                                 </div>
                                 <div class="flex justify-center p-1">
                                 </div>
-                                <input type="text" required name="uname" placeholder="Username" class="p-2 m-2 bg-gray-50 rounded-md border focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent"><br>
+                                <input type="text" required name="uname" placeholder="Username" class="lowercase p-2 m-2 bg-gray-50 rounded-md border focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent"><br>
                                 <input name="first_name" required type="text" placeholder="First Name" class="p-2 m-2 bg-gray-50 rounded-md border focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent"><br>
                                 <input name="last_name" required type="text" placeholder="Last Name" class="p-2 m-2 bg-gray-50 rounded-md border focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent"><br>
                                 <input name="uemail" required type="text" placeholder="Email" class="p-2 m-2 bg-gray-50 rounded-md border focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent"><br>
@@ -61,7 +61,7 @@ include "header.php";
             <div class="h-auto w-auto col-span-3 mt-10 bg-white shadow hover:shadow-2xl" style="overflow-y: scroll; overflow-x:hidden;">
                 <!-- Display Users -->
                 <div class="flex flex-col">
-                    <h1 class="text-2xl h-full font-bold text-white uppercase text-left bg-green-800 p-2">
+                    <h1 class="text-2xl h-full font-bold text-white uppercase text-left bg-green-400 p-2">
                         Employee information
                     </h1>
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -70,17 +70,14 @@ include "header.php";
                                 <table class="min-w-full divide-y divide-gray-200">
                                     <thead class="bg-green-300">
                                         <tr>
-                                            <th scope="col" class="bg-green-500 px-6 py-3 text-left text-md font-medium text-white uppercase tracking-wider">
+                                            <th scope="col" class="px-6 py-3 text-left text-md font-medium text-white uppercase tracking-wider">
                                                 Name
                                             </th>
-                                            <th scope="col" class="bg-green-400 px-6 py-3 text-left text-md font-medium text-white uppercase tracking-wider">
+                                            <th scope="col" class="px-6 py-3 text-left text-md font-medium text-white uppercase tracking-wider">
                                                 Status
                                             </th>
-                                            <th scope="col" class="bg-green-300 px-6 py-3 text-left text-md font-medium text-white uppercase tracking-wider">
+                                            <th scope="col" class="px-6 py-3 text-left text-md font-medium text-white uppercase tracking-wider">
                                                 Role
-                                            </th>
-                                            <th scope="col" class="relative px-6 py-3">
-                                                <span class="sr-only">Edit</span>
                                             </th>
                                         </tr>
                                     </thead>
@@ -116,9 +113,6 @@ include "header.php";
                                                     <!--users role-->
                                                     <?php echo $row['urole']; ?>
                                                 </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium border-l text-center">
-                                                    <a href="chat?chat=<?php echo $row['first_name'] ?>" class="text-green-600 hover:text-white p-2 hover:bg-green-800">Edit</a>
-                                                </td>
                                             </tr>
 
                                             <!-- More people... -->
@@ -128,9 +122,6 @@ include "header.php";
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="text-white font-bold bg-green-700 px-2 py-1">
-                    Loged in as: <?php echo $_SESSION['username']; ?>
                 </div>
             </div>
         </div>

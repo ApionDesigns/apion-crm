@@ -117,14 +117,16 @@ Clients require attention:
         }
     </script>
     <?php include_once("menu.php") ?>
-    <div class="m-8">
+    <div class="grid grid-cols-10">
+    <div class="col-span-1"></div>
+    <div class="mt-4 mb-20 p-4 col-span-8 rounded-md bg-white">
         <!-- Apion CRM v0.1+ -->
-        <div class="flex flex-col ">
-            <header class="bg-green-600">
+        <div class="flex flex-col hover:shadow-2xl rounded-md rounded-t-3xl p-4">
+            <header class="bg-green-700 rounded-t-3xl">
                 <div class="flex justify-items-stretch items-center max-w-1xl mx-auto p-3 gap-2 justify-between">
                     <h1 class="text-1xl font-bold text-white hover:bg-green-800 rounded-md rounded-l-2xl p-2">
                         <div class="flex items-center">
-                            <div><a href="clientsdash">
+                            <div><a href="home">
                                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white">
                                         <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
                                     </svg>
@@ -138,12 +140,20 @@ Clients require attention:
                     <h1 class="text-1xl font-bold text-white justify-self-center uppercase">
                         <div class="items-center">
                             <div>
-                                Job Information</a>
+                                Client Information</a>
                                 <!--<?php echo $row['client_id']; ?>-->
                             </div>
                         </div>
                     </h1>
-                    <div></div>
+                    <h1 class="text-1xl font-bold text-white justify-self-center uppercase">
+                        <div class="items-center">
+                            <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                            </svg>
+                            </div>
+                        </div>
+                    </h1>
                 </div>
             </header>
             <main>
@@ -151,10 +161,10 @@ Clients require attention:
                     <!-- display user content -->
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                            <div class="overflow-hidden border-b border-gray-200">
+                            <div class="overflow-hidden">
                                 <form action="clientedit.php?client_id=<?php echo $row['client_id'] ?>" method="POST" enctype="multipart/form-data" autocomplete="off">
-                                    <table class="min-w-full divide-y divide-gray-200">
-                                        <thead class="bg-green-500">
+                                    <table class="min-w-full">
+                                        <thead class="bg-green-600">
                                             <tr>
                                                 <th scope="col" class="px-4 py-3 text-left text-xs text-white uppercase tracking-wider">
                                                     Client Information
@@ -191,12 +201,12 @@ Clients require attention:
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody class="bg-white divide-y divide-gray-200">
+                                        <tbody class="divide-y divide-gray-200">
                                             <!--while  there is data in the database-->
                                             <?php while ($row = $query2->fetch_array()) { ?>
                                                 <!--table information-->
                                                 <tr>
-                                                    <td class="px-2 py-4 whitespace-nowrap bg-green-500 border-r border-white">
+                                                    <td class="px-2 py-4 whitespace-nowrap bg-green-500">
                                                         <div class="flex items-center">
                                                             <div class="grid gap-1">
                                                                 <div class="text-sm font-medium text-white font-bold">
@@ -221,12 +231,12 @@ Clients require attention:
                                                         </div>
                                                     </td>
                                                     <!--unique id-->
-                                                    <td class="px-4 py-4 whitespace-nowrap text-center bg-green-400 border-r border-white border-b">
-                                                        <div class="text-sm text-white"><?php echo $row['client_id']; ?></div>
+                                                    <td class="px-4 py-4 whitespace-nowrap text-center bg-green-400">
+                                                        <div class="text-xs text-white"><?php echo $row['client_id']; ?></div>
                                                     </td>
                                                     <!--created-->
-                                                    <td class="px-4 py-4 whitespace-nowrap text-center bg-green-400 border-r border-white border-b rounded-br-3xl">
-                                                        <div class="text-sm text-white">
+                                                    <td class="px-4 py-4 whitespace-nowrap text-center bg-green-400 rounded-br-3xl">
+                                                        <div class="text-xs text-white">
                                                             <?php
                                                             //echo the date created for client information
                                                             $date = strtotime($row['created_at']);
@@ -235,7 +245,7 @@ Clients require attention:
                                                         </div>
                                                     </td>
                                                     <!--contact type-->
-                                                    <td class="grid justify-items-stretch px-4 py-4 whitespace-nowrap text-center bg-green-300 border-r border-white border-b rounded-br-3xl">
+                                                    <td class="grid justify-items-stretch px-4 py-4 whitespace-nowrap text-center bg-green-300 rounded-br-3xl">
                                                         <div class="text-sm text-gray-500 justify-self-center" onclick="myFunction()">
                                                             <?php
                                                             //if there is no status 
@@ -254,16 +264,16 @@ Clients require attention:
                                                         </div>
                                                     </td>
                                                     <!--jobtype-->
-                                                    <td class="px-4 py-4 whitespace-nowrap text-center bg-green-400 border-r border-white border-b rounded-br-3xl">
-                                                        <div class="text-sm text-white"><?php echo $row['job_type']; ?></div>
+                                                    <td class="px-4 py-4 whitespace-nowrap text-center bg-green-400 rounded-br-3xl">
+                                                        <div class="text-xs text-white"><?php echo $row['job_type']; ?></div>
                                                     </td>
                                                     <!--inspection date-->
-                                                    <td class="px-4 py-4 whitespace-nowrap text-center text-sm text-gray-500">
+                                                    <td class="px-4 py-4 whitespace-nowrap text-center text-xs text-gray-500">
                                                         <?php
                                                         if (empty($row['inspec_day'])) { ?>
 
                                                         <?php } else { ?>
-                                                            <div class="text-sm text-gray-500">
+                                                            <div class="text-gray-500">
                                                                 <?php
                                                                 $doj = $row['inspec_day'];
                                                                 echo date("d/m/Y", strtotime($doj));;
@@ -272,7 +282,7 @@ Clients require attention:
                                                         <?php } ?>
                                                     </td>
                                                     <!--Date inspection returned-->
-                                                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                    <td class="px-4 py-4 whitespace-nowrap text-xs text-gray-500 text-center">
                                                         <?php
                                                         if (empty($row['inspec_dayrt'])) { ?>
 
@@ -282,12 +292,12 @@ Clients require attention:
                                                         <?php } ?>
                                                     </td>
                                                     <!--job date-->
-                                                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                    <td class="px-4 py-4 whitespace-nowrap text-xs text-gray-500 text-center">
                                                         <?php
                                                         if (empty($row['day_of_job'])) { ?>
-                                                            <input type="date" name="jobDay" min="2020-01-01" max="2050-12-31" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-17"></input>
+                                                            <input type="date" name="jobDay" min="2020-01-01" max="2050-12-31" class="text-xs shadow-inner p-2 rounded-md border hover:border-gray-800 focus:outline-none w-17"></input>
                                                         <?php } else { ?>
-                                                            <div class="text-sm text-gray-500">
+                                                            <div class="text-gray-500">
                                                                 <?php
                                                                 $doj = $row['day_of_job'];
                                                                 echo date("d/m/Y", strtotime($doj));;
@@ -296,16 +306,16 @@ Clients require attention:
                                                         <?php } ?>
                                                     </td>
                                                     <!--invoice id-->
-                                                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                    <td class="px-4 py-4 whitespace-nowrap text-xs text-gray-500 text-center">
                                                         <?php
                                                         if (empty($row['invoice_id'])) { ?>
-                                                            <input placeholder="LEA26987" name="invoice_num" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-16"></input>
+                                                            <input placeholder="LEA26987" name="invoice_num" class="text-xs p-2 rounded-md border hover:border-gray-800 focus:outline-none w-16"></input>
                                                         <?php } else {
                                                             echo "LEA" . $row['invoice_id'];
                                                         } ?>
                                                     </td>
                                                     <!--cost for job-->
-                                                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                    <td class="px-4 py-4 whitespace-nowrap text-xs text-gray-500 text-center text-xs">
                                                         <?php
                                                         if (empty($row['cost'])) { ?>
                                                             $ <input placeholder="10,000" name="cost_price" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-16"></input>
@@ -315,10 +325,10 @@ Clients require attention:
                                                         <?php } ?>
                                                     </td>
                                                     <!--amount payed by client-->
-                                                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                    <td class="px-4 py-4 whitespace-nowrap text-xs text-gray-500 text-center">
                                                         <?php
                                                         if (empty($row['payed'])) { ?>
-                                                            <select name="jpay" class="p-1 rounded-md">
+                                                            <select name="jpay" class="p-1 rounded-md text-xs">
                                                                 <option value="" disabled selected><?php echo ("STATUS"); ?></option>
                                                                 <option value="1">YES</option>
                                                                 <option value="2">PENDING</option>
@@ -338,7 +348,7 @@ Clients require attention:
                                         </tbody>
                                     </table>
                                     <!--inspection starts here-->
-                                    <header class="bg-green-600 mt-4">
+                                    <header class="bg-green-400 mt-4">
                                         <div class="grid justify-items-stretch max-w-1xl mx-auto py-4 px-4 sm:px-4 lg:px-8 gap-2">
                                             <h1 class="text-1xl font-bold text-white justify-self-center uppercase">
                                                 <div class="items-center">
@@ -411,13 +421,13 @@ Clients require attention:
                                             $row5 = mysqli_fetch_assoc($sql5);
                                             $row6 = mysqli_fetch_assoc($sql6);
                                         } ?>
-                                        <tbody class="bg-white divide-y divide-gray-200">
+                                        <tbody class="divide-y divide-gray-200">
                                             <tr>
                                                 <!--technician who recieved the inspection-->
                                                 <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['inspecrcver'])) { ?>
-                                                        <select name="inrcvrtname" class="p-1 rounded-md">
+                                                        <select name="inrcvrtname" class="text-xs p-1 rounded-md">
                                                             <option value="" disabled selected>Employee</option>
                                                             <?php while ($row5 = $sql5->fetch_array()) { ?>
                                                                 <option value="<?php echo $row5['first_name'] ?> <?php echo $row5['last_name'] ?>"><?php echo $row5['first_name'] ?> <?php echo $row5['last_name'] ?></option>
@@ -429,10 +439,10 @@ Clients require attention:
                                                 </td>
 
                                                 <!--inspection recieved date-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                <td class="px-4 py-4 whitespace-nowrap text-xs text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['inspec_dayrcv'])) { ?>
-                                                        <input placeholder="10" type="date" min="2020-01-01" max="2050-12-31" name="inspecDayrcv" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-17"></input>
+                                                        <input placeholder="10" type="date" min="2020-01-01" max="2050-12-31" name="inspecDayrcv" class="text-xs p-2 rounded-md border hover:border-gray-800 focus:outline-none w-17"></input>
                                                     <?php } else { ?>
                                                         <?php
                                                         $inspecdrcv = $row['inspec_dayrcv'];
@@ -441,7 +451,7 @@ Clients require attention:
                                                     <?php } ?>
                                                 </td>
                                                 <!--lead tech for job-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                <td class="px-4 py-4 whitespace-nowrap text-xs text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['lead_tech'])) { ?>
                                                         <select name="leadTech" class="p-1 rounded-md">
@@ -455,12 +465,12 @@ Clients require attention:
                                                     } ?>
                                                 </td>
                                                 <!--inspection date-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                <td class="px-4 py-4 whitespace-nowrap text-xs text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['inspec_day'])) { ?>
                                                         <input type="date" id="inspecday" name="inspecDay" min="2020-01-01" max="2050-12-31" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-17"></input>
                                                     <?php } else { ?>
-                                                        <div class="text-sm text-gray-500">
+                                                        <div class="text-gray-500">
                                                             <?php
                                                             $doj = $row['inspec_day'];
                                                             echo date("d/m/Y", strtotime($doj));
@@ -469,7 +479,7 @@ Clients require attention:
                                                     <?php } ?>
                                                 </td>
                                                 <!--inspection status-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                <td class="px-4 py-4 whitespace-nowrap text-xs text-gray-500 text-center">
                                                     <?php
                                                     //if there is no status 
                                                     if (empty($row['inspec_day']) && empty($row['inspec_month']) && empty($row['inspec_year'])) { ?>
@@ -487,7 +497,7 @@ Clients require attention:
                                                     <?php } ?>
                                                 </td>
                                                 <!--expected inspection return date-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                <td class="px-4 py-4 whitespace-nowrap text-xs text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['inspec_exdayrt'])) { ?>
                                                         <input placeholder="10" type="date" min="2020-01-01" max="2050-12-31" name="exinspecDayrt" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-17"></input>
@@ -497,7 +507,7 @@ Clients require attention:
                                                     <?php } ?>
                                                 </td>
                                                 <!--date inspection actually returned-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                <td class="px-4 py-4 whitespace-nowrap text-xs text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['inspec_dayrt'])) { ?>
                                                         <input type="date" name="inspecDayrt" min="2020-01-01" max="2050-12-31" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-17"></input>
@@ -507,7 +517,7 @@ Clients require attention:
                                                     <?php } ?>
                                                 </td>
                                                 <!--inspection return reciever-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                <td class="px-4 py-4 whitespace-nowrap text-xs text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['rtinspec_rcver'])) { ?>
                                                         <select name="rturnrcvname" class="p-1 rounded-md">
@@ -521,7 +531,7 @@ Clients require attention:
                                                     } ?>
                                                 </td>
                                                 <!--date return reciever recieved inspection-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                <td class="px-4 py-4 whitespace-nowrap text-xs text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['rtinspec_dayrcv'])) { ?>
                                                         <input placeholder="10" type="date" min="2020-01-01" max="2050-12-31" name="inspecDayrcvrt" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-17"></input>
@@ -534,7 +544,7 @@ Clients require attention:
                                         </tbody>
                                     </table>
                                     <!--job order starts here-->
-                                    <header class="bg-green-600 mt-4">
+                                    <header class="bg-green-400 mt-4">
                                         <div class="grid justify-items-stretch max-w-1xl mx-auto py-4 px-4 sm:px-4 lg:px-8 gap-2">
                                             <h1 class="text-1xl font-bold text-white justify-self-center uppercase">
                                                 <div class="items-center">
@@ -592,13 +602,13 @@ Clients require attention:
                                             $row4 = mysqli_fetch_assoc($sql4);
                                             $row5 = mysqli_fetch_assoc($sql5);
                                         } ?>
-                                        <tbody class="bg-white divide-y divide-gray-200">
+                                        <tbody class="divide-y divide-gray-200">
                                             <tr>
                                                 <!--technician who recieved the job order-->
                                                 <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['jorcver'])) { ?>
-                                                        <select name="jdrvr" class="p-1 rounded-md">
+                                                        <select name="jdrvr" class="p-1 rounded-md text-xs">
                                                             <option value="" disabled selected>Employee</option>
                                                             <?php while ($row4 = $sql4->fetch_array()) { ?>
                                                                 <option value="<?php echo $row4['first_name'] ?> <?php echo $row4['last_name'] ?>"><?php echo $row4['first_name'] ?> <?php echo $row4['last_name'] ?></option>
@@ -610,10 +620,10 @@ Clients require attention:
                                                 </td>
 
                                                 <!--job order recieved date-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                <td class="px-4 py-4 whitespace-nowrap text-xs text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['jo_dayrcv'])) { ?>
-                                                        <input placeholder="10" type="date" name="jDrcv" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-17"></input>
+                                                        <input placeholder="10" type="date" name="jDrcv" class="text-xs p-2 rounded-md border hover:border-gray-800 focus:outline-none w-17"></input>
                                                     <?php } else { ?>
                                                         <?php
                                                         $inspecdrcv = $row['jo_dayrcv'];
@@ -622,7 +632,7 @@ Clients require attention:
                                                     <?php } ?>
                                                 </td>
                                                 <!--job order date-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                <td class="px-4 py-4 whitespace-nowrap text-xs text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['jo_day'])) { ?>
                                                         <input type="date" name="joderDay" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-17"></input>
@@ -636,25 +646,25 @@ Clients require attention:
                                                     <?php } ?>
                                                 </td>
                                                 <!--job order status-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                <td class="px-4 py-4 whitespace-nowrap text-xs text-gray-500 text-center">
                                                     <?php
                                                     //if there is no status 
-                                                    if (empty($row['inspec_day']) && empty($row['inspec_month']) && empty($row['inspec_year'])) { ?>
+                                                    if (empty($row['jo_day']) && empty($row['jo_month']) && empty($row['jo_year'])) { ?>
                                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-200 text-white">
                                                             <?php echo "Unset"; ?>
                                                         </span>
-                                                    <?php } elseif (!empty($row['inspec_day']) && empty($row['inspec_dayrt'])) { ?>
+                                                    <?php } elseif (!empty($row['jo_day']) && empty($row['jo_dayrt'])) { ?>
                                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-white">
                                                             <?php echo "in-progress"; ?>
                                                         </span>
-                                                    <?php } elseif ($row['inspec_day'] == TRUE && $row['inspec_dayrt'] == TRUE) { ?>
+                                                    <?php } elseif ($row['jo_day'] == TRUE && $row['jo_dayrt'] == TRUE) { ?>
                                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-400 text-white">
                                                             <?php echo "completed"; ?>
                                                         </span>
                                                     <?php } ?>
                                                 </td>
                                                 <!--expected job order return date-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                <td class="px-4 py-4 whitespace-nowrap text-xs text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['jo_exdayrt'])) { ?>
                                                         <input placeholder="10" type="date" min="2020-01-01" max="2050-12-31" name="exjoDayrt" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-17"></input>
@@ -664,7 +674,7 @@ Clients require attention:
                                                     <?php } ?>
                                                 </td>
                                                 <!--date job order actually returned-->
-                                                <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
+                                                <td class="px-4 py-4 whitespace-nowrap text-xs text-gray-500 text-center">
                                                     <?php
                                                     if (empty($row['jo_dayrt'])) { ?>
                                                         <input type="date" name="joderDayrt" min="2020-01-01" max="2050-12-31" class="p-2 rounded-md border hover:border-gray-800 focus:outline-none w-17"></input>
@@ -684,8 +694,208 @@ Clients require attention:
                                     </div>
                                 </form>
                                 <!--job order ends here-->
+                                <!--bait station-->
+                                <?php if($row['job_type']=="Baiting"){ ?>
+                                    <div class="h-96 overflow-y-scroll" id="bait">
+                                    <header class="bg-green-400 mt-4">
+                                    <div class="grid justify-items-stretch max-w-1xl mx-auto py-4 px-4 sm:px-4 lg:px-8 gap-2">
+                                        <h1 class="text-1xl font-bold text-white justify-self-center uppercase">
+                                            <div class="items-center">
+                                                <div>
+                                                    Bait stations </a>
+                                                    <!--<?php echo $row['client_id']; ?>-->
+                                                </div>
+                                            </div>
+                                        </h1>
+                                    </div>
+                                </header>
+                                <table class="min-w-full divide-y divide-gray-200">
+                                <tr>
+                                            <form method="post" action="bait.php?e=<?php echo $row['client_id'] ?>">
+                                                <td class="px-4 py-3 text-center text-xs uppercase tracking-wider"><input type="text" placeholder="Name" class="p-2 rounded-md border w-full shadow-inner" name="bait_st_name"></td>
+                                                <td class="px-4 py-3 text-center text-xs text-white uppercase tracking-wider grid"><button class="bg-green-300 p-2 rounded-md hover:bg-green-400 uppercase">create</button></td>
+                                            </form>
+                                        </tr>
+                                    <thead class="bg-green-500">
+                                        <tr>
+                                            <!--inspection recieved by-->
+                                            <th scope="col" class="px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                Station Name
+                                            </th>
+
+                                            <th scope="col" class="px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                Status 1
+                                            </th>
+
+                                            <th scope="col" class="px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                Status 2
+                                            </th>
+
+                                            <th scope="col" class="px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                Status 3
+                                            </th>
+
+                                            <th scope="col" class="px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                Status 4
+                                            </th>
+
+                                            <th scope="col" class="px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                Status 5
+                                            </th>
+
+                                            <th scope="col" class="px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                Status 6
+                                            </th>
+
+                                            <th scope="col" class="px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                Status 7
+                                            </th>
+
+                                            <th scope="col" class="px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                Status 8
+                                            </th>
+
+                                            <th scope="col" class="px-4 py-3 text-center text-xs text-white uppercase tracking-wider">
+                                                Status 9
+                                            </th>
+
+                                        </tr>
+                                    </thead>
+                                    <?php
+                                    $hostname = "localhost";
+                                    $username = "root";
+                                    $password = "";
+                                    $dbname = "apcrm";
+                                    $output = "";
+                                    $conn = mysqli_connect($hostname, $username, $password, $dbname);
+                                    $edit = mysqli_real_escape_string($conn, $_GET['e']);
+                                    $sql = mysqli_query($conn, "SELECT * FROM clients WHERE client_id = '{$edit}'");
+                                    $sqlstations = mysqli_query($conn, "SELECT * FROM bait_stations WHERE client_id = '{$edit}'");
+                                    $sql4 = mysqli_query($conn, "SELECT * FROM users");
+                                    $sql5 = mysqli_query($conn, "SELECT * FROM users");
+                                    $sql6 = mysqli_query($conn, "SELECT * FROM users");
+                                    $query2 = $conn->query("SELECT * FROM clients WHERE client_id = '{$edit}'");
+                                    if (mysqli_num_rows($sql) > 0) {
+                                        $row = mysqli_fetch_assoc($sql);
+                                        $row4 = mysqli_fetch_assoc($sql4);
+                                        $row5 = mysqli_fetch_assoc($sql5);
+                                        $row6 = mysqli_fetch_assoc($sql6);
+                                        $row7 = mysqli_fetch_assoc($sqlstations);
+                                    } ?>
+                                     <?php
+                                    while ($row7 = $sqlstations->fetch_array()) { ?>
+                                        <tbody class="divide-y divide-green-800 hover:bg-gray-50">
+                                            <!--technician who recieved the inspection-->
+                                            <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 text-center grid gap-4">
+                                                <input type="text" class="p-2 rounded-md shadow-inner text-xs" placeholder="<?php echo $row7['Station_name']; ?>">
+                                                <div class="flex">
+                                                    <a class="p-2 rounded-md hover:text-red-500 shadow-inner cursor-pointer">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </td>
+
+                                            <td class="px-4 py-3 text-center text-gray-500 text-xs uppercase whitespace-nowrap">
+                                                <div class="grid gap-2">
+                                                    <select name="bait_stat1" class="p-2 rounded-md shadow-inner">
+                                                        <option value="" disabled selected>Status</option>
+                                                        <option value="" >Bait Untouched</option>
+                                                        <option value="" >Bait Eaten</option>
+                                                    </select>
+                                                    <input type="date" name="bait_d1" class="p-2 rounded-md shadow-inner">
+                                                </div>
+                                            </td>
+                                            <td class="px-4 py-3 text-center text-gray-500 text-xs uppercase whitespace-nowrap">
+                                                <div class="grid gap-2">
+                                                    <select name="bait_stat2" class="p-2 rounded-md shadow-inner">
+                                                        <option value="" disabled selected>Status</option>
+                                                        <option value="" >Bait Untouched</option>
+                                                        <option value="" >Bait Eaten</option>
+                                                    </select>
+                                                    <input type="date" name="bait_d2" class="p-2 rounded-md shadow-inner">
+                                                </div>
+                                            </td>
+                                            <td class="px-4 py-3 text-center text-gray-500 text-xs uppercase whitespace-nowrap">
+                                                <div class="grid gap-2">
+                                                    <select name="bait_stat3" class="p-2 rounded-md shadow-inner">
+                                                        <option value="" disabled selected>Status</option>
+                                                        <option value="" >Bait Untouched</option>
+                                                        <option value="" >Bait Eaten</option>
+                                                    </select>
+                                                    <input type="date" name="bait_d3" class="p-2 rounded-md shadow-inner">
+                                                </div>
+                                            </td>
+                                            <td class="px-4 py-3 text-center text-gray-500 text-xs uppercase whitespace-nowrap">
+                                                <div class="grid gap-2">
+                                                    <select name="bait_stat4" class="p-2 rounded-md shadow-inner">
+                                                        <option value="" disabled selected>Status</option>
+                                                        <option value="" >Bait Untouched</option>
+                                                        <option value="" >Bait Eaten</option>
+                                                    </select>
+                                                    <input type="date" name="bait_d4" class="p-2 rounded-md shadow-inner">
+                                                </div>
+                                            </td>
+                                            <td class="px-4 py-3 text-center text-gray-500 text-xs uppercase whitespace-nowrap">
+                                                <div class="grid gap-2">
+                                                    <select name="bait_stat5" class="p-2 rounded-md shadow-inner">
+                                                        <option value="" disabled selected>Status</option>
+                                                        <option value="" >Bait Untouched</option>
+                                                        <option value="" >Bait Eaten</option>
+                                                    </select>
+                                                    <input type="date" name="bait_d5" class="p-2 rounded-md shadow-inner">
+                                                </div>
+                                            </td>
+                                            <td class="px-4 py-3 text-center text-gray-500 text-xs uppercase whitespace-nowrap">
+                                                <div class="grid gap-2">
+                                                    <select name="bait_stat6" class="p-2 rounded-md shadow-inner">
+                                                        <option value="" disabled selected>Status</option>
+                                                        <option value="" >Bait Untouched</option>
+                                                        <option value="" >Bait Eaten</option>
+                                                    </select>
+                                                    <input type="date" name="bait_d6" class="p-2 rounded-md shadow-inner">
+                                                </div>
+                                            </td>
+                                            <td class="px-4 py-3 text-center text-gray-500 text-xs uppercase whitespace-nowrap">
+                                                <div class="grid gap-2">
+                                                    <select name="bait_stat7" class="p-2 rounded-md shadow-inner">
+                                                        <option value="" disabled selected>Status</option>
+                                                        <option value="" >Bait Untouched</option>
+                                                        <option value="" >Bait Eaten</option>
+                                                    </select>
+                                                    <input type="date" name="bait_d7" class="p-2 rounded-md shadow-inner">
+                                                </div>
+                                            </td>
+                                            <td class="px-4 py-3 text-center text-gray-500 text-xs uppercase whitespace-nowrap">
+                                                <div class="grid gap-2">
+                                                    <select name="bait_stat8" class="p-2 rounded-md shadow-inner">
+                                                        <option value="" disabled selected>Status</option>
+                                                        <option value="" >Bait Untouched</option>
+                                                        <option value="" >Bait Eaten</option>
+                                                    </select>
+                                                    <input type="date" name="bait_d8" class="p-2 rounded-md shadow-inner">
+                                                </div>
+                                            </td>
+                                            <td class="px-4 py-3 text-center text-gray-500 text-xs uppercase whitespace-nowrap">
+                                                <div class="grid gap-2">
+                                                    <select name="bait_stat9" class="p-2 rounded-md shadow-inner">
+                                                        <option value="" disabled selected>Status</option>
+                                                        <option value="" >Bait Untouched</option>
+                                                        <option value="" >Bait Eaten</option>
+                                                    </select>
+                                                    <input type="date" name="bait_d9" class="p-2 rounded-md shadow-inner">
+                                                </div>
+                                            </td>
+                                                
+                                        </tbody>
+                                    <?php } ?>
+                                    
+                                </table>
+                                </div>
+                                <?php } ?>
                                 <!--images begin here-->
-                                <header class="bg-green-600 mt-4">
+                                <header class="bg-gradient-to-r from-green-400 to-blue-300 mt-4">
                                     <div class="grid justify-items-stretch max-w-1xl mx-auto py-4 px-4 sm:px-4 lg:px-8 gap-2">
                                         <h1 class="text-1xl font-bold text-white justify-self-center uppercase">
                                             <div class="items-center">
@@ -710,43 +920,51 @@ Clients require attention:
                                     //$row = mysqli_fetch_assoc($sql);
                                     $row2 = mysqli_fetch_assoc($sql2);
                                 } ?>
-                                <form action="imgupload.php?client_id=<?php echo $row['client_id'] ?>" method="post" enctype="multipart/form-data" class="grid justify-items-stretch p-2 bg-white">
-                                    <div class="flex w-full h-full items-center justify-center bg-grey-lighter">
-                                        <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg hover:bg-gray-100 tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-gray-800">
+                                <form action="imgupload.php?client_id=<?php echo $row['client_id'] ?>" method="post" enctype="multipart/form-data" class="grid justify-items-stretch p-2 grid-cols-2 gap-4">
+                                    <div class="grid w-full h-60 items-center justify-center bg-white">
+                                        <label class="w-60 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg hover:bg-gray-100 tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-gray-800">
                                             <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                                 <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                                             </svg>
                                             <span class="mt-2 text-base leading-normal">Select a Image</span>
                                             <input type='file' name="file" class="hidden" />
                                         </label>
+                                        <input type="submit" name="submit" value="Upload J.O" class="p-2 m-2 w-60 rounded-md ring-4 ring-green-100 justify-self-center bg-green-300 hover:bg-green-800 text-white cursor-pointer">
                                     </div>
-                                    <input type="submit" name="submit" value="Upload J.O" class="p-2 m-2 w-96 justify-self-center bg-gray-200 hover:bg-green-800 hover:text-white cursor-pointer">
-
-                                </form>
-                                <div  class="grid grid-flow-cols grid-cols-4 grid-rows-4 gap-4">
+                                    <div  class="grid grid-flow-cols grid-cols-4 gap-6 bg-white p-4 h-60 overflow-y-scroll p-4">
                                     <?php while ($row2 = $imglist->fetch_array()) { ?>
-                                        <div class="col-span-1">
-                                            <img id="myImg" style="width: 50%; height: 50%;" src="uploads/<?php echo $row2['imgfile_name']; ?>">
-                                            <a download href="uploads/<?php echo $row2['imgfile_name']; ?>">
-                                            <button class="bg-green-400 hover:bg-green-600 p-2 hover:text-white mt-2 rounded-full">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd" />
-                                                </svg>
-                                            </button></a>
+                                        <div class="grid bg-gray-100">
+                                                <img id="myImg" style="width: 100%; height: 100%;" src="uploads/<?php echo $row2['imgfile_name']; ?>" onclick="imgModal(this);">
+                                            <a download href="uploads/<?php echo $row2['imgfile_name']; ?>" class="bg-green-400 hover:bg-green-500 justify-self-center w-full h-8 uppercase text-white p-2 text-center rounded-b-md">
+                                                Download    
+                                            </a>
                                         </div>
                                     <?php }
                                     ?>
                                 </div>
-                                <div id="myModal" class="modal" style="z-index:100;">
-                                    <span class="close">&times;</span>
-                                    <img class="modal-content" id="img01">
-                                    <div id="caption"></div>
+                                </form>
+                                <!-- The expanding image container -->
+                                <div class="container mt-4 bg-white rounded-md p-4 m-2" style="display:none;">
+                                <!-- Close the image -->
+                                <span onclick="this.parentElement.style.display='none'" class="cursor-pointer" style="float:right;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 hover:text-red-300 fill-current text-red-600" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+
+                                <!-- Expanded image -->
+                                <img id="expandedImg" style="width:50%; height:50%;  margin-left: auto;margin-right: auto;">
+
+                                <!-- Image text -->
+                                <div id="imgtext"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
             </main>
         </div>
+    </div>
+    <div class="col-span-1"></div>
     </div>
     <?php include "sidebar.php" ?>
     <footer class="footer"><?php include_once('hfooter.php'); ?></footer>
@@ -755,26 +973,18 @@ Clients require attention:
 <script src="javascript/navbar.js"></script>
 <!--script for modal image enlarger-->
 <script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
-
-    // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img = document.getElementById("myImg");
-    var modalImg = document.getElementById("img01");
-    var captionText = document.getElementById("caption");
-    img.onclick = function() {
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
-    }
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
+function imgModal(imgs) {
+  // Get the expanded image
+  var expandImg = document.getElementById("expandedImg");
+  // Get the image text
+  var imgText = document.getElementById("imgtext");
+  // Use the same src in the expanded image as the image being clicked on from the grid
+  expandImg.src = imgs.src;
+  // Use the value of the alt attribute of the clickable image as text inside the expanded image
+  imgText.innerHTML = imgs.alt;
+  // Show the container element (hidden with CSS)
+  expandImg.parentElement.style.display = "block";
+} 
 </script>
 
 </html>

@@ -16,7 +16,9 @@ $sql = mysqli_query($conn, "SELECT * FROM users WHERE username = '{$_SESSION['us
 
 $client = mysqli_real_escape_string($conn, $_GET['client_id']);
 $sql2 = mysqli_query($conn, "SELECT * FROM clients WHERE client_id = '{$client}'");
+$tx = mysqli_query($conn, "SELECT * FROM admins");
 $row = mysqli_fetch_assoc($sql2);
+$row_tax = mysqli_fetch_assoc($tx);
 $username = $_SESSION['username'];
 // Check connection
 if ($conn->connect_error) {
@@ -92,12 +94,14 @@ if (empty($_POST['invoice_num'])) {
     $sql2 = mysqli_query($conn, "UPDATE clients SET invoice_id = $invoice WHERE client_id = '{$client}'");
     echo "working";
 }
-//collects user input for inspec date
+//collects user input for cost
 if (empty($_POST['cost_price'])) {
     echo "price not working";
 } else {
     $cost_priced = $_POST['cost_price'];
-    $sql2 = mysqli_query($conn, "UPDATE clients SET cost = $cost_priced WHERE client_id = '{$client}'");
+    $percentage = 10;
+    $new_cost_priced = (($row_tax['tax'] / 100) * $cost_priced) + $cost_priced;
+    $sql2 = mysqli_query($conn, "UPDATE clients SET cost = $new_cost_priced WHERE client_id = '{$client}'");
     echo "working";
 }
 //return reciever name
