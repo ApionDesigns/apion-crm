@@ -109,25 +109,25 @@ if ($conn->query($sql) === TRUE) {
                                 `Station_name` varchar(255) NOT NULL,
                                 `client_id` int(255) NOT NULL,
                                 `status1` varchar(255) NOT NULL,
-                                `date1` int(255) NOT NULL,
+                                `date1` DATE NULL,
                                 `status2` varchar(255) NOT NULL,
-                                `date2` int(255) NOT NULL,
+                                `date2` DATE NULL,
                                 `status3` varchar(255) NOT NULL,
-                                `date3` int(255) NOT NULL,
+                                `date3` DATE NULL,
                                 `status4` varchar(255) NOT NULL,
-                                `date4` int(255) NOT NULL,
+                                `date4` DATE NULL,
                                 `status5` varchar(255) NOT NULL,
-                                `date5` int(255) NOT NULL,
+                                `date5` DATE NULL,
                                 `status6` varchar(255) NOT NULL,
-                                `date6` int(255) NOT NULL,
+                                `date6` DATE NULL,
                                 `status7` varchar(255) NOT NULL,
-                                `date7` int(255) NOT NULL,
+                                `date7` DATE NULL,
                                 `status8` varchar(255) NOT NULL,
-                                `date8` int(255) NOT NULL,
+                                `date8` DATE NULL,
                                 `status9` varchar(255) NOT NULL,
-                                `date9` int(255) NOT NULL,
+                                `date9` DATE NULL,
                                 `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
-                              ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
+                              )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
                             if (mysqli_query($conn, $sql)) {
                                 echo "New record created successfully";
                                 header("location: home");

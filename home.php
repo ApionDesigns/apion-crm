@@ -104,7 +104,7 @@ include "header.php";
 <body class="grid bg-gray-100">
 <div style="z-index: 99;position: fixed;"><?php include "sidebar.php" ?></div>
 <div style="position: fixed; width:100%; z-index:98;"><?php include_once("menu.php") ?></div>
-<div class="p-4 rounded-md grid grid-cols-3 gap-4 mt-14 bg-white bg-opacity-50 shadow-2xl mr-4" style="position: fixed; z-index:97; display:none; right:0px;" id="addjob">
+<div class="p-4 rounded-md grid grid-cols-3 gap-4 mt-14 bg-white shadow-2xl mr-4" style="position: fixed; z-index:97; display:none; right:0px;" id="addjob">
     <div class="justify-self-center w-80">
         <form enctype="multipart/form-data" action="clientCreate.php" method="POST">
             <div class="overflow-hidden">
@@ -229,24 +229,25 @@ include "header.php";
     </div>
 </div>
     <?php include_once("menu.php") ?>
-    <div class="grid grid-cols-5 mb-12">
-        <div class="col-span-1"></div>
-        <div class="grid gap-4 col-span-3">
+    <div class="grid grid-cols-3 md:grid-cols-5 mb-12">
+        <div></div>
+        <div class="grid gap-4 col-span-3  m-4">
             <header class="bg-green-100 p-2 mt-20">
                 <div class="flex items-center w-atuo mx-auto justify-between">
                     <h1 class="text-2xl h-full text-gray-800 uppercase text-left p-2 rounded-br-2xl font-bold">
-                        Client Dashboard
+                        Dashboard
                     </h1>
-                    <div class=" flex gap-2 p-1">
-                        <button onclick="infoEdit()" class="hover:bg-green-300 p-2 rounded-md">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
-                            </svg>
-                        </button>
-                    </div>
+                    </button>
                 </div>
             </header>
-            <div class="grid grid-cols-2 divide-x-4 divide-black divide-opacity-10 rounded-md">
+            <div class="rounded-md p-2 shadow-inner bg-white">
+                <button onclick="infoEdit()" class="hover:bg-green-200 p-2 w-9 rounded-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 rounded-md w-full">
 
                 <div class="">
                     <!--display the chart-->
@@ -270,9 +271,9 @@ include "header.php";
                             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                                     <div class="overflow-y-scroll h-96">
-                                        <table class="table-fixed min-w-full divide-y-2 flex-wrap">
-                                            <thead class="bg-green-200 sticky top-0 text-gray-800 shadow">
-                                                <tr>
+                                        <table class="table-fixed min-w-full divide-y-2 flex-wrap border">
+                                            <thead class="border sticky top-0 text-gray-800 shadow-2xl bg-white">
+                                                <tr class="divide-x divide-gray-200">
                                                     <th scope="col" class="px-4 py-3 text-left text-xs uppercase tracking-wider">
                                                         Client Information
                                                     </th>
@@ -289,7 +290,7 @@ include "header.php";
                                                         Status
                                                     </th>
                                                     <th scope="col" class="px-4 py-3 text-left text-xs uppercase tracking-wider text-center">
-                                                        Date of JOB
+                                                        D.O.J
                                                     </th>
                                                     <th scope="col" class="px-4 py-3 text-left text-xs uppercase tracking-wider text-center">
                                                         Invoice#
@@ -300,8 +301,8 @@ include "header.php";
                                                     <th scope="col" class="px-4 py-3 text-left text-xs uppercase tracking-wider text-center">
                                                         payed
                                                     </th>
-                                                    <td scope="col" class="px-4 py-4 text-center text-xs uppercase border-l text-center bg-green-400 hover:bg-green-500">
-                                                        <button onclick="newJ()" class="text-white">NEW JOB</button>
+                                                    <td scope="col" class="px-4 py-4 text-center text-xs uppercase border-l text-center">
+                                                        <button onclick="newJ()" class="text-white bg-green-400 hover:bg-green-500 p-2 rounded-md">NEW JOB</button>
                                                     </td>
                                                 </tr>
                                             </thead>
@@ -452,7 +453,7 @@ include "header.php";
                 </div>
             </div>
         </div>
-        <div class="col-span-1"></div>
+        <div></div>
     </div>
     <br>
 
@@ -481,110 +482,111 @@ include "header.php";
     }
 </script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                <script type="text/javascript">
-                    //bar graph for jobs vs jobs completed
-                    var jobs = '<?php echo $count; ?>';
-                    var jcom = '<?php echo $count2; ?>';
-                    google.charts.load('current', {
-                        'packages': ['bar']
-                    });
-                    google.charts.setOnLoadCallback(drawStuff);
+<script type="text/javascript">
+    //bar graph for jobs vs jobs completed
+    var jobs = '<?php echo $count; ?>';
+    var jcom = '<?php echo $count2; ?>';
+    google.charts.load('current', {
+        'packages': ['bar']
+    });
+    google.charts.setOnLoadCallback(drawStuff);
 
-                    function drawStuff() {
-                        var data = new google.visualization.arrayToDataTable([
-                            ['', ''],
-                            ["JOBS", Number(jobs)],
-                            ["COMPLETED", Number(jcom)],
-                        ]);
+    function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+            ['', ''],
+            ["JOBS", Number(jobs)],
+            ["COMPLETED", Number(jcom)],
+        ]);
 
-                        var options = {
-                            width: 500,
-                            legend: {
-                                position: 'none'
-                            },
-                            chart: {
-                                title: 'COMPANY JOBS STATISTICS',
-                                subtitle: ''
-                            },
-                            bars: 'horizontal', // Required for Material Bar Charts.
-                            axes: {
-                                x: {
-                                    0: {
-                                        side: 'top',
-                                        label: ''
-                                    } // Top x-axis.
-                                }
-                            },
-                            bar: {
-                                groupWidth: "20%"
-                            }
-                        };
+        var options = {
+            width: 500,
+            legend: {
+                position: 'none'
+            },
+            chart: {
+                title: 'COMPANY JOBS STATISTICS',
+                subtitle: ''
+            },
+            bars: 'vertical', // Required for Material Bar Charts.
+            axes: {
+                x: {
+                    0: {
+                        side: 'top',
+                        label: ''
+                    } // Top x-axis.
+                }
+            },
+            bar: {
+                groupWidth: "100%"
+            }
+        };
 
-                        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
-                        chart.draw(data, options);
-                    };
-                    var sprayed = '<?php echo $sprayed; ?>';
-                    var Bait = '<?php echo $Bait; ?>';
-                    var Mist = '<?php echo $Mist; ?>';
-                    var Fog = '<?php echo $Fog; ?>';
-                    var Fum = '<?php echo $Fum; ?>';
-                    var Dust = '<?php echo $Dust; ?>';
-                    var Pump = '<?php echo $Pump; ?>';
-                    var Uphol = '<?php echo $Uphol; ?>';
-                    var Carp = '<?php echo $Carp; ?>';
-                    var Pow = '<?php echo $Pow; ?>';
-                    var Chai = '<?php echo $Chai; ?>';
-                    var Flo = '<?php echo $Flo; ?>';
-                    var Chem = '<?php echo $Chem; ?>';
-                    //donut chart job category performance
-                    google.charts.load('current', {
-                        'packages': ['corechart']
-                    });
-                    google.charts.setOnLoadCallback(drawChart);
+        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        chart.draw(data, options);
+    };
+    var sprayed = '<?php echo $sprayed; ?>';
+    var Bait = '<?php echo $Bait; ?>';
+    var Mist = '<?php echo $Mist; ?>';
+    var Fog = '<?php echo $Fog; ?>';
+    var Fum = '<?php echo $Fum; ?>';
+    var Dust = '<?php echo $Dust; ?>';
+    var Pump = '<?php echo $Pump; ?>';
+    var Uphol = '<?php echo $Uphol; ?>';
+    var Carp = '<?php echo $Carp; ?>';
+    var Pow = '<?php echo $Pow; ?>';
+    var Chai = '<?php echo $Chai; ?>';
+    var Flo = '<?php echo $Flo; ?>';
+    var Chem = '<?php echo $Chem; ?>';
+    //donut chart job category performance
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
 
-                    function drawChart() {
+    function drawChart() {
 
-                        var data = google.visualization.arrayToDataTable([
-                            ['Task', 'Hours per Day'],
-                            ['Spraying', Number(sprayed)],
-                            ['Baiting', Number(Bait)],
-                            ['Fogging', Number(Mist)],
-                            ['Fumigation', Number(Fum)],
-                            ['Dusting', Number(Dust)],
-                            ['Drilling & Pumping', Number(Pump)],
-                            ['Upholstery Cleaning', Number(Uphol)],
-                            ['Carpet Cleaning', Number(Carp)],
-                            ['Power Washing', Number(Pow)],
-                            ['Chair Cleaning', Number(Chai)],
-                            ['Flood Remediation', Number(Flo)],
-                            ['Chemicals', Number(Chem)]
-                        ]);
+        var data = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+            ['Spraying', Number(sprayed)],
+            ['Baiting', Number(Bait)],
+            ['Misting', Number(Mist)],
+            ['Fogging', Number(Fog)],
+            ['Fumigation', Number(Fum)],
+            ['Dusting', Number(Dust)],
+            ['Drilling & Pumping', Number(Pump)],
+            ['Upholstery Cleaning', Number(Uphol)],
+            ['Carpet Cleaning', Number(Carp)],
+            ['Power Washing', Number(Pow)],
+            ['Chair Cleaning', Number(Chai)],
+            ['Flood Remediation', Number(Flo)],
+            ['Chemicals', Number(Chem)]
+        ]);
 
-                        var options = {
-                            title: 'Catergory Performance:',
-                            pieHole: 0.4,
-                        };
+        var options = {
+            title: 'Catergory Performance:',
+            pieHole: 0.4,
+        };
 
-                        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
-                        chart.draw(data, options);
-                    }
-                </script>
-                <script>
-                    function infoEdit() {
-                        document.getElementById("infoEdit").style.display = "block";
-                    }
-                    function infoEditClose() {
-                        document.getElementById("infoEdit").style.display = "none";
-                    }
-                </script>
-                <script>
-                    function newJ() {
-                        document.getElementById("addjob").style.display = "block";
-                    }
-                    function closeJ() {
-                        document.getElementById("addjob").style.display = "none";
-                    }
-                </script>
+        chart.draw(data, options);
+    }
+</script>
+<script>
+    function infoEdit() {
+        document.getElementById("infoEdit").style.display = "block";
+    }
+    function infoEditClose() {
+        document.getElementById("infoEdit").style.display = "none";
+    }
+</script>
+<script>
+    function newJ() {
+        document.getElementById("addjob").style.display = "block";
+    }
+    function closeJ() {
+        document.getElementById("addjob").style.display = "none";
+    }
+</script>
 
 </html>

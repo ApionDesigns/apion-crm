@@ -166,7 +166,7 @@ if (empty($_POST['joderDayrt'])) {
     $sql2 = mysqli_query($conn, "UPDATE clients SET jo_dayrt = '$jortrcvname' WHERE client_id = '{$client}'");
     echo "working";
 }
-header("location: edit.php?e=$client");
+header('Location: ' . $_SERVER['HTTP_REFERER']);
 
 
 $conn->close();
