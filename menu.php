@@ -62,15 +62,7 @@ if (mysqli_num_rows($query3) > 0) {
 
                                 <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
 
-                                <div x-show="dropdownOpen" class="absolute right-0 mt-1 w-48 bg-white shadow-2xl z-20 mt-11">
-                                    <a href="usercreate" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-green-400 hover:text-white border border-t-0 border-l-0 border-r-0 border-gray-300">
-                                        <div class="flex ">
-                                            <svg class="h-5 w-5 self-center mr-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
-                                            </svg>
-                                            <p class="text-sm"> users</p>
-                                        </div>
-                                    </a>
+                                <div x-show="dropdownOpen" class="absolute right-0 mt-1 w-48 bg-white shadow-2xl z-20 mt-10 mr-5 p-2 rounded-tl-2xl rounded-bl-2xl rounded-br-2xl">
                                     <a href="#" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-green-400 hover:text-white">
                                         <div class="flex ">
                                             <svg class="h-5 w-5 self-center mr-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">

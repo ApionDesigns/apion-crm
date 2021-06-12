@@ -5,6 +5,9 @@ if (!isset($_SESSION['user_uid'])) {
 }
 ?>
 <?php
+setcookie("ApionCRM", "Apion", time() + 3600, '/');
+?>
+<?php
 $hostname = "localhost";
 $username = "root";
 $password = "";
@@ -256,7 +259,7 @@ include "header.php";
 
                 <div class="">
                     <!--display the chart-->
-                    <div id="piechart" style="width: auto; height: 300px;" class=" bg-white rounded-md hover:shadow-2xl"></div>
+                    <div id="piechart" style="width: auto; height: 300px;" class=" bg-white p-5 rounded-md hover:shadow-2xl"></div>
                 </div>
             </div>
             <!--grid top columns-->

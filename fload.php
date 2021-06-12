@@ -106,28 +106,28 @@ if ($conn->query($sql) === TRUE) {
                         if (mysqli_query($conn, $sql)) {
                             $sql = "CREATE TABLE `bait_stations` (
                                 `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                                `Station_name` varchar(255) NOT NULL,
                                 `client_id` int(255) NOT NULL,
-                                `status1` varchar(255) NOT NULL,
+                                `Station_name` varchar(255) NOT NULL,
+                                `st1bait` varchar(255) NOT NULL,
                                 `date1` DATE NULL,
-                                `status2` varchar(255) NOT NULL,
+                                `st2bait` varchar(255) NOT NULL,
                                 `date2` DATE NULL,
-                                `status3` varchar(255) NOT NULL,
+                                `st3bait` varchar(255) NOT NULL,
                                 `date3` DATE NULL,
-                                `status4` varchar(255) NOT NULL,
+                                `st4bait` varchar(255) NOT NULL,
                                 `date4` DATE NULL,
-                                `status5` varchar(255) NOT NULL,
+                                `st5bait` varchar(255) NOT NULL,
                                 `date5` DATE NULL,
-                                `status6` varchar(255) NOT NULL,
+                                `st6bait` varchar(255) NOT NULL,
                                 `date6` DATE NULL,
-                                `status7` varchar(255) NOT NULL,
+                                `st7bait` varchar(255) NOT NULL,
                                 `date7` DATE NULL,
-                                `status8` varchar(255) NOT NULL,
+                                `st8bait` varchar(255) NOT NULL,
                                 `date8` DATE NULL,
-                                `status9` varchar(255) NOT NULL,
+                                `st9bait` varchar(255) NOT NULL,
                                 `date9` DATE NULL,
                                 `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
-                              )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
+                              ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
                             if (mysqli_query($conn, $sql)) {
                                 echo "New record created successfully";
                                 header("location: home");

@@ -789,98 +789,152 @@ Clients require attention:
                                                                         <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
                                                                     </svg>
                                                                 </a>
-                                                                <button class="p-2 rounded-md bg-green-300 hover:bg-green-400 text-white">Update Station</button>
+                                                                <button class="p-2 rounded-md bg-green-300 hover:bg-green-400 text-white">Update</button>
                                                             </div>
                                                         </td>
 
                                                         <td class="px-4 py-3 text-center text-gray-500 text-xs uppercase whitespace-nowrap">
                                                             <div class="grid gap-2">
                                                                 <select name="baitStat1" class="p-2 rounded-md shadow-inner">
-                                                                    <option value="" disabled selected>Status</option>
-                                                                    <option value="" >Bait Untouched</option>
-                                                                    <option value="" >Bait Eaten</option>
+                                                                    <option value="" class="bg-green-300 text-white" disabled selected>
+                                                                    <?php if(empty($row7['st1bait'])){ ?>
+                                                                        Status
+                                                                    <?php }else{
+                                                                        echo $row7['st1bait'] . '*';
+                                                                    } ?>
+                                                                    </option>
+                                                                    <option value="Bait-Untouched" >Bait-Untouched</option>
+                                                                    <option value="Bait-Eaten" >Bait-Eaten</option>
                                                                 </select>
-                                                                <input type="date" name="bait_d1" min="2020-01-01" placeholder="<?php $date1 = $row7['date1']; date("d/m/Y", strtotime($date1)); ?>" max="2050-12-31" class="p-2 rounded-md shadow-inner">
+                                                                <input type="date" name="bait_d1" min="2020-01-01" value="<?php if(!empty($row7['date1'])){echo date($row7['date1']);}else{echo date('Y-m-d');} ?>" max="2050-12-31" class="p-2 rounded-md shadow-inner">
                                                             </div>
                                                         </td>
                                                         <td class="px-4 py-3 text-center text-gray-500 text-xs uppercase whitespace-nowrap">
                                                             <div class="grid gap-2">
                                                                 <select name="bait_stat2" class="p-2 rounded-md shadow-inner">
-                                                                    <option value="" disabled selected>Status</option>
-                                                                    <option value="" >Bait Untouched</option>
-                                                                    <option value="" >Bait Eaten</option>
+                                                                    <option value="" class="bg-green-300 text-white" disabled selected>
+                                                                    <?php if(empty($row7['st2bait'])){ ?>
+                                                                        Status
+                                                                    <?php }else{
+                                                                        echo $row7['st2bait'] . '*';
+                                                                    } ?>
+                                                                    </option>
+                                                                    <option value="Bait-Untouched" >Bait-Untouched</option>
+                                                                    <option value="Bait-Eaten" >Bait-Eaten</option>
                                                                 </select>
-                                                                <input type="date" name="bait_d2" class="p-2 rounded-md shadow-inner">
+                                                                <input type="date" name="bait_d2" min="2020-01-01" value="<?php if(!empty($row7['date2'])){echo date($row7['date2']);}else{echo date('Y-m-d');} ?>" max="2050-12-31" class="p-2 rounded-md shadow-inner">
                                                             </div>
                                                         </td>
                                                         <td class="px-4 py-3 text-center text-gray-500 text-xs uppercase whitespace-nowrap">
                                                             <div class="grid gap-2">
                                                                 <select name="bait_stat3" class="p-2 rounded-md shadow-inner">
-                                                                    <option value="" disabled selected>Status</option>
-                                                                    <option value="" >Bait Untouched</option>
-                                                                    <option value="" >Bait Eaten</option>
+                                                                    <option value="" class="bg-green-300 text-white" disabled selected>
+                                                                    <?php if(empty($row7['st3bait'])){ ?>
+                                                                        Status
+                                                                    <?php }else{
+                                                                        echo $row7['st3bait'] . '*';
+                                                                    } ?>
+                                                                    </option>
+                                                                    <option value="Bait-Untouched" >Bait-Untouched</option>
+                                                                    <option value="Bait-Eaten" >Bait-Eaten</option>
                                                                 </select>
-                                                                <input type="date" name="bait_d3" class="p-2 rounded-md shadow-inner">
+                                                                <input type="date" name="bait_d3" min="2020-01-01" value="<?php if(!empty($row7['date3'])){echo date($row7['date3']);}else{echo date('Y-m-d');} ?>" max="2050-12-31" class="p-2 rounded-md shadow-inner">
                                                             </div>
                                                         </td>
                                                         <td class="px-4 py-3 text-center text-gray-500 text-xs uppercase whitespace-nowrap">
                                                             <div class="grid gap-2">
                                                                 <select name="bait_stat4" class="p-2 rounded-md shadow-inner">
-                                                                    <option value="" disabled selected>Status</option>
-                                                                    <option value="" >Bait Untouched</option>
-                                                                    <option value="" >Bait Eaten</option>
+                                                                    <option value="" class="bg-green-300 text-white" disabled selected>
+                                                                    <?php if(empty($row7['st4bait'])){ ?>
+                                                                        Status
+                                                                    <?php }else{
+                                                                        echo $row7['st4bait'] . '*';
+                                                                    } ?>
+                                                                    </option>
+                                                                    <option value="Bait-Untouched" >Bait-Untouched</option>
+                                                                    <option value="Bait-Eaten" >Bait-Eaten</option>
                                                                 </select>
-                                                                <input type="date" name="bait_d4" class="p-2 rounded-md shadow-inner">
+                                                                <input type="date" name="bait_d4" min="2020-01-01" value="<?php if(!empty($row7['date4'])){echo date($row7['date4']);}else{echo date('Y-m-d');} ?>" max="2050-12-31" class="p-2 rounded-md shadow-inner">
                                                             </div>
                                                         </td>
                                                         <td class="px-4 py-3 text-center text-gray-500 text-xs uppercase whitespace-nowrap">
                                                             <div class="grid gap-2">
                                                                 <select name="bait_stat5" class="p-2 rounded-md shadow-inner">
-                                                                    <option value="" disabled selected>Status</option>
-                                                                    <option value="" >Bait Untouched</option>
-                                                                    <option value="" >Bait Eaten</option>
+                                                                    <option value="" class="bg-green-300 text-white" disabled selected>
+                                                                    <?php if(empty($row7['st5bait'])){ ?>
+                                                                        Status
+                                                                    <?php }else{
+                                                                        echo $row7['st5bait'] . '*';
+                                                                    } ?>
+                                                                    </option>
+                                                                    <option value="Bait-Untouched" >Bait-Untouched</option>
+                                                                    <option value="Bait-Eaten" >Bait-Eaten</option>
                                                                 </select>
-                                                                <input type="date" name="bait_d5" class="p-2 rounded-md shadow-inner">
+                                                                <input type="date" name="bait_d5" min="2020-01-01" value="<?php if(!empty($row7['date5'])){echo date($row7['date5']);}else{echo date('Y-m-d');} ?>" max="2050-12-31" class="p-2 rounded-md shadow-inner">
                                                             </div>
                                                         </td>
                                                         <td class="px-4 py-3 text-center text-gray-500 text-xs uppercase whitespace-nowrap">
                                                             <div class="grid gap-2">
                                                                 <select name="bait_stat6" class="p-2 rounded-md shadow-inner">
-                                                                    <option value="" disabled selected>Status</option>
-                                                                    <option value="" >Bait Untouched</option>
-                                                                    <option value="" >Bait Eaten</option>
+                                                                    <option value="" class="bg-green-300 text-white" disabled selected>
+                                                                    <?php if(empty($row7['st6bait'])){ ?>
+                                                                        Status
+                                                                    <?php }else{
+                                                                        echo $row7['st6bait'] . '*';
+                                                                    } ?>
+                                                                    </option>
+                                                                    <option value="Bait-Untouched" >Bait-Untouched</option>
+                                                                    <option value="Bait-Eaten" >Bait-Eaten</option>
                                                                 </select>
-                                                                <input type="date" name="bait_d6" class="p-2 rounded-md shadow-inner">
+                                                                <input type="date" name="bait_d6" min="2020-01-01" value="<?php if(!empty($row7['date6'])){echo date($row7['date6']);}else{echo date('Y-m-d');} ?>" max="2050-12-31" class="p-2 rounded-md shadow-inner">
                                                             </div>
                                                         </td>
                                                         <td class="px-4 py-3 text-center text-gray-500 text-xs uppercase whitespace-nowrap">
                                                             <div class="grid gap-2">
                                                                 <select name="bait_stat7" class="p-2 rounded-md shadow-inner">
-                                                                    <option value="" disabled selected>Status</option>
-                                                                    <option value="" >Bait Untouched</option>
-                                                                    <option value="" >Bait Eaten</option>
+                                                                    <option value="" class="bg-green-300 text-white" disabled selected>
+                                                                    <?php if(empty($row7['st7bait'])){ ?>
+                                                                        Status
+                                                                    <?php }else{
+                                                                        echo $row7['st7bait'] . '*';
+                                                                    } ?>
+                                                                    </option>
+                                                                    <option value="Bait-Untouched" >Bait-Untouched</option>
+                                                                    <option value="Bait-Eaten" >Bait-Eaten</option>
                                                                 </select>
-                                                                <input type="date" name="bait_d7" class="p-2 rounded-md shadow-inner">
+                                                                <input type="date" name="bait_d7" min="2020-01-01" value="<?php if(!empty($row7['date7'])){echo date($row7['date7']);}else{echo date('Y-m-d');} ?>" max="2050-12-31" class="p-2 rounded-md shadow-inner">
                                                             </div>
                                                         </td>
                                                         <td class="px-4 py-3 text-center text-gray-500 text-xs uppercase whitespace-nowrap">
                                                             <div class="grid gap-2">
                                                                 <select name="bait_stat8" class="p-2 rounded-md shadow-inner">
-                                                                    <option value="" disabled selected>Status</option>
-                                                                    <option value="" >Bait Untouched</option>
-                                                                    <option value="" >Bait Eaten</option>
+                                                                    <option value="" class="bg-green-300 text-white" disabled selected>
+                                                                    <?php if(empty($row7['st8bait'])){ ?>
+                                                                        Status
+                                                                    <?php }else{
+                                                                        echo $row7['st8bait'] . '*';
+                                                                    } ?>
+                                                                    </option>
+                                                                    <option value="Bait-Untouched" >Bait-Untouched</option>
+                                                                    <option value="Bait-Eaten" >Bait-Eaten</option>
                                                                 </select>
-                                                                <input type="date" name="bait_d8" class="p-2 rounded-md shadow-inner">
+                                                                <input type="date" name="bait_d8" min="2020-01-01" value="<?php if(!empty($row7['date8'])){echo date($row7['date8']);}else{echo date('Y-m-d');} ?>" max="2050-12-31" class="p-2 rounded-md shadow-inner">
                                                             </div>
                                                         </td>
                                                         <td class="px-4 py-3 text-center text-gray-500 text-xs uppercase whitespace-nowrap">
                                                             <div class="grid gap-2">
                                                                 <select name="bait_stat9" class="p-2 rounded-md shadow-inner">
-                                                                    <option value="" disabled selected>Status</option>
-                                                                    <option value="" >Bait Untouched</option>
-                                                                    <option value="" >Bait Eaten</option>
+                                                                    <option value="" class="bg-green-300 text-white" disabled selected>
+                                                                    <?php if(empty($row7['st9bait'])){ ?>
+                                                                        Status
+                                                                    <?php }else{
+                                                                        echo $row7['st9bait'] . '*';
+                                                                    } ?>
+                                                                    </option>
+                                                                    <option value="Bait-Untouched" >Bait-Untouched</option>
+                                                                    <option value="Bait-Eaten" >Bait-Eaten</option>
                                                                 </select>
-                                                                <input type="date" name="bait_d9" class="p-2 rounded-md shadow-inner">
+                                                                <input type="date" name="bait_d9" min="2020-01-01" value="<?php if(!empty($row7['date9'])){echo date($row7['date9']);}else{echo date('Y-m-d');} ?>" max="2050-12-31" class="p-2 rounded-md shadow-inner">
                                                             </div>
                                                         </td>
                                                             
@@ -931,7 +985,7 @@ Clients require attention:
                                     <?php while ($row2 = $imglist->fetch_array()) { ?>
                                         <div class="grid bg-gray-100">
                                                 <img id="myImg" style="width: 100%; height: 100%;" src="uploads/<?php echo $row2['imgfile_name']; ?>" onclick="imgModal(this);">
-                                            <a download href="uploads/<?php echo $row2['imgfile_name']; ?>" class="bg-green-400 hover:bg-green-500 justify-self-center w-full h-8 uppercase text-white p-2 text-center rounded-b-md">
+                                            <a download href="uploads/<?php echo $row2['imgfile_name']; ?>" class="bg-green-400 hover:bg-green-500 justify-self-center w-full uppercase text-white p-2 text-center rounded-b-md">
                                                 Download    
                                             </a>
                                         </div>
@@ -949,7 +1003,7 @@ Clients require attention:
                                 </span>
 
                                 <!-- Expanded image -->
-                                <img id="expandedImg" style="width:50%; height:50%;  margin-left: auto;margin-right: auto;">
+                                <img id="expandedImg" style="width:50%; height:100%;  margin-left: auto;margin-right: auto;">
 
                                 <!-- Image text -->
                                 <div id="imgtext"></div>
