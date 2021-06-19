@@ -12,7 +12,7 @@ if (mysqli_num_rows($query3) > 0) {
 }
 ?>
 <div>
-    <nav class="bg-gradient-to-r from-green-400 to-blue-500 shadow-md">
+    <nav class="bg-gradient-to-r from-gray-800 to-gray-700 shadow-md border-b border-gray-500">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex gap-4 items-center">
@@ -21,11 +21,6 @@ if (mysqli_num_rows($query3) > 0) {
                     <a href="home" class="hover:bg-green-400 p-2 rounded-full">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="white">
                             <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                        </svg>
-                    </a>
-                    <a href="usercreate" class="hover:bg-green-400 p-2 rounded-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="white">
-                            <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
                         </svg>
                     </a>
                 </div>
@@ -62,26 +57,26 @@ if (mysqli_num_rows($query3) > 0) {
 
                                 <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
 
-                                <div x-show="dropdownOpen" class="absolute right-0 mt-1 w-48 bg-white shadow-2xl z-20 mt-10 mr-5 p-2 rounded-tl-2xl rounded-bl-2xl rounded-br-2xl">
-                                    <a href="#" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-green-400 hover:text-white">
+                                <div x-show="dropdownOpen" class="absolute right-0 w-32 bg-white shadow-2xl z-20 mt-10 mr-5 rounded-tl-2xl rounded-bl-2xl rounded-br-2xl">
+                                    <a href="#" class="block px-4 py-2 text-sm capitalize text-gray-500 hover:text-black">
                                         <div class="flex ">
-                                            <svg class="h-5 w-5 self-center mr-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                            <svg class="h-5 w-5 self-center mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
                                             </svg>
                                             <p class="text-sm"> Help</p>
                                         </div>
                                     </a>
-                                    <a href="#" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-green-400 hover:text-white border border-t-0 border-l-0 border-r-0 border-gray-300">
+                                    <a href="#" class="block px-4 py-2 text-sm capitalize text-gray-500 hover:text-black">
                                         <div class="flex ">
-                                            <svg class="h-5 w-5 self-center mr-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                            <svg class="h-5 w-5 self-center mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
                                             </svg>
                                             <p class="text-sm"> Settings</p>
                                         </div>
                                     </a>
-                                    <a href="logout.php?logout=<?php echo $_SESSION['user_uid']; ?>" class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-red-400 hover:text-white">
+                                    <a href="logout.php?logout=<?php echo $_SESSION['user_uid']; ?>" class="block px-4 py-2 text-sm capitalize text-gray-500 hover:text-red-500">
                                         <div class="flex ">
-                                            <svg class="h-5 w-5 self-center mr-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                            <svg class="h-5 w-5 self-center mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd" />
                                             </svg>
                                             <p class="text-sm"> Log Out</p>

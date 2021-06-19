@@ -28,7 +28,7 @@ if (mysqli_num_rows($sql) > 0) {
 include "header.php";
 ?>
 
-<body class="bg-gray-100">
+<body class="bg-gray-700">
     <?php
     if (empty($row['inspec_day']) && $_SESSION['username'] != "admin") { ?>
         <div class="bg-red-500 text-center py-2 lg:px-4 " style="position: relative;">
@@ -117,11 +117,11 @@ Clients require attention:
         }
     </script>
     <?php include_once("menu.php") ?>
-    <div class="grid grid-cols-10">
+    <div class="grid grid-cols-6 grid-flow-cols">
     <div class="col-span-1"></div>
-    <div class="mt-4 mb-20 col-span-8">
+    <div class="mt-4 mb-20 col-span-4 place-self-center bg-gray-100 p-4 rounded-t-3xl">
         <!-- Apion CRM v0.1+ -->
-        <div class="grid gap-2 hover:shadow-2xl rounded-md rounded-t-3xl p-4 bg-gray-50 border">
+        <div class="grid gap-2">
             <header class="rounded-t-3xl">
                 <div class="flex justify-items-stretch items-center bg-white max-w-1xl mx-auto p-3 gap-2 justify-between border rounded-t-2xl">
                     <h1 class="text-1xl font-bold hover:bg-green-300 rounded-md rounded-l-2xl p-2">

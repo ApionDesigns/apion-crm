@@ -104,7 +104,7 @@ include "header.php";
 include "header.php";
 ?>
 
-<body class="grid bg-gray-100">
+<body class="grid bg-gray-700">
 <div style="z-index: 99;position: fixed;"><?php include "sidebar.php" ?></div>
 <div style="position: fixed; width:100%; z-index:98;"><?php include_once("menu.php") ?></div>
 <div class="p-4 rounded-md grid grid-cols-3 gap-4 mt-14 bg-white shadow-2xl mr-4" style="position: fixed; z-index:97; display:none; right:0px;" id="addjob">
@@ -197,9 +197,9 @@ include "header.php";
     </div>
 </div>
 <div id="infoEdit" style="position: fixed; width:100%; z-index:97; margin-left:25%; width:50%; margin-top:100px; display:none;">
-    <div  class="bg-white p-5 w-auto shadow-2xl rounded-md">
+    <div  class="bg-white p-2 w-auto shadow-2xl rounded-md">
     <!-- This example requires Tailwind CSS v2.0+ -->
-    <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+    <div class="bg-white overflow-hidden ">
     <div class="px-4 py-5 sm:px-6">
         <h3 class="text-lg leading-6 font-medium text-gray-900">
         Adjustments
@@ -232,12 +232,12 @@ include "header.php";
     </div>
 </div>
     <?php include_once("menu.php") ?>
-    <div class="grid grid-cols-3 md:grid-cols-5 mb-12">
+    <div class="grid grid-cols-6 mb-12 ml-40 mr-40">
         <div></div>
-        <div class="grid gap-4 col-span-3  m-4">
-            <header class="bg-green-100 p-2 mt-20">
+        <div class="grid gap-4 col-span-4 place-self-center  m-4">
+            <header class="bg-gray-800 p-2 mt-20">
                 <div class="flex items-center w-atuo mx-auto justify-between">
-                    <h1 class="text-2xl h-full text-gray-800 uppercase text-left p-2 rounded-br-2xl font-bold">
+                    <h1 class="text-2xl h-full text-white uppercase text-left p-2 rounded-br-2xl font-bold">
                         Dashboard
                     </h1>
                     </button>
@@ -466,11 +466,6 @@ include "header.php";
         </div><?php include_once('hfooter.php'); ?>
     </footer>
 </body>
-<script>
-    function myFunction() {
-        document.getElementById("demo").innerHTML = "Hello World";
-    }
-</script>
 <!--navbar script-->
 <script src="javascript/navbar.js"></script>
 
@@ -496,7 +491,7 @@ include "header.php";
 
     function drawStuff() {
         var data = new google.visualization.arrayToDataTable([
-            ['', ''],
+            ['Name', '#'],
             ["JOBS", Number(jobs)],
             ["COMPLETED", Number(jcom)],
         ]);
