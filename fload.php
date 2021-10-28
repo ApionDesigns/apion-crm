@@ -50,7 +50,7 @@ if ($conn->query($sql) === TRUE) {
         if (mysqli_query($conn, $sql)) {
         echo "New record created successfully";
 
-        $sql = "CREATE TABLE `clients` (
+        $sql = "CREATE TABLE `residential` (
             `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
             `client_id` int(255) NOT NULL,
             `first_name` varchar(255) NOT NULL,
@@ -72,7 +72,7 @@ if ($conn->query($sql) === TRUE) {
             `lead_tech` varchar(255) NOT NULL,
             `invoice_id` varchar(255) NOT NULL,
             `cost` int(255) NOT NULL,
-            `payed` int(255) NOT NULL,
+            `paid` int(255) NOT NULL,
             `jorcver` varchar(255) NOT NULL,
             `jo_dayrcv` DATE NULL,
             `jo_day` DATE NULL,
@@ -129,9 +129,65 @@ if ($conn->query($sql) === TRUE) {
                                 `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
                               ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
                             if (mysqli_query($conn, $sql)) {
-                                echo "New record created successfully";
-                                header("location: home");
-                            header("location: home");
+                                $sql  = "CREATE TABLE `jCat` (
+                                `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                                `JName` varchar(255) NOT NULL,
+                                `jCount` int(11) NOT NULL,
+                                `createdBy` varchar(255) NOT NULL,
+                                `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
+                                if (mysqli_query($conn, $sql)) {
+                                    $sql = "CREATE TABLE `commercial` (
+                                    `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                                    `client_id` int(255) NOT NULL,
+                                    `business_name` varchar(255) NOT NULL,
+                                    `contactPerson` varchar(255) NOT NULL,
+                                    `email` varchar(255) NOT NULL,
+                                    `tel` varchar(255) NOT NULL,
+                                    `street_address` varchar(255) NOT NULL,
+                                    `city_address` varchar(255) NOT NULL,
+                                    `contact` varchar(255) NOT NULL,
+                                    `job_type` varchar(255) NOT NULL,
+                                    `inspec_day` DATE NULL,
+                                    `inspec_exdayrt` DATE NULL,
+                                    `inspec_dayrt` DATE NULL,
+                                    `inspec_dayrcv` DATE NULL,
+                                    `inspecrcver` varchar(255) NOT NULL,
+                                    `rtinspec_rcver` varchar(255) NOT NULL,
+                                    `rtinspec_dayrcv` DATE NULL,
+                                    `day_of_job` DATE NULL,
+                                    `lead_tech` varchar(255) NOT NULL,
+                                    `invoice_id` varchar(255) NOT NULL,
+                                    `cost` int(255) NOT NULL,
+                                    `paid` int(255) NOT NULL,
+                                    `jorcver` varchar(255) NOT NULL,
+                                    `jo_dayrcv` DATE NULL,
+                                    `jo_day` DATE NULL,
+                                    `jo_exdayrt` DATE NULL,
+                                    `jo_dayrt` DATE NULL,
+                                    `created_by` varchar(255) NOT NULL,
+                                    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
+                                    )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
+                                    if (mysqli_query($conn, $sql)) {
+                                        $sql = "CREATE TABLE `comment` (
+                                        `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                                        `client_id` int(255) NOT NULL,
+                                        `comment` varchar(255) NOT NULL,
+                                        `title` varchar(255) NOT NULL,
+                                        `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
+                                        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
+                                        if (mysqli_query($conn, $sql)) {
+                                        echo "New record created successfully";
+                                        header("location: home");
+                                        }else {
+                                        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                        }
+                                    }else {
+                                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                    }
+                                }else {
+                                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                }
                             } else {
                                 echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                             }

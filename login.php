@@ -14,14 +14,14 @@ if (!empty($username) && !empty($upw)) {
         $user_pass = md5($upw);
         $enc_pass = $row['userpassword'];
         if ($user_pass === $enc_pass) {
-            $status = "Active now";
+            $status = "Online";
             $sql2 = mysqli_query($conn, "UPDATE users SET status = '{$status}' WHERE user_uid = {$row['user_uid']}");
             if ($sql2) {
                 session_start();
                 $_SESSION['user_uid'] = $row['user_uid'];
-                $_SESSION['username'] = $row['username'];
+                $username = $row['username'];
                 //echo "success";                   
-                header("location: home");
+                header("location: Dashboard/index.php");
             } else {
                 header("location: index.php");
             }
@@ -34,3 +34,4 @@ if (!empty($username) && !empty($upw)) {
 } else {
     header("location: index.php");
 }
+?>
