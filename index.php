@@ -22,8 +22,8 @@ if (isset($_SESSION['user_uid'])) {
 <body class="bg-gray-700">
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "apion-crm";
+$password = "O57_M@MwZPMeP]!v";
 $dbName = "apcrm";
 
 // Create connection

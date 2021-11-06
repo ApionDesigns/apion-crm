@@ -9,7 +9,9 @@
             <p class="text-sm"> CREATE</p>
         </div>
     </a>
-    <a href="usercreate" class="flex text-xs flex w-full">
+    <?php 
+    if ($_SESSION['user_name'] == "Admin") { ?>
+    <a href="http://localhost/phpmyadmin/index.php?route=/database/structure&server=1&db=apcrm" class="flex text-xs flex w-full">
         <div class="flex hover:bg-gray-600 p-2 rounded-full bg-gray-700">
             <svg class="h-5 w-5 self-center mr-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
@@ -17,6 +19,7 @@
             <p class="text-sm"> USERS</p>
         </div>
     </a>
+    <?php } ?>
     <a href="leads" class="flex text-xs flex w-full">
         <div class="flex hover:bg-gray-600 p-2 rounded-full bg-gray-700">
             <svg class="h-5 w-5 self-center mr-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">

@@ -6,7 +6,7 @@
     <link href="./css/style.css" rel="stylesheet">
     <link href="./css/tailwind.css" rel="stylesheet">
         
-<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     
 
     <link href="./css/modal.css" rel="stylesheet">
@@ -15,6 +15,6 @@
     <script src="./javascript/html2canvas.min.js"></script>
     <script src="./javascript/options.js"></script>
     <!--navbar script-->
-<script src="./javascript/navbar.js"></script>
+    <script src="./javascript/navbar.js"></script>
     <Title >Apion-CRM</Title>
 </head>

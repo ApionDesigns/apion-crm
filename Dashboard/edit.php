@@ -6,8 +6,8 @@ if (!isset($_SESSION['user_uid'])) {
 ?>
 <?php
 $hostname = "localhost";
-$username = "root";
-$password = "";
+$username = "apion-crm";
+$password = "O57_M@MwZPMeP]!v";
 $dbname = "apcrm";
 $output = "";
 $conn = mysqli_connect($hostname, $username, $password, $dbname);
@@ -31,7 +31,7 @@ if (mysqli_num_rows($sql) > 0) {
 include "php/header.php";
 ?>
 
-<body class="bg-gray-700">
+<body class="bg-gray-200">
     <?php
     if (empty($row['inspec_day'])) { ?>
         <div class="bg-red-500 text-center py-2 lg:px-4 " style="position: relative;">
@@ -122,7 +122,7 @@ Clients require attention:
     <?php include_once("menu.php") ?>
     <div class="grid grid-cols-6 grid-flow-cols">
     <div class="col-span-1"></div>
-    <div class="mt-4 mb-20 col-span-4 place-self-center bg-gray-100 p-4 rounded-t-3xl place-items-center" id="this">
+    <div class="mt-4 mb-20 col-span-4 place-self-center bg-gray-100 p-4 rounded-t-3xl place-items-center shadow" id="this">
         <!--comment option-->
         <div class="shadow-xl rounded-md" style="position: fixed; width:60%; height:70%; z-index:97; display:none;" id="moreEditOpt1">
             <div class="bg-gray-700 p-5 overflow-y-scroll rounded-2xl shadow-2xl" style="position: fixed; width:inherit; height:70%;">

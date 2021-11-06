@@ -12,12 +12,13 @@ searchIcon.onclick = ()=>{
 
 searchBar.onkeyup = ()=>{
   let searchTerm = searchBar.value;
-  if(searchTerm != ""){
-  }else{
+  if (searchTerm != "") {
+    searchBar.classList.remove("inactive");
+  } else {
     searchBar.classList.remove("active");
   }
   let xhr = new XMLHttpRequest();
-  xhr.open("POST", "usearch.php", true);
+  xhr.open("POST", "./usearch.php", true);
   xhr.onload = ()=>{
     if(xhr.readyState === XMLHttpRequest.DONE){
         if(xhr.status === 200){

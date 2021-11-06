@@ -2,6 +2,8 @@
 session_start();
 if (!isset($_SESSION['user_uid'])) {
     header("location: index");
+}elseif($_SESSION['user_name'] != "Admin"){
+    header("location: index");
 }
 ?>
 <?php

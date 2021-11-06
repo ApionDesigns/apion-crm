@@ -1,14 +1,14 @@
 <?php
 $hostname = "localhost";
-$username = "root";
-$password = "";
+$username = "apion-crm";
+$password = "O57_M@MwZPMeP]!v";
 $dbname = "apcrm";
 
 $conn = mysqli_connect($hostname, $username, $password, $dbname);
-$username = mysqli_real_escape_string($conn, $_POST['unamel']);
+$username1 = mysqli_real_escape_string($conn, $_POST['unamel']);
 $upw = mysqli_real_escape_string($conn, $_POST['upw']);
-if (!empty($username) && !empty($upw)) {
-    $sql = mysqli_query($conn, "SELECT * FROM users WHERE username = '{$username}'");
+if (!empty($username1) && !empty($upw)) {
+    $sql = mysqli_query($conn, "SELECT * FROM users WHERE username = '{$username1}'");
     if (mysqli_num_rows($sql) > 0) {
         $row = mysqli_fetch_assoc($sql);
         $user_pass = md5($upw);
@@ -19,7 +19,7 @@ if (!empty($username) && !empty($upw)) {
             if ($sql2) {
                 session_start();
                 $_SESSION['user_uid'] = $row['user_uid'];
-                $username = $row['username'];
+                $_SESSION['user_name'] = $username1;
                 //echo "success";                   
                 header("location: Dashboard/index.php");
             } else {

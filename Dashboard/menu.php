@@ -1,8 +1,8 @@
 <!-- Apion CRM v0.1+ -->
 <?php
 $hostname = "localhost";
-$username = "root";
-$password = "";
+$username = "apion-crm";
+$password = "O57_M@MwZPMeP]!v";
 $dbname = "apcrm";
 $output = "";
 $conn = mysqli_connect($hostname, $username, $password, $dbname);
@@ -31,7 +31,7 @@ if (mysqli_num_rows($query3) > 0) {
                     <div class="hidden md:block">
                         <div class="flex items-baseline space-x-4">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                            <div class="relative"><?php include("../Dashboard/php/search.php") ?></div>
+                            <div class="relative"><?php include("search.php") ?></div>
 
                             <!--<a href="home" class="text-white hover:bg-green-700 bg-green-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Client Dashboard</a>-->
                         </div>

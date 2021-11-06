@@ -1,10 +1,10 @@
 <?php
 session_start();
-include_once "../config.php";
+include "php/config.php";
 
 $searchTerm = mysqli_real_escape_string($conn, $_POST['searchTerm']);
 
-$sql = "SELECT * FROM clients WHERE  (client_id LIKE '%{$searchTerm}%') OR (last_name LIKE '%{$searchTerm}%') OR (first_name LIKE '%{$searchTerm}%') ";
+$sql = "SELECT * FROM residential WHERE (first_name LIKE '%{$searchTerm}%') OR (last_name LIKE '%{$searchTerm}%') UNION SELECT * FROM commercial WHERE (business_name LIKE '%{$searchTerm}%') LIMIT 7";
 $output = "";
 $query = mysqli_query($conn, $sql);
 if (mysqli_num_rows($query) > 0) {

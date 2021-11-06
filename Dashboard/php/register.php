@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "apion-crm";
+$password = "O57_M@MwZPMeP]!v";
 $dbname = "apcrm";
 
 // Create connection

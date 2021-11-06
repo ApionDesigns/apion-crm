@@ -6,8 +6,8 @@ if (!isset($_SESSION['user_uid'])) {
 ?>
 <?php
 $hostname = "localhost";
-$username = "root";
-$password = "";
+$username = "apion-crm";
+$password = "O57_M@MwZPMeP]!v";
 $dbname = "apcrm";
 $output = "";
 $conn = mysqli_connect($hostname, $username, $password, $dbname);
@@ -66,7 +66,7 @@ if (mysqli_num_rows($sql) > 0) {
 include "php/header.php";
 ?>
 
-<body class="grid bg-gray-700">
+<body class="grid bg-gray-200">
 <div style="z-index: 99;position: fixed;"><?php include "php/sidebar.php" ?></div>
 <div style="position: fixed; width:100%; z-index:98;"><?php include_once("menu.php") ?></div>
 
@@ -157,7 +157,7 @@ include "php/header.php";
                 </div>
             </header>
             <!--menu bar -->
-            <?php include('php/menuBar.php'); ?>
+            <div class="shadow-md"><?php include('php/menuBar.php'); ?></div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 rounded-md w-full">
 
                 <div class="">

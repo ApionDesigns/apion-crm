@@ -14,8 +14,8 @@ if ($conn->connect_error) {
 $sql = "CREATE DATABASE apcrm";
 if ($conn->query($sql) === TRUE) {
     $servername = "localhost";
-    $username = "root";
-    $password = "";/* Put your password */
+    $username = "apion-crm";
+    $password = "O57_M@MwZPMeP]!v";/* Put your password */
     $dbname = "apcrm";/* Put your database name */
     /* Create connection */
     $conn = new mysqli($servername, $username, $password, $dbname);

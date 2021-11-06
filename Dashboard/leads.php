@@ -25,7 +25,7 @@ if (mysqli_num_rows($sql) > 0) {
 <!--header-->
 <?php
 //include header
-include "header.php";
+include "php/header.php";
 ?>
 
 <body class="bg-gray-50">
@@ -131,9 +131,9 @@ include "header.php";
     </div>
     </head>
     <!--sidebar menu-->
-    <?php include "sidebar.php" ?>
+    <?php include "php/sidebar.php" ?>
 
-    <footer class="footer"><?php include_once('hfooter.php'); ?></footer>
+    <footer class="footer"><?php include_once('php/hfooter.php'); ?></footer>
 </body>
 <!--navbar script-->
 <script src="javascript/navbar.js"></script>
